@@ -2995,3 +2995,30 @@ Midatronics.menu.rtlib.nanofps=Newlib Nano + Float Printf/Scanf
 Midatronics.menu.rtlib.nanofps.build.flags.ldspecs=--specs=nano.specs -u _printf_float -u _scanf_float
 Midatronics.menu.rtlib.full=Newlib Standard
 Midatronics.menu.rtlib.full.build.flags.ldspecs=
+
+
+
+Seeeduino.name=Seeeduino
+
+Seeeduino.build.core=arduino
+Seeeduino.build.board=Seeeduino
+Seeeduino.build.extra_flags=-D{build.product_line} {build.enable_usb} {build.xSerial}
+
+
+Seeeduino.menu.pnum.SEEEDUINO_H7AI=Seeeduino H7AI
+Seeeduino.menu.pnum.SEEEDUINO_H7AI.node="Seeeduino H7AI"
+Seeeduino.menu.pnum.SEEEDUINO_H7AI.upload.maximum_size=2097152
+Seeeduino.menu.pnum.SEEEDUINO_H7AI.upload.maximum_data_size=524288
+Seeeduino.menu.pnum.SEEEDUINO_H7AI.build.mcu=cortex-m7
+Seeeduino.menu.pnum.SEEEDUINO_H7AI.build.flags.fp=-mfpu=fpv4-sp-d16 -mfloat-abi=hard
+Seeeduino.menu.pnum.SEEEDUINO_H7AI.build.board=Seeeduino_H7AI
+Seeeduino.menu.pnum.SEEEDUINO_H7AI.build.series=STM32H7xx
+Seeeduino.menu.pnum.SEEEDUINO_H7AI.build.product_line=STM32H725xx
+Seeeduino.menu.pnum.SEEEDUINO_H7AI.build.variant=Seeeduino_H7AI
+Seeeduino.menu.pnum.SEEEDUINO_H7AI.build.cmsis_lib_gcc=arm_cortexM7lfsp_math
+
+
+Seeeduino.menu.upload_method.swdMethod=openocd (SWD)
+Seeeduino.menu.upload_method.swdMethod.upload.protocol=0
+Seeeduino.menu.upload_method.swdMethod.upload.options=-g
+Seeeduino.menu.upload_method.swdMethod.upload.tool=openocd
