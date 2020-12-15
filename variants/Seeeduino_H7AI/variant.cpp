@@ -6,165 +6,126 @@ extern "C" {
 
 // Pin number
 const PinName digitalPin[] = {
-#ifdef ARDUINO_NUCLEO_H743ZI2
-  PB_7,  //D0 - USART_A_RX
-  PB_6,  //D1 - USART_A_TX
-  PG_14, //D2
-#else
-  PG_9,  //D0 - USART_A_RX
-  PG_14, //D1 - USART_A_TX
-  PF_15, //D2
-#endif
-  PE_13, //D3 - TIMER_A_PWM3
-#ifdef ARDUINO_NUCLEO_H743ZI2
-  PE_14, //D4
-#else
-  PF_14, //D4
-#endif
-  PE_11, //D5 - TIMER_A_PWM2
-  PE_9,  //D6 - TIMER_A_PWM1
-#ifdef ARDUINO_NUCLEO_H743ZI2
-  PG_12, //D7
-  PF_3,  //D8
-#else
-  PF_13, //D7
-  PF_12, //D8
-#endif
-  PD_15, //D9 - TIMER_B_PWM2
-  PD_14, //D10 - SPI_A_CS/ TIM_B_PWM3
-#ifdef ARDUINO_NUCLEO_H743ZI2
-  PB_5,  //D11 - SPI_A_MOSI/PA7 if SB33 ON and SB35 OFF
-#else
-  PA_7,  //D11 - SPI_A_MOSI/Used by ETH when JP6 ON
-#endif
-  PA_6,  //D12 - SPI_A_MISO
-  PA_5,  //D13 - SPI_A_SCK
-  PB_9,  //D14 - I2C_A_SDA
-  PB_8,  //D15 - I2C_A_SCL
-  PC_6,  //D16 - I2S_A_MCK
-  PB_15, //D17 - I2S_A_SD
-  PB_13, //D18 - I2S_A_CK/Used by ETH when JP7(ZI)/JP6(ZI2) ON
-  PB_12, //D19 - I2S_A_WS
-  PA_15, //D20 - I2S_B_WS
-  PC_7,  //D21 - I2S_B_MCK
-#ifdef ARDUINO_NUCLEO_H743ZI2
-  PB_5,  //D22
-#else
-  PB_5,  //D22 - I2S_B_SD/SPI_B_MOSI
-#endif
-  PB_3,  //D23 - I2S_B_CK/SPI_B_SCK - SWO
-  PA_4,  //D24 - SPI_B_NSS
-  PB_4,  //D25 - SPI_B_MISO
-#ifdef ARDUINO_NUCLEO_H743ZI2
-  PG_6,  //D26 - QSPI_CS
-#else
-  PB_6,  //D26 - QSPI_CS
-#endif
-  PB_2,  //D27 - QSPI_CLK
-  PD_13, //D28 - QSPI_BK1_IO3
-  PD_12, //D29 - QSPI_BK1_IO1
-  PD_11, //D30 - QSPI_BK1_IO0
-  PE_2,  //D31 - SAI_A_MCLK/QSPI_BK1_IO2
-  PA_0,  //D32 - TIMER_C_PWM1
-  PB_0,  //D33 - TIMER_D_PWM1 - LD1 LED_GREEN
-  PE_0,  //D34 - TIMER_B_ETR
-  PB_11, //D35 - TIMER_C_PWM3
-  PB_10, //D36 - TIMER_C_PWM2
-  PE_15, //D37 - TIMER_A_BKIN1
-#ifdef ARDUINO_NUCLEO_H743ZI2
-  PE_6,  //D38
-#else
-  PE_14, //D38
-#endif
-  PE_12, //D39 - TIMER_A_PWM3N
-  PE_10, //D40 - TIMER_A_PWM2N
-  PE_7,  //D41 - TIMER_A_ETR
-  PE_8,  //D42 - TIMER_A_PWM1N
-  PC_8,  //D43 - SDMMC1_D0
-  PC_9,  //D44 - SDMMC1_D1/I2S_A_CKIN
-  PC_10, //D45 - SDMMC1_D2
-  PC_11, //D46 - SDMMC1_D3
-  PC_12, //D47 - SDMMC1_CK
-  PD_2,  //D48 - SDMMC1_CMD
-  PG_2,  //D49
-  PG_3,  //D50
-  PD_7,  //D51 - USART_B_SCLK
-  PD_6,  //D52 - USART_B_RX
-  PD_5,  //D53 - USART_B_TX
-  PD_4,  //D54 - USART_B_RTS
-  PD_3,  //D55 - USART_B_CTS
-  PE_2,  //D56
-  PE_4,  //D57 - SAI_A_FS
-  PE_5,  //D58 - SAI_A_SCK
-#ifdef ARDUINO_NUCLEO_H743ZI2
-  PE_6,  //D59
-#else
-  PE_6,  //D59 - SAI_A_SD
-#endif
-  PE_3,  //D60 - SAI_B_SD
-  PF_8,  //D61 - SAI_B_SCK
-  PF_7,  //D62 - SAI_B_MCLK
-  PF_9,  //D63 - SAI_B_FS
-  PG_1,  //D64
-  PG_0,  //D65
-  PD_1,  //D66 - CAN_TX
-  PD_0,  //D67 - CAN_RX
-  PF_0,  //D68 - I2C_B_SDA
-  PF_1,  //D69 - I2C_B_SCL
-  PF_2,  //D70 - I2C_B_SMBA
-#ifdef ARDUINO_NUCLEO_H743ZI2
-  PE_9,  //D71
-  PB_2,  //D72
-  PE_1,  //D73 - LD2 LED_BLUE
-#else
-  PA_7,  //D71
-  NC,    //D72
-  PB_7,  //D73 - LD2 LED_BLUE
-#endif
-  PB_14, //D74 - LD3 LED_RED
-  PC_13, //D75 - USER_BTN
-  PD_9,  //D76 - Serial Rx
-  PD_8,  //D77 - Serial Tx
-  PA_3,  //D78 - A0
-  PC_0,  //D79 - A1
-  PC_3,  //D80 - A2
-#ifdef ARDUINO_NUCLEO_H743ZI2
-  PB_1,  //D81 - A3
-  PC_2,  //D82 - A4
-#else
-  PF_3,  //D81 - A3
-  PF_5,  //D82 - A4
-#endif
-  PF_10, //D83 - A5
-#ifdef ARDUINO_NUCLEO_H743ZI2
-  PF_4,  //D84 - A6
-  PF_5,  //D85 - A7
-  PF_6,  //D86 - A8
-#else
-  PB_1,  //D84 - A6
-  PC_2,  //D85 - A7
-  PF_4,  //D86 - A8
-#endif
-  PF_11, //D87 - A9
-  PD_10, //D88
-  PG_4,  //D89
-  PG_5,  //D90
-  PG_8,  //D91
-  PG_10, //D92
-  PG_15, //D93
-#ifdef ARDUINO_NUCLEO_H743ZI2
-  PA_7,  //D94 - SPI_A_MOSI/Used by ETH when SB31 ON
-  PF_12, //D95
-  PF_13, //D96
-  PF_14, //D97
-  PF_15, //D98
-  PG_9,  //D99
-#else
-  PE_1,  //D94
-  PF_6,  //D95
-  PG_6,  //D96
-  PG_12  //D97
-#endif
+  PG_1,  // MCU_PG1_LED1
+  PC_13, // MCU_PC13_LED0
+  PD_9,  // MCU_PD9_Button
+
+  // PD14, // WIFI_DEBUG_TXD
+  // PD15, // WIFI_DEBUG_RXD
+  // PH2,  // WIFI_CHIP_EN
+
+  // PB15,  // BLE_UART_TXD
+  // PB14,  // BLE_UART_RXD
+
+  // PF11,  // WIFI_SPI1_MOSI 
+  // PF8,   // WIFI_SPI1_MISO
+  // PF7,  // WIFI_SPI1_CLK
+  // PG15, // WIFI_SPI1_CS
+  // PD8,// WIFI_SYNC
+
+  // PG10, // DCMI_D2
+  // PH10, // DCMI_D1 
+  // PG11, // DCMI_D3
+  // PA9,  // DCMI_D0
+  // PE4,  // DCMI_D4
+  // PA6,  // DCMI_PCLK
+  // PD3,  // DCMI_D5
+  // PE5,  // DCMI_D6
+  // PD7,  // DCMI_XCLK
+  // PE6,  // DCMI_D7
+  // PA4,  // DCMI_HSYNC
+  // PE7,  // DCMI_PWDN
+  // PG9,  // DCMI_VSYNC 
+  // PH12, // DCMI_RST
+  // PF14, // IIC4_SCL
+  // PF15, // IIC4_SDA
+
+  // PE15, // LCD_R7
+  // PB1,  // LCD_G0
+  // PB0,  // LCD_G1
+  // PH13, // LCD_G2
+  // PE11, // LCD_G3
+  // PB10, // LCD_G4
+  // PB11, // LCD_G5
+  // PC7,  // LCD_G6
+  // PG8,  // LCD_G7
+  // PG14, // LCD_B0
+  // PD0,  // LCD_B1
+  // PD6,  // LCD_B2
+  // PD10, // LCD_B3
+  // PA10, // LCD_B4
+  // PA3,  // LCD_B5
+  // PB8,  // LCD_B6
+  // PB9,  // LCD_B7
+  // PG7,  // LCD_CLK
+  // PC6,  // LCD_HSYNC
+  // PA7,  // LCD_VSYNC
+  // PC5,  // LCD_DE
+  // PF5,  // LCD_BL
+  // PG5,  // LCD_RST
+  // PG0,  // LCD_INT
+  // PB7,  // LCD_IIC1_SDA
+  // PB6,  // LCD_IIC1_SCL
+
+  // PD13, // SAI4_SCKA
+  // PD12, // SAI4_FSA
+  // PD11, // SAI4_SDA
+  // PE3,  // SAI4_SDB
+  // PE0,  // SAI4_MCLKA
+  // PE2,  // SAI1_CK1
+  // PB2,  // SAI1_D1
+  // PE1,  // GPIO_Audio_INT
+
+  // PF3,  // QSPI2_IO3
+  // PF4,  // QSPI2_CLK
+  // PF0,  // QSPI2_IO0
+  // PG12, // QSPI2_CS
+  // PF1,  // QSPI2_IO1
+  // PF2,  // QSPI2_IO2
+
+  // PG6,  // DUAL_QSPI1_CS
+  // PF9,  // DUAL_QSPI1_SIO1
+  // PC2,  // DUAL_QSPI1_SIO2
+  // PF6,  // DUAL_QSPI1_SIO3
+  // PF10, // DUAL_QSPI1_CLK
+  // PC3,  // DUAL_QSPI1_SIO0
+  // PD5,  // DUAL_QSPI1_SIO5
+  // PE9,  // DUAL_QSPI1_SIO6
+  // PE10, // DUAL_QSPI1_SIO7
+  // PD4,  // DUAL_QSPI1_SIO4
+
+  // PC10, // MMC1_D2
+  // PC11, // MMC1_D3
+  // PD2,  // MMC1_CMD
+  // PC12, // MMC1_CLK
+  // PC8,  // MMC1_D0
+  // PC9,  // MMC1_D1
+
+  // PG4,  // MCU_PG4_D13
+  // PA0,  // MCU_A0_D12
+  // PE8,  // MCU_PE8_D11
+  // PG2,  // MCU_PG2_D10
+  // PG3,  // MCU_PG3_D9
+  // PB13, // MCU_FDCAN2_TX
+  // PB12, // MCU_FDCAN2_RX
+
+  // PA14, // DEBUG_SWCLK
+  // PA13, // DEBUG_SWDIO
+  // PA1_C, // MCU_PA1_C_A0
+  // PF13, // MCU_PF13_A1
+  // PC4,  // MCU_PC4_A2
+  // PF12, // MCU_PF12_A3
+  // PC0,  // MCU_PC0_A4
+  // PC1,  // MCU_PC1_A5
+  // PB3,  // PB3_SPI_SCK
+  // PB5,  // PB5_SPI_MOSI
+  // PB4,  // PB4_SPI_MISO
+  // PH14, // MCU_PH14_FDCAN_RX
+  // PD1,  // MCU_PD1_FDCAN_TX
+
+  // PA11N  // USB1_DM
+  // PA12   // USB1_DP
+
 };
 
 #ifdef __cplusplus
@@ -184,36 +145,41 @@ extern "C" {
   */
 WEAK void SystemClock_Config(void)
 {
-  RCC_OscInitTypeDef RCC_OscInitStruct = {};
-  RCC_ClkInitTypeDef RCC_ClkInitStruct = {};
-  RCC_PeriphCLKInitTypeDef PeriphClkInitStruct = {};
+   RCC_OscInitTypeDef RCC_OscInitStruct = {0};
+  RCC_ClkInitTypeDef RCC_ClkInitStruct = {0};
 
-  /* Supply configuration update enable */
-  HAL_PWREx_ConfigSupply(PWR_LDO_SUPPLY);
-  /* Configure the main internal regulator output voltage */
+  /** Supply configuration update enable
+  */
+  HAL_PWREx_ConfigSupply(PWR_DIRECT_SMPS_SUPPLY);
+  /** Configure the main internal regulator output voltage
+  */
   __HAL_PWR_VOLTAGESCALING_CONFIG(PWR_REGULATOR_VOLTAGE_SCALE0);
 
-  while (!__HAL_PWR_GET_FLAG(PWR_FLAG_VOSRDY)) {}
-  /* Initializes the CPU, AHB and APB busses clocks */
+  while(!__HAL_PWR_GET_FLAG(PWR_FLAG_VOSRDY)) {}
+  /** Initializes the RCC Oscillators according to the specified parameters
+  * in the RCC_OscInitTypeDef structure.
+  */
   RCC_OscInitStruct.OscillatorType = RCC_OSCILLATORTYPE_HSE;
-  RCC_OscInitStruct.HSEState = RCC_HSE_BYPASS;
+  RCC_OscInitStruct.HSEState = RCC_HSE_ON;
   RCC_OscInitStruct.PLL.PLLState = RCC_PLL_ON;
   RCC_OscInitStruct.PLL.PLLSource = RCC_PLLSOURCE_HSE;
-  RCC_OscInitStruct.PLL.PLLM = 1;
-  RCC_OscInitStruct.PLL.PLLN = 120;
-  RCC_OscInitStruct.PLL.PLLP = 2;
-  RCC_OscInitStruct.PLL.PLLQ = 20;
+  RCC_OscInitStruct.PLL.PLLM = 2;
+  RCC_OscInitStruct.PLL.PLLN = 44;
+  RCC_OscInitStruct.PLL.PLLP = 1;
+  RCC_OscInitStruct.PLL.PLLQ = 2;
   RCC_OscInitStruct.PLL.PLLR = 2;
   RCC_OscInitStruct.PLL.PLLRGE = RCC_PLL1VCIRANGE_3;
   RCC_OscInitStruct.PLL.PLLVCOSEL = RCC_PLL1VCOWIDE;
   RCC_OscInitStruct.PLL.PLLFRACN = 0;
-  if (HAL_RCC_OscConfig(&RCC_OscInitStruct) != HAL_OK) {
+  if (HAL_RCC_OscConfig(&RCC_OscInitStruct) != HAL_OK)
+  {
     Error_Handler();
   }
-  /* Initializes the CPU, AHB and APB busses clocks */
-  RCC_ClkInitStruct.ClockType = RCC_CLOCKTYPE_HCLK | RCC_CLOCKTYPE_SYSCLK
-                                | RCC_CLOCKTYPE_PCLK1 | RCC_CLOCKTYPE_PCLK2
-                                | RCC_CLOCKTYPE_D3PCLK1 | RCC_CLOCKTYPE_D1PCLK1;
+  /** Initializes the CPU, AHB and APB buses clocks
+  */
+  RCC_ClkInitStruct.ClockType = RCC_CLOCKTYPE_HCLK|RCC_CLOCKTYPE_SYSCLK
+                              |RCC_CLOCKTYPE_PCLK1|RCC_CLOCKTYPE_PCLK2
+                              |RCC_CLOCKTYPE_D3PCLK1|RCC_CLOCKTYPE_D1PCLK1;
   RCC_ClkInitStruct.SYSCLKSource = RCC_SYSCLKSOURCE_PLLCLK;
   RCC_ClkInitStruct.SYSCLKDivider = RCC_SYSCLK_DIV1;
   RCC_ClkInitStruct.AHBCLKDivider = RCC_HCLK_DIV2;
@@ -222,25 +188,10 @@ WEAK void SystemClock_Config(void)
   RCC_ClkInitStruct.APB2CLKDivider = RCC_APB2_DIV2;
   RCC_ClkInitStruct.APB4CLKDivider = RCC_APB4_DIV2;
 
-  if (HAL_RCC_ClockConfig(&RCC_ClkInitStruct, FLASH_LATENCY_4) != HAL_OK) {
+  if (HAL_RCC_ClockConfig(&RCC_ClkInitStruct, FLASH_LATENCY_3) != HAL_OK)
+  {
     Error_Handler();
   }
-  PeriphClkInitStruct.PeriphClockSelection = RCC_PERIPHCLK_ADC | RCC_PERIPHCLK_USB;
-  PeriphClkInitStruct.PLL2.PLL2M = 1;
-  PeriphClkInitStruct.PLL2.PLL2N = 120;
-  PeriphClkInitStruct.PLL2.PLL2P = 2;
-  PeriphClkInitStruct.PLL2.PLL2Q = 2;
-  PeriphClkInitStruct.PLL2.PLL2R = 2;
-  PeriphClkInitStruct.PLL2.PLL2RGE = RCC_PLL2VCIRANGE_3;
-  PeriphClkInitStruct.PLL2.PLL2VCOSEL = RCC_PLL2VCOWIDE;
-  PeriphClkInitStruct.PLL2.PLL2FRACN = 0;
-  PeriphClkInitStruct.UsbClockSelection = RCC_USBCLKSOURCE_PLL;
-  PeriphClkInitStruct.AdcClockSelection = RCC_ADCCLKSOURCE_PLL2;
-  if (HAL_RCCEx_PeriphCLKConfig(&PeriphClkInitStruct) != HAL_OK) {
-    Error_Handler();
-  }
-  /* Enable USB Voltage detector */
-  HAL_PWREx_EnableUSBVoltageDetector();
 }
 
 #ifdef __cplusplus
