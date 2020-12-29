@@ -3018,7 +3018,7 @@ Seeeduino.menu.pnum.SEEEDUINO_H7AI.build.variant=Seeeduino_H7AI
 Seeeduino.menu.pnum.SEEEDUINO_H7AI.build.cmsis_lib_gcc=arm_cortexM7lfsp_math
 
 
-Seeeduino.menu.upload_method.swdMethod=openocd (SWD)
+Seeeduino.menu.upload_method.swdMethod=jlink
 Seeeduino.menu.upload_method.swdMethod.upload.protocol=0
 Seeeduino.menu.upload_method.swdMethod.upload.options=-g
-Seeeduino.menu.upload_method.swdMethod.upload.tool=openocd
+Seeeduino.menu.upload_method.swdMethod.upload.tool=jlink
