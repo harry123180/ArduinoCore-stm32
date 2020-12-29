@@ -4,7 +4,6 @@
 #ifdef __cplusplus
 extern "C" {
 #endif // __cplusplus
-
 /*----------------------------------------------------------------------------
  *        Pins
  *----------------------------------------------------------------------------*/
@@ -180,8 +179,15 @@ extern "C" {
 // #endif
 
 /* Extra HAL modules */
-// #define HAL_DAC_MODULE_ENABLED
+#define HAL_DAC_MODULE_ENABLED
 // #define HAL_ETH_MODULE_ENABLED
+#define HAL_DCMI_MODULE_ENABLED
+#define HAL_I2C_MODULE_ENABLED
+#define HAL_ADC_MODULE_ENABLED
+#define HAL_TIM_MODULE_ENABLED
+#define HAL_UART_MODULE_ENABLED
+#define HAL_SPI_MODULE_ENABLED
+#define HAL_FDCAN_MODULE_ENABLED
 
 #ifdef __cplusplus
 } // extern "C"
