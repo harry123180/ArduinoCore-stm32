@@ -10,118 +10,118 @@ const PinName digitalPin[] = {
   PC_13, // MCU_PC13_LED0
   PD_9,  // MCU_PD9_Button
 
-  // PD14, // WIFI_DEBUG_TXD
-  // PD15, // WIFI_DEBUG_RXD
-  // PH2,  // WIFI_CHIP_EN
+  PD_14, // WIFI_DEBUG_TXD
+  PD_15, // WIFI_DEBUG_RXD
+  PH_2,  // WIFI_CHIP_EN
 
-  // PB15,  // BLE_UART_TXD
-  // PB14,  // BLE_UART_RXD
+  PB_15,  // BLE_UART_TXD
+  PB_14,  // BLE_UART_RXD
 
-  // PF11,  // WIFI_SPI1_MOSI 
-  // PF8,   // WIFI_SPI1_MISO
-  // PF7,  // WIFI_SPI1_CLK
-  // PG15, // WIFI_SPI1_CS
-  // PD8,// WIFI_SYNC
+  PF_11,  // WIFI_SPI1_MOSI 
+  PF_8,   // WIFI_SPI1_MISO
+  PF_7,  // WIFI_SPI1_CLK
+  PG_15, // WIFI_SPI1_CS
+  PD_8,// WIFI_SYNC
 
-  // PG10, // DCMI_D2
-  // PH10, // DCMI_D1 
-  // PG11, // DCMI_D3
-  // PA9,  // DCMI_D0
-  // PE4,  // DCMI_D4
-  // PA6,  // DCMI_PCLK
-  // PD3,  // DCMI_D5
-  // PE5,  // DCMI_D6
-  // PD7,  // DCMI_XCLK
-  // PE6,  // DCMI_D7
-  // PA4,  // DCMI_HSYNC
-  // PE7,  // DCMI_PWDN
-  // PG9,  // DCMI_VSYNC 
-  // PH12, // DCMI_RST
-  // PF14, // IIC4_SCL
-  // PF15, // IIC4_SDA
+  PG_10, // DCMI_D2
+  PH_10, // DCMI_D1 
+  PG_11, // DCMI_D3
+  PA_9,  // DCMI_D0
+  PE_4,  // DCMI_D4
+  PA_6,  // DCMI_PCLK
+  PD_3,  // DCMI_D5
+  PE_5,  // DCMI_D6
+  PD_7,  // DCMI_XCLK
+  PE_6,  // DCMI_D7
+  PA_4,  // DCMI_HSYNC
+  PE_7,  // DCMI_PWDN
+  PG_9,  // DCMI_VSYNC 
+  PH_12, // DCMI_RST
+  PF_14, // IIC4_SCL
+  PF_15, // IIC4_SDA
 
-  // PE15, // LCD_R7
-  // PB1,  // LCD_G0
-  // PB0,  // LCD_G1
-  // PH13, // LCD_G2
-  // PE11, // LCD_G3
-  // PB10, // LCD_G4
-  // PB11, // LCD_G5
-  // PC7,  // LCD_G6
-  // PG8,  // LCD_G7
-  // PG14, // LCD_B0
-  // PD0,  // LCD_B1
-  // PD6,  // LCD_B2
-  // PD10, // LCD_B3
-  // PA10, // LCD_B4
-  // PA3,  // LCD_B5
-  // PB8,  // LCD_B6
-  // PB9,  // LCD_B7
-  // PG7,  // LCD_CLK
-  // PC6,  // LCD_HSYNC
-  // PA7,  // LCD_VSYNC
-  // PC5,  // LCD_DE
-  // PF5,  // LCD_BL
-  // PG5,  // LCD_RST
-  // PG0,  // LCD_INT
-  // PB7,  // LCD_IIC1_SDA
-  // PB6,  // LCD_IIC1_SCL
+  PE_15, // LCD_R7
+  PB_1,  // LCD_G0
+  PB_0,  // LCD_G1
+  PH_13, // LCD_G2
+  PE_11, // LCD_G3
+  PB_10, // LCD_G4
+  PB_11, // LCD_G5
+  PC_7,  // LCD_G6
+  PG_8,  // LCD_G7
+  PG_14, // LCD_B0
+  PD_0,  // LCD_B1
+  PD_6,  // LCD_B2
+  PD_10, // LCD_B3
+  PA_10, // LCD_B4
+  PA_3,  // LCD_B5
+  PB_8,  // LCD_B6
+  PB_9,  // LCD_B7
+  PG_7,  // LCD_CLK
+  PC_6,  // LCD_HSYNC
+  PA_7,  // LCD_VSYNC
+  PC_5,  // LCD_DE
+  PF_5,  // LCD_BL
+  PG_5,  // LCD_RST
+  PG_0,  // LCD_INT
+  PB_7,  // LCD_IIC1_SDA
+  PB_6,  // LCD_IIC1_SCL
 
-  // PD13, // SAI4_SCKA
-  // PD12, // SAI4_FSA
-  // PD11, // SAI4_SDA
-  // PE3,  // SAI4_SDB
-  // PE0,  // SAI4_MCLKA
-  // PE2,  // SAI1_CK1
-  // PB2,  // SAI1_D1
-  // PE1,  // GPIO_Audio_INT
+  PD_13, // SAI4_SCKA
+  PD_12, // SAI4_FSA
+  PD_11, // SAI4_SDA
+  PE_3,  // SAI4_SDB
+  PE_0,  // SAI4_MCLKA
+  PE_2,  // SAI1_CK1
+  PB_2,  // SAI1_D1
+  PE_1,  // GPIO_Audio_INT
 
-  // PF3,  // QSPI2_IO3
-  // PF4,  // QSPI2_CLK
-  // PF0,  // QSPI2_IO0
-  // PG12, // QSPI2_CS
-  // PF1,  // QSPI2_IO1
-  // PF2,  // QSPI2_IO2
+  PF_3,  // QSPI2_IO3
+  PF_4,  // QSPI2_CLK
+  PF_0,  // QSPI2_IO0
+  PG_12, // QSPI2_CS
+  PF_1,  // QSPI2_IO1
+  PF_2,  // QSPI2_IO2
 
-  // PG6,  // DUAL_QSPI1_CS
-  // PF9,  // DUAL_QSPI1_SIO1
-  // PC2,  // DUAL_QSPI1_SIO2
-  // PF6,  // DUAL_QSPI1_SIO3
-  // PF10, // DUAL_QSPI1_CLK
-  // PC3,  // DUAL_QSPI1_SIO0
-  // PD5,  // DUAL_QSPI1_SIO5
-  // PE9,  // DUAL_QSPI1_SIO6
-  // PE10, // DUAL_QSPI1_SIO7
-  // PD4,  // DUAL_QSPI1_SIO4
+  PG_6,  // DUAL_QSPI1_CS
+  PF_9,  // DUAL_QSPI1_SIO1
+  PC_2,  // DUAL_QSPI1_SIO2
+  PF_6,  // DUAL_QSPI1_SIO3
+  PF_10, // DUAL_QSPI1_CLK
+  PC_3,  // DUAL_QSPI1_SIO0
+  PD_5,  // DUAL_QSPI1_SIO5
+  PE_9,  // DUAL_QSPI1_SIO6
+  PE_10, // DUAL_QSPI1_SIO7
+  PD_4,  // DUAL_QSPI1_SIO4
 
-  // PC10, // MMC1_D2
-  // PC11, // MMC1_D3
-  // PD2,  // MMC1_CMD
-  // PC12, // MMC1_CLK
-  // PC8,  // MMC1_D0
-  // PC9,  // MMC1_D1
+  PC_10, // MMC1_D2
+  PC_11, // MMC1_D3
+  PD_2,  // MMC1_CMD
+  PC_12, // MMC1_CLK
+  PC_8,  // MMC1_D0
+  PC_9,  // MMC1_D1
 
-  // PG4,  // MCU_PG4_D13
-  // PA0,  // MCU_A0_D12
-  // PE8,  // MCU_PE8_D11
-  // PG2,  // MCU_PG2_D10
-  // PG3,  // MCU_PG3_D9
-  // PB13, // MCU_FDCAN2_TX
-  // PB12, // MCU_FDCAN2_RX
+  PG_4,  // MCU_PG4_D13
+  PA_0,  // MCU_A0_D12
+  PE_8,  // MCU_PE8_D11
+  PG_2,  // MCU_PG2_D10
+  PG_3,  // MCU_PG3_D9
+  PB_13, // MCU_FDCAN2_TX
+  PB_12, // MCU_FDCAN2_RX
 
-  // PA14, // DEBUG_SWCLK
-  // PA13, // DEBUG_SWDIO
-  // PA1_C, // MCU_PA1_C_A0
-  // PF13, // MCU_PF13_A1
-  // PC4,  // MCU_PC4_A2
-  // PF12, // MCU_PF12_A3
-  // PC0,  // MCU_PC0_A4
-  // PC1,  // MCU_PC1_A5
-  // PB3,  // PB3_SPI_SCK
-  // PB5,  // PB5_SPI_MOSI
-  // PB4,  // PB4_SPI_MISO
-  // PH14, // MCU_PH14_FDCAN_RX
-  // PD1,  // MCU_PD1_FDCAN_TX
+  // PA_14, // DEBUG_SWCLK
+  // PA_13, // DEBUG_SWDIO
+  // // PA1_C, // MCU_PA1_C_A0
+  // PF_13, // MCU_PF13_A1
+  // PC_4,  // MCU_PC4_A2
+  // PF_12, // MCU_PF12_A3
+  // PC_0,  // MCU_PC0_A4
+  // PC_1,  // MCU_PC1_A5
+  // PB_3,  // PB3_SPI_SCK
+  // PB_5,  // PB5_SPI_MOSI
+  // PB_4,  // PB4_SPI_MISO
+  // PH_14, // MCU_PH14_FDCAN_RX
+  // PD_1,  // MCU_PD1_FDCAN_TX
 
   // PA11N  // USB1_DM
   // PA12   // USB1_DP
