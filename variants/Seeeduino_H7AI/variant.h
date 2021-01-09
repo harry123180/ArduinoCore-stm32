@@ -188,6 +188,9 @@ extern "C" {
 #define HAL_UART_MODULE_ENABLED
 #define HAL_SPI_MODULE_ENABLED
 #define HAL_FDCAN_MODULE_ENABLED
+#define HAL_SD_MODULE_ENABLED
+#define HAL_SAI_MODULE_ENABLED
+#define HAL_MDMA_MODULE_ENABLED
 
 #ifdef __cplusplus
 } // extern "C"
