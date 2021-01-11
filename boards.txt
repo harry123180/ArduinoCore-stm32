@@ -3017,8 +3017,22 @@ Seeeduino.menu.pnum.SEEEDUINO_H7AI.build.product_line=STM32H725xx
 Seeeduino.menu.pnum.SEEEDUINO_H7AI.build.variant=Seeeduino_H7AI
 Seeeduino.menu.pnum.SEEEDUINO_H7AI.build.cmsis_lib_gcc=arm_cortexM7lfsp_math
 
+Seeeduino.menu.pnum.SEEEDUINO_H7AI_EXTMEM=Seeeduino H7AI ExtMem
+Seeeduino.menu.pnum.SEEEDUINO_H7AI_EXTMEM.node="Seeeduino H7AI ExtMem"
+Seeeduino.menu.pnum.SEEEDUINO_H7AI_EXTMEM.upload.maximum_size=2097152
+Seeeduino.menu.pnum.SEEEDUINO_H7AI_EXTMEM.upload.maximum_data_size=524288
+Seeeduino.menu.pnum.SEEEDUINO_H7AI_EXTMEM.build.mcu=cortex-m7
+Seeeduino.menu.pnum.SEEEDUINO_H7AI_EXTMEM.build.flags.fp=-mfpu=fpv4-sp-d16 -mfloat-abi=hard
+Seeeduino.menu.pnum.SEEEDUINO_H7AI_EXTMEM.build.board=Seeeduino_H7AI_EXTMEM
+Seeeduino.menu.pnum.SEEEDUINO_H7AI_EXTMEM.build.series=STM32H7xx
+Seeeduino.menu.pnum.SEEEDUINO_H7AI_EXTMEM.build.product_line=STM32H725xx
+Seeeduino.menu.pnum.SEEEDUINO_H7AI_EXTMEM.build.variant=Seeeduino_H7AI_EXTMEM
+Seeeduino.menu.pnum.SEEEDUINO_H7AI_EXTMEM.build.cmsis_lib_gcc=arm_cortexM7lfsp_math
+Seeeduino.menu.pnum.SEEEDUINO_H7AI_EXTMEM.build.startup_file=-DCUSTOM_STARTUP_FILE
+
 
 Seeeduino.menu.upload_method.swdMethod=jlink
 Seeeduino.menu.upload_method.swdMethod.upload.protocol=0
 Seeeduino.menu.upload_method.swdMethod.upload.options=-g
 Seeeduino.menu.upload_method.swdMethod.upload.tool=jlink
+
