@@ -3004,7 +3004,6 @@ Seeeduino.build.core=arduino
 Seeeduino.build.board=Seeeduino
 Seeeduino.build.extra_flags=-D{build.product_line} {build.enable_usb} {build.xSerial}
 
-
 Seeeduino.menu.pnum.SEEEDUINO_H7AI=Seeeduino H7AI
 Seeeduino.menu.pnum.SEEEDUINO_H7AI.node="Seeeduino H7AI"
 Seeeduino.menu.pnum.SEEEDUINO_H7AI.upload.maximum_size=2097152
@@ -3030,9 +3029,13 @@ Seeeduino.menu.pnum.SEEEDUINO_H7AI_EXTMEM.build.variant=Seeeduino_H7AI_EXTMEM
 Seeeduino.menu.pnum.SEEEDUINO_H7AI_EXTMEM.build.cmsis_lib_gcc=arm_cortexM7lfsp_math
 Seeeduino.menu.pnum.SEEEDUINO_H7AI_EXTMEM.build.startup_file=-DCUSTOM_STARTUP_FILE
 
-
 Seeeduino.menu.upload_method.swdMethod=jlink
 Seeeduino.menu.upload_method.swdMethod.upload.protocol=0
 Seeeduino.menu.upload_method.swdMethod.upload.options=-g
 Seeeduino.menu.upload_method.swdMethod.upload.tool=jlink
+
+Seeeduino.menu.upload_method.uf2Method=UF2
+Seeeduino.menu.upload_method.uf2Method.upload.protocol=0
+Seeeduino.menu.upload_method.uf2Method.upload.options=-g
+Seeeduino.menu.upload_method.uf2Method.upload.tool=uf2
 
