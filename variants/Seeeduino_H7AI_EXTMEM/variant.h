@@ -146,6 +146,7 @@ extern "C" {
 
 
 // On-board LED pin number
+#define LED_BUILTIN             PG1
 #define LED_RED                 PC13  // LD1           
 #define LED_YELLOW              PG1  // LD2
 
