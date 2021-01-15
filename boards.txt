@@ -2999,7 +2999,7 @@ Seeeduino.name=Seeeduino
 
 Seeeduino.build.core=arduino
 Seeeduino.build.board=Seeeduino
-Seeeduino.build.extra_flags=-D{build.product_line} {build.enable_usb} {build.xSerial} {build.xSerial} {build.usb_manufacturer}  {build.usb_product}
+Seeeduino.build.extra_flags=-DSEEEDUINO_H7AI -D{build.product_line} {build.enable_usb} {build.xSerial} {build.xSerial} {build.usb_manufacturer}  {build.usb_product}
 
 Seeeduino.menu.pnum.SEEEDUINO_H7AI=Seeeduino H7AI
 Seeeduino.menu.pnum.SEEEDUINO_H7AI.node="Seeeduino H7AI"
@@ -3007,7 +3007,7 @@ Seeeduino.menu.pnum.SEEEDUINO_H7AI.upload.maximum_size=2097152
 Seeeduino.menu.pnum.SEEEDUINO_H7AI.upload.maximum_data_size=524288
 Seeeduino.menu.pnum.SEEEDUINO_H7AI.build.mcu=cortex-m7
 Seeeduino.menu.pnum.SEEEDUINO_H7AI.build.flags.fp=-mfpu=fpv4-sp-d16 -mfloat-abi=hard
-Seeeduino.menu.pnum.SEEEDUINO_H7AI.build.board=Seeeduino_H7AI
+Seeeduino.menu.pnum.SEEEDUINO_H7AI.build.board=SEEEDUINO_H7AI
 Seeeduino.menu.pnum.SEEEDUINO_H7AI.build.series=STM32H7xx
 Seeeduino.menu.pnum.SEEEDUINO_H7AI.build.product_line=STM32H725xx
 Seeeduino.menu.pnum.SEEEDUINO_H7AI.build.variant=Seeeduino_H7AI
@@ -3023,7 +3023,7 @@ Seeeduino.menu.pnum.SEEEDUINO_H7AI_EXTMEM.upload.maximum_size=2097152
 Seeeduino.menu.pnum.SEEEDUINO_H7AI_EXTMEM.upload.maximum_data_size=524288
 Seeeduino.menu.pnum.SEEEDUINO_H7AI_EXTMEM.build.mcu=cortex-m7
 Seeeduino.menu.pnum.SEEEDUINO_H7AI_EXTMEM.build.flags.fp=-mfpu=fpv4-sp-d16 -mfloat-abi=hard
-Seeeduino.menu.pnum.SEEEDUINO_H7AI_EXTMEM.build.board=Seeeduino_H7AI_EXTMEM
+Seeeduino.menu.pnum.SEEEDUINO_H7AI_EXTMEM.build.board=SEEEDUINO_H7AI
 Seeeduino.menu.pnum.SEEEDUINO_H7AI_EXTMEM.build.series=STM32H7xx
 Seeeduino.menu.pnum.SEEEDUINO_H7AI_EXTMEM.build.product_line=STM32H725xx
 Seeeduino.menu.pnum.SEEEDUINO_H7AI_EXTMEM.build.variant=Seeeduino_H7AI_EXTMEM

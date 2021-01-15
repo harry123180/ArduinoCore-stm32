@@ -23,15 +23,19 @@
 #include <stdint.h>
 
 #ifdef __cplusplus
-  #include <algorithm>
-  using std::min;
-  using std::max;
+  template<class T, class L> 
+  auto min(const T& a, const L& b) -> decltype((b < a) ? b : a)
+  {
+    return (b < a) ? b : a;
+  }
+
+  template<class T, class L> 
+  auto max(const T& a, const L& b) -> decltype((b < a) ? b : a)
+  {
+    return (a < b) ? b : a;
+  }
 #else // C
   #include <stdlib.h>
-  #ifndef abs
-    #define abs(x) ((x)>0?(x):-(x))
-  #endif // abs
-
   #ifndef min
     #define min(a,b) ((a)<(b)?(a):(b))
   #endif // min
@@ -41,6 +45,10 @@
   #endif // max
 
 #endif // __cplusplus
+
+#ifndef abs
+  #define abs(x) ((x)>0?(x):-(x))
+#endif // abs
 
 /* Official Arduino */
 #define INPUT         0x0
