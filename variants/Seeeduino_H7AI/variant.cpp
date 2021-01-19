@@ -207,7 +207,7 @@ WEAK void SystemClock_Config(void)
   */
 static void MPU_Config(void)
 {
-  MPU_Region_InitTypeDef MPU_InitStruct;
+  MPU_Region_InitTypeDef MPU_InitStruct , MPU_InitStruct1;
 
   /* Disable the MPU */
   HAL_MPU_Disable();
@@ -228,6 +228,18 @@ static void MPU_Config(void)
 
   HAL_MPU_ConfigRegion(&MPU_InitStruct);
 
+  MPU_InitStruct1.Enable = MPU_REGION_ENABLE;
+  MPU_InitStruct1.BaseAddress = 0x30004000;
+  MPU_InitStruct1.Size = MPU_REGION_SIZE_128KB;
+  MPU_InitStruct1.AccessPermission = MPU_REGION_FULL_ACCESS;
+  MPU_InitStruct1.IsBufferable = MPU_ACCESS_NOT_BUFFERABLE;
+  MPU_InitStruct1.IsCacheable = MPU_ACCESS_NOT_CACHEABLE;
+  MPU_InitStruct1.IsShareable = MPU_ACCESS_NOT_SHAREABLE;
+  MPU_InitStruct1.Number = MPU_REGION_NUMBER1;
+  MPU_InitStruct1.TypeExtField = MPU_TEX_LEVEL1;
+  MPU_InitStruct1.SubRegionDisable = 0x00;
+  MPU_InitStruct1.DisableExec = MPU_INSTRUCTION_ACCESS_ENABLE;
+  HAL_MPU_ConfigRegion(&MPU_InitStruct1);
 
   /* Enable the MPU */
   HAL_MPU_Enable(MPU_PRIVILEGED_DEFAULT);
