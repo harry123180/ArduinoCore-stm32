@@ -34,7 +34,7 @@ uint32_t micros(void)
   return getCurrentMicros();
 }
 
-void delay(uint32_t ms)
+void _real_delay(uint32_t ms)
 {
   if (ms != 0) {
     uint32_t start = getCurrentMillis();
@@ -43,6 +43,11 @@ void delay(uint32_t ms)
     } while (getCurrentMillis() - start < ms);
   }
 }
+
+/*
+ * override this delay() when run RTOS
+ */
+void delay( unsigned long ms ) __attribute__ ((weak, alias("_real_delay")));
 
 #ifdef __cplusplus
 }

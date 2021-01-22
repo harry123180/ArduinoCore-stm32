@@ -77,6 +77,7 @@ build.usb_flags=-DUSBCON {build.usb_speed} -DUSBD_VID={build.vid} -DUSBD_PID={bu
 build.vid=0
 build.pid=0
 
+
 # To customize the USB manufacturer or product string, must add defines
 # for them, e.g.:
 #    some_board.build.extra_flags='-DUSB_MANUFACTURER_STRING="My Company"' '-DUSB_PRODUCT_STRING="My Product"'
@@ -101,6 +102,8 @@ build.flags.fp=
 build.flags.optimize=-Os
 build.flags.ldspecs=--specs=nano.specs
 build.flash_offset=0
+build.usb_manufacturer=
+build.usb_product=
 
 # Pre and post build hooks
 build.opt.name=build_opt.h
@@ -218,3 +221,14 @@ tools.jlink.path.windows={runtime.tools.STM32Tools.path}/tools
 tools.jlink.upload.params.verbose=
 tools.jlink.upload.params.quiet=
 tools.jlink.upload.pattern="{path}/{cmd}" "{build.path}/{build.project_name}.bin" 
+
+# UF2 upload
+tools.uf2.cmd.linux=uf2conv -f 0x6db66082 -b 0x070000000
+tools.uf2.cmd.macosx=uf2conv -f 0x6db66082 -b 0x070000000
+tools.uf2.cmd.windows=uf2conv.exe -f 0x6db66082 -b 0x070000000
+tools.uf2.path.linux={runtime.tools.STM32Tools.path}/tools/linux
+tools.uf2.path.macosx={runtime.tools.STM32Tools.path}/tools/macosx
+tools.uf2.path.windows={runtime.tools.STM32Tools.path}/tools/win
+tools.uf2.upload.params.verbose=
+tools.uf2.upload.params.quiet=
+tools.uf2.upload.pattern={path}/{cmd} "{build.path}/{build.project_name}.bin"

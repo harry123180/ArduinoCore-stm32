@@ -2327,9 +2327,6 @@ Nucleo_144.menu.usb.CDC=CDC (no generic 'Serial')
 Nucleo_144.menu.usb.CDC.build.enable_usb={build.usb_flags} -DUSBD_USE_CDC -DDISABLE_GENERIC_SERIALUSB
 Nucleo_144.menu.usb.HID=HID (keyboard and mouse)
 Nucleo_144.menu.usb.HID.build.enable_usb={build.usb_flags} -DUSBD_USE_HID_COMPOSITE
-Nucleo_144.menu.xusb.FS=Low/Full Speed
-Nucleo_144.menu.xusb.HS=High Speed
-Nucleo_144.menu.xusb.HS.build.usb_speed=-DUSE_USB_HS
 Nucleo_144.menu.xusb.HSFS=High Speed in Full Speed mode
 Nucleo_144.menu.xusb.HSFS.build.usb_speed=-DUSE_USB_HS -DUSE_USB_HS_IN_FS
 
@@ -3002,8 +2999,7 @@ Seeeduino.name=Seeeduino
 
 Seeeduino.build.core=arduino
 Seeeduino.build.board=Seeeduino
-Seeeduino.build.extra_flags=-D{build.product_line} {build.enable_usb} {build.xSerial}
-
+Seeeduino.build.extra_flags=-DSEEEDUINO_H7AI -D{build.product_line} {build.enable_usb} {build.xSerial} {build.xSerial} {build.usb_manufacturer}  {build.usb_product}
 
 Seeeduino.menu.pnum.SEEEDUINO_H7AI=Seeeduino H7AI
 Seeeduino.menu.pnum.SEEEDUINO_H7AI.node="Seeeduino H7AI"
@@ -3011,14 +3007,50 @@ Seeeduino.menu.pnum.SEEEDUINO_H7AI.upload.maximum_size=2097152
 Seeeduino.menu.pnum.SEEEDUINO_H7AI.upload.maximum_data_size=524288
 Seeeduino.menu.pnum.SEEEDUINO_H7AI.build.mcu=cortex-m7
 Seeeduino.menu.pnum.SEEEDUINO_H7AI.build.flags.fp=-mfpu=fpv4-sp-d16 -mfloat-abi=hard
-Seeeduino.menu.pnum.SEEEDUINO_H7AI.build.board=Seeeduino_H7AI
+Seeeduino.menu.pnum.SEEEDUINO_H7AI.build.board=SEEEDUINO_H7AI
 Seeeduino.menu.pnum.SEEEDUINO_H7AI.build.series=STM32H7xx
 Seeeduino.menu.pnum.SEEEDUINO_H7AI.build.product_line=STM32H725xx
 Seeeduino.menu.pnum.SEEEDUINO_H7AI.build.variant=Seeeduino_H7AI
 Seeeduino.menu.pnum.SEEEDUINO_H7AI.build.cmsis_lib_gcc=arm_cortexM7lfsp_math
+Seeeduino.menu.pnum.SEEEDUINO_H7AI.build.pid=0x2886
+Seeeduino.menu.pnum.SEEEDUINO_H7AI.build.vid=0x0050
+Seeeduino.menu.pnum.SEEEDUINO_H7AI.build.usb_manufacturer='-DUSB_MANUFACTURER_STRING="Seeed Stduio"'
+Seeeduino.menu.pnum.SEEEDUINO_H7AI.build.usb_product='-DUSB_PRODUCT_STRING="ST-AI"'
 
+Seeeduino.menu.pnum.SEEEDUINO_H7AI_EXTMEM=Seeeduino H7AI ExtMem
+Seeeduino.menu.pnum.SEEEDUINO_H7AI_EXTMEM.node="Seeeduino H7AI ExtMem"
+Seeeduino.menu.pnum.SEEEDUINO_H7AI_EXTMEM.upload.maximum_size=2097152
+Seeeduino.menu.pnum.SEEEDUINO_H7AI_EXTMEM.upload.maximum_data_size=524288
+Seeeduino.menu.pnum.SEEEDUINO_H7AI_EXTMEM.build.mcu=cortex-m7
+Seeeduino.menu.pnum.SEEEDUINO_H7AI_EXTMEM.build.flags.fp=-mfpu=fpv4-sp-d16 -mfloat-abi=hard
+Seeeduino.menu.pnum.SEEEDUINO_H7AI_EXTMEM.build.board=SEEEDUINO_H7AI
+Seeeduino.menu.pnum.SEEEDUINO_H7AI_EXTMEM.build.series=STM32H7xx
+Seeeduino.menu.pnum.SEEEDUINO_H7AI_EXTMEM.build.product_line=STM32H725xx
+Seeeduino.menu.pnum.SEEEDUINO_H7AI_EXTMEM.build.variant=Seeeduino_H7AI_EXTMEM
+Seeeduino.menu.pnum.SEEEDUINO_H7AI_EXTMEM.build.cmsis_lib_gcc=arm_cortexM7lfsp_math
+Seeeduino.menu.pnum.SEEEDUINO_H7AI_EXTMEM.build.startup_file=-DCUSTOM_STARTUP_FILE
+Seeeduino.menu.pnum.SEEEDUINO_H7AI_EXTMEM.build.pid=0x2886
+Seeeduino.menu.pnum.SEEEDUINO_H7AI_EXTMEM.build.vid=0x0050
+Seeeduino.menu.pnum.SEEEDUINO_H7AI_EXTMEM.build.usb_manufacturer='-DUSB_MANUFACTURER_STRING="Seeed Stduio"'
+Seeeduino.menu.pnum.SEEEDUINO_H7AI_EXTMEM.build.usb_product='-DUSB_PRODUCT_STRING="ST-AI"'
+
+Seeeduino.menu.usb.none=None
+Seeeduino.menu.usb.CDCgen=CDC (generic 'Serial' supersede U(S)ART)
+Seeeduino.menu.usb.CDCgen.build.enable_usb={build.usb_flags} -DUSBD_USE_CDC
+Seeeduino.menu.usb.CDC=CDC (no generic 'Serial')
+Seeeduino.menu.usb.CDC.build.enable_usb={build.usb_flags} -DUSBD_USE_CDC -DDISABLE_GENERIC_SERIALUSB
+Seeeduino.menu.usb.HID=HID (keyboard and mouse)
+Seeeduino.menu.usb.HID.build.enable_usb={build.usb_flags} -DUSBD_USE_HID_COMPOSITE
+Seeeduino.menu.xusb.HSFS=High Speed in Full Speed mode
+Seeeduino.menu.xusb.HSFS.build.usb_speed=-DUSE_USB_HS -DUSE_USB_HS_IN_FS
 
 Seeeduino.menu.upload_method.swdMethod=jlink
 Seeeduino.menu.upload_method.swdMethod.upload.protocol=0
 Seeeduino.menu.upload_method.swdMethod.upload.options=-g
 Seeeduino.menu.upload_method.swdMethod.upload.tool=jlink
+
+Seeeduino.menu.upload_method.uf2Method=UF2
+Seeeduino.menu.upload_method.uf2Method.upload.protocol=0
+Seeeduino.menu.upload_method.uf2Method.upload.options=-g
+Seeeduino.menu.upload_method.uf2Method.upload.tool=uf2
+

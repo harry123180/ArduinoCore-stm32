@@ -43,21 +43,35 @@ __attribute__((constructor(101))) void premain()
 }
 
 /*
- * \brief Main entry point of Arduino application
+ * _real_body(),_wrap_body() is a compiler trick,
+ * user could overwrite the arduino setup/loop function by re-implement _wrap_body(),
+ * calling of _real_body() in _wrap_body() is optional.
  */
-int main(void)
+void _real_body()
 {
-  initVariant();
-
   setup();
-
-  for (;;) {
+  for (;;)
+  {
 #if defined(CORE_CALLBACK)
     CoreCallback();
 #endif
     loop();
     serialEventRun();
   }
+}
 
+void __attribute__((weak)) _wrap_body()
+{
+  _real_body();
+}
+
+/*
+ * \brief Main entry point of Arduino application
+ */
+int main(void)
+{
+  initVariant();
+
+  _wrap_body();
   return 0;
 }
