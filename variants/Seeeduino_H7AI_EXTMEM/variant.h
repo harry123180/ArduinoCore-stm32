@@ -7,7 +7,7 @@ extern "C" {
 /*----------------------------------------------------------------------------
  *        Pins
  *----------------------------------------------------------------------------*/
-#define PG1  0  // MCU_PG1_LED1
+#define PF0  0  // MCU_PG1_LED1
 #define PC13 1  // MCU_PC13_LED0
 #define PD9  2  // MCU_PD9_Button
 
@@ -31,9 +31,9 @@ extern "C" {
 #define PD8  12 // WIFI_SYNC
 
 
-#define PG10 13 // DCMI_D2
+#define PE0 13 // DCMI_D2
 #define PH10 14 // DCMI_D1
-#define PG11 15 // DCMI_D3
+#define PE1 15 // DCMI_D3
 #define PA9  16 // DCMI_D0
 #define PE4  17 // DCMI_D4
 #define PA6  18 // DCMI_PCLK
@@ -49,7 +49,7 @@ extern "C" {
 #define PF15 28 // IIC4_SDA
 
 
-#define PG13 29 // LCD_R0
+#define PH2  29 // LCD_R0
 #define PH3  30 // LCD_R1
 #define PA1  31 // LCD_R2
 #define PA15 32 // LCD_R3
@@ -64,12 +64,12 @@ extern "C" {
 #define PB10 41 // LCD_G4
 #define PB11 42 // LCD_G5
 #define PC7  43 // LCD_G6
-#define PG8  44 // LCD_G7
+#define PB15  44 // LCD_G7
 #define PG14 45 // LCD_B0
 #define PD0  46 // LCD_B1
 #define PD6  47 // LCD_B2
 #define PD10 48 // LCD_B3
-#define PA10 49 // LCD_B4
+#define PE12 49 // LCD_B4
 #define PA3  50 // LCD_B5
 #define PB8  51 // LCD_B6
 #define PB9  52 // LCD_B7
@@ -79,7 +79,7 @@ extern "C" {
 #define PC5  56 // LCD_DE
 #define PF5  57 // LCD_BL
 #define PG5  58 // LCD_RST
-#define PG0  59 // LCD_INT
+#define PG2  59 // LCD_INT
 #define PB7  60 // LCD_IIC1_SDA
 #define PB6  61 // LCD_IIC1_SCL
 
@@ -146,9 +146,9 @@ extern "C" {
 
 
 // On-board LED pin number
+#define LED_YELLOW              PF0  // LD2
 #define LED_BUILTIN             PG1
 #define LED_RED                 PC13  // LD1           
-#define LED_YELLOW              PG1  // LD2
 
 #define NUM_DIGITAL_PINS        113
 #define NUM_ANALOG_INPUTS       10

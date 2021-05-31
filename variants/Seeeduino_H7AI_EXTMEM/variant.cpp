@@ -6,7 +6,7 @@ extern "C" {
 
 // Pin number
 const PinName digitalPin[] = {
-  PG_1,  // MCU_PG1_LED1
+  PF_0,  // MCU_PG1_LED1
   PC_13, // MCU_PC13_LED0
   PD_9,  // MCU_PD9_Button
 
@@ -23,9 +23,9 @@ const PinName digitalPin[] = {
   PG_15, // WIFI_SPI1_CS
   PD_8,// WIFI_SYNC
 
-  PG_10, // DCMI_D2
+  PE_0,  // DCMI_D2
   PH_10, // DCMI_D1 
-  PG_11, // DCMI_D3
+  PE_1,  // DCMI_D3
   PA_9,  // DCMI_D0
   PE_4,  // DCMI_D4
   PA_6,  // DCMI_PCLK
@@ -40,6 +40,13 @@ const PinName digitalPin[] = {
   PF_14, // IIC4_SCL
   PF_15, // IIC4_SDA
 
+  PH_2,    // LCD_R0
+  PH_3,     // LCD_R1
+  PA_1,     // LCD_R2
+  PA_15,    // LCD_R3
+  PA_5,     // LCD_R4
+  PH_11,    // LCD_R5
+  PA_8,     // LCD_R6
   PE_15, // LCD_R7
   PB_1,  // LCD_G0
   PB_0,  // LCD_G1
@@ -48,12 +55,12 @@ const PinName digitalPin[] = {
   PB_10, // LCD_G4
   PB_11, // LCD_G5
   PC_7,  // LCD_G6
-  PG_8,  // LCD_G7
+  PB_15,  // LCD_G7
   PG_14, // LCD_B0
   PD_0,  // LCD_B1
   PD_6,  // LCD_B2
   PD_10, // LCD_B3
-  PA_10, // LCD_B4
+  PE_12, // LCD_B4
   PA_3,  // LCD_B5
   PB_8,  // LCD_B6
   PB_9,  // LCD_B7
@@ -63,7 +70,7 @@ const PinName digitalPin[] = {
   PC_5,  // LCD_DE
   PF_5,  // LCD_BL
   PG_5,  // LCD_RST
-  PG_0,  // LCD_INT
+  PG_2,  // LCD_INT
   PB_7,  // LCD_IIC1_SDA
   PB_6,  // LCD_IIC1_SCL
 
@@ -147,11 +154,10 @@ WEAK void SystemClock_Config(void)
 {
   RCC_OscInitTypeDef RCC_OscInitStruct = {0};
   RCC_ClkInitTypeDef RCC_ClkInitStruct = {0};
-  RCC_PeriphCLKInitTypeDef PeriphClkInitStruct = {0};
 
   /** Supply configuration update enable
   */
-  HAL_PWREx_ConfigSupply(PWR_DIRECT_SMPS_SUPPLY);
+  HAL_PWREx_ConfigSupply(PWR_LDO_SUPPLY);
   /** Configure the main internal regulator output voltage
   */
   __HAL_PWR_VOLTAGESCALING_CONFIG(PWR_REGULATOR_VOLTAGE_SCALE0);
@@ -163,8 +169,9 @@ WEAK void SystemClock_Config(void)
   /** Initializes the RCC Oscillators according to the specified parameters
   * in the RCC_OscInitTypeDef structure.
   */
-  RCC_OscInitStruct.OscillatorType = RCC_OSCILLATORTYPE_HSE;
+  RCC_OscInitStruct.OscillatorType = RCC_OSCILLATORTYPE_LSI|RCC_OSCILLATORTYPE_HSE;
   RCC_OscInitStruct.HSEState = RCC_HSE_ON;
+  RCC_OscInitStruct.LSIState = RCC_LSI_ON;
   RCC_OscInitStruct.PLL.PLLState = RCC_PLL_ON;
   RCC_OscInitStruct.PLL.PLLSource = RCC_PLLSOURCE_HSE;
   RCC_OscInitStruct.PLL.PLLM = 2;
@@ -196,24 +203,6 @@ WEAK void SystemClock_Config(void)
   {
     Error_Handler();
   }
-  PeriphClkInitStruct.PeriphClockSelection = RCC_PERIPHCLK_USB|RCC_PERIPHCLK_OSPI;
-  PeriphClkInitStruct.PLL3.PLL3M = 5;
-  PeriphClkInitStruct.PLL3.PLL3N = 48;
-  PeriphClkInitStruct.PLL3.PLL3P = 2;
-  PeriphClkInitStruct.PLL3.PLL3Q = 5;
-  PeriphClkInitStruct.PLL3.PLL3R = 2;
-  PeriphClkInitStruct.PLL3.PLL3RGE = RCC_PLL3VCIRANGE_2;
-  PeriphClkInitStruct.PLL3.PLL3VCOSEL = RCC_PLL3VCOWIDE;
-  PeriphClkInitStruct.PLL3.PLL3FRACN = 0;
-  PeriphClkInitStruct.OspiClockSelection = RCC_OSPICLKSOURCE_PLL;
-  PeriphClkInitStruct.UsbClockSelection = RCC_USBCLKSOURCE_PLL3;
-  if (HAL_RCCEx_PeriphCLKConfig(&PeriphClkInitStruct) != HAL_OK)
-  {
-    Error_Handler();
-  }
-  /** Enable USB Voltage detector
-  */
-  HAL_PWREx_EnableUSBVoltageDetector();
 }
 
 #ifdef __cplusplus
