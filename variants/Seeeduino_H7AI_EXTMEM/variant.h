@@ -9,27 +9,20 @@ extern "C" {
  *----------------------------------------------------------------------------*/
 #define PF0  0  // MCU_PG1_LED1
 #define PC13 1  // MCU_PC13_LED0
-#define PD9  2  // MCU_PD9_Button
-
-
+#define PF1  2  // MCU_PF1_Button
 
 #define PD14 3  // WIFI_DEBUG_TXD
 #define PD15 4  // WIFI_DEBUG_RXD
 #define PH2  5  // WIFI_CHIP_EN
 
-          
-
 #define PB15 6  // BLE_UART_TXD
 #define PB14 7  // BLE_UART_RXD
-
-
 
 #define PF11 8  // WIFI_SPI1_MOSI 
 #define PF8  9  // WIFI_SPI1_MISO
 #define PF7  10 // WIFI_SPI1_CLK
 #define PG15 11 // WIFI_SPI1_CS
-#define PD8  12 // WIFI_SYNC
-
+#define PF2  12 // WIFI_SYNC
 
 #define PE0 13 // DCMI_D2
 #define PH10 14 // DCMI_D1
@@ -47,7 +40,6 @@ extern "C" {
 #define PH12 26 // DCMI_RST
 #define PF14 27 // IIC4_SCL
 #define PF15 28 // IIC4_SDA
-
 
 #define PH2  29 // LCD_R0
 #define PH3  30 // LCD_R1
@@ -83,7 +75,6 @@ extern "C" {
 #define PB7  60 // LCD_IIC1_SDA
 #define PB6  61 // LCD_IIC1_SCL
 
-
 #define PD13 62 // SAI4_SCKA
 #define PD12 63 // SAI4_FSA
 #define PD11 64 // SAI4_SDA
@@ -93,64 +84,46 @@ extern "C" {
 #define PB2  68 // SAI1_D1
 #define PE1  69 // GPIO_Audio_INT
 
-#define PF3  70 // QSPI2_IO3
-#define PF4  71 // QSPI2_CLK
-#define PF0  72 // QSPI2_IO0
-#define PG12 73 // QSPI2_CS
-#define PF1  74 // QSPI2_IO1
-#define PF2  75 // QSPI2_IO2
+#define PC10 70 // MMC1_D2
+#define PC11 71 // MMC1_D3
+#define PD2  72 // MMC1_CMD
+#define PC12 73 // MMC1_CLK
+#define PC8  74 // MMC1_D0
+#define PC9  75 // MMC1_D1
 
-#define PG6  76 // DUAL_QSPI1_CS
-#define PF9  77 // DUAL_QSPI1_SIO1
-#define PC2  78 // DUAL_QSPI1_SIO2
-#define PF6  79 // DUAL_QSPI1_SIO3
-#define PF10 80 // DUAL_QSPI1_CLK
-#define PC3  81 // DUAL_QSPI1_SIO0
-#define PD5  82 // DUAL_QSPI1_SIO5
-#define PE9  83 // DUAL_QSPI1_SIO6
-#define PE10 84 // DUAL_QSPI1_SIO7
-#define PD4  85 // DUAL_QSPI1_SIO4
+#define PD8  76 //MCU_PD8_USART3_TX
+#define PD9  77 //MCU_PD9_USART3_RX
 
-#define PC10 86 // MMC1_D2
-#define PC11 87 // MMC1_D3
-#define PD2  88 // MMC1_CMD
-#define PC12 89 // MMC1_CLK
-#define PC8  90 // MMC1_D0
-#define PC9  91 // MMC1_D1
+#define PF14 78 //IIC4_SCL             
+#define PF15 79 //IIC4_SDA
 
+#define PD14 80 //WIFI_UART9_RX
+#define PD15 81 //WIFI_UART9_TX
+#define PC3  82 //WIFI_CHIP_EN
 
-#define PG4  92 // MCU_PG4_D13
-#define PA0  93 // MCU_A0_D12
-#define PE8  94 // MCU_PE8_D11
-#define PG2  95 // MCU_PG2_D10
-#define PG3  96 // MCU_PG3_D9
-#define PB13 97 // MCU_FDCAN2_TX
-#define PB12 98 // MCU_FDCAN2_RX
+#define PA11 83  //USB1_DM                 
+#define PA12 84  //USB1_DP
 
-#define PA14 99 // DEBUG_SWCLK
-#define PA13 100 // DEBUG_SWDIO
-#define PA1_C 101 // MCU_PA1_C_A0
-#define PF13 102  // MCU_PF13_A1
-#define PC4  103  // MCU_PC4_A2
-#define PF12 104  // MCU_PF12_A3
-#define PC0  105  // MCU_PC0_A4
-#define PC1  106  // MCU_PC1_A5
-#define PB3  107  // PB3_SPI_SCK
-#define PB5  108  // PB5_SPI_MOSI
-#define PB4  109  // PB4_SPI_MISO
-#define PH14 110  // MCU_PH14_FDCAN_RX
-#define PD1  111  // MCU_PD1_FDCAN_TX
+#define PA0  85  //software Serial tx
+#define PF3  86  //software Serial rx
 
-#define PA11 112  // USB1_DM
-#define PA12 113  // USB1_DP
-
+#define PA10 87  //WIFI_UART1_RX
+#define PB14 88  //WIFI_UART1_TX
 
 // On-board LED pin number
 #define LED_YELLOW              PF0  // LD2
-#define LED_BUILTIN             PG1
+#define LED_BUILTIN             PF1
 #define LED_RED                 PC13  // LD1           
 
-#define NUM_DIGITAL_PINS        113
+// Wifi
+#define WIFI_CHIP_EN            PC3   
+
+//USB
+// #define USBD_USE_CDC
+// #define USBCON
+// #define USE_USB_HS_IN_FS
+
+#define NUM_DIGITAL_PINS        89
 #define NUM_ANALOG_INPUTS       10
 #define NUM_ANALOG_FIRST        78
 
@@ -158,7 +131,7 @@ extern "C" {
 
 
 // On-board user button
-#define USER_BTN                PC13
+#define USER_BTN                PF1
 
 // Timer Definitions
 // Use TIM6/TIM7 when possible as servo and tone don't need GPIO output pin
@@ -170,8 +143,19 @@ extern "C" {
 
 //Serial pin used for console (ex: ST-Link)/
 //Required by Firmata
-#define PIN_SERIAL_RX           PD9
-#define PIN_SERIAL_TX           PD8
+#define PIN_SERIAL3_TX           PD8
+#define PIN_SERIAL3_RX           PD9
+
+#define PIN_SERIAL9_TX           PD15
+#define PIN_SERIAL9_RX           PD14
+
+#define PIN_SERIAL1_TX           PB14
+#define PIN_SERIAL1_RX           PA10
+
+// I2C Definitions
+#define PIN_WIRE_SCL            PF14
+#define PIN_WIRE_SDA            PF15
+
 
 // HSE default value is 25MHz in HAL
 // HSE_BYPASS is 8MHz

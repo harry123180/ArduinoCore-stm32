@@ -26,6 +26,9 @@
 #include "Arduino.h"
 #include "HardwareSerial.h"
 
+#define HAVE_HWSERIAL9
+#define HAVE_HWSERIAL1
+
 #if defined(HAL_UART_MODULE_ENABLED) && !defined(HAL_UART_MODULE_ONLY)
 #if defined(HAVE_HWSERIAL1) || defined(HAVE_HWSERIAL2) || defined(HAVE_HWSERIAL3) ||\
   defined(HAVE_HWSERIAL4) || defined(HAVE_HWSERIAL5) || defined(HAVE_HWSERIAL6) ||\
@@ -90,7 +93,7 @@
   #endif
 
   #if defined(HAVE_HWSERIAL9)
-    HardwareSerial Serial9(UART9);
+    HardwareSerial Serial9(UART9); 
     void serialEvent9() __attribute__((weak));
   #endif
 
@@ -108,6 +111,8 @@
     void serialEventLP1() __attribute__((weak));
   #endif
 #endif // HAVE_HWSERIALx
+
+
 
 // Constructors ////////////////////////////////////////////////////////////////
 HardwareSerial::HardwareSerial(uint32_t _rx, uint32_t _tx)
@@ -396,7 +401,6 @@ void HardwareSerial::begin(unsigned long baud, byte config)
       Error_Handler();
       break;
   }
-
   uart_init(&_serial, (uint32_t)baud, databits, parity, stopbits);
   enableHalfDuplexRx();
   uart_attach_rx_callback(&_serial, _rx_complete_irq);
@@ -483,6 +487,7 @@ size_t HardwareSerial::write(uint8_t c)
   // wait for the interrupt handler to empty it a bit
   while (i == _serial.tx_tail) {
     // nop, the interrupt handler will free up space for us
+    
   }
 
   _serial.tx_buff[_serial.tx_head] = c;
