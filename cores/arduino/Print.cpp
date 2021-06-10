@@ -258,12 +258,17 @@ extern "C" {
     return len;
   }
 }
-
+#define PRINTF_BUF 256
 int Print::printf(const char *format, ...)
 {
+  size_t r;
+  char buf[PRINTF_BUF];
   va_list ap;
   va_start(ap, format);
-  return vdprintf((int)this, format, ap);
+  r = vsnprintf(buf, sizeof(buf), format, ap);
+  write(buf);
+  va_end(ap);
+  return r;
 }
 
 int Print::printf(const __FlashStringHelper *format, ...)
