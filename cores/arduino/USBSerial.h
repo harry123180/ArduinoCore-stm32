@@ -31,6 +31,8 @@ class USBSerial : public Stream {
     void begin(uint32_t);
     void begin(uint32_t, uint8_t);
     void end(void);
+    void beginWithoutDTR(uint32_t baud_count);
+    void beginWithoutDTR(unsigned long, uint8_t);
 
     virtual int available(void);
     virtual int availableForWrite(void);
@@ -65,6 +67,7 @@ class USBSerial : public Stream {
       MARK_PARITY = 3,
       SPACE_PARITY = 4,
     };
+    bool _DTR;
 };
 
 extern USBSerial SerialUSB;

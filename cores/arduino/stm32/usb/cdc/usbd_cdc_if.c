@@ -24,6 +24,7 @@
 #include "usbd_desc.h"
 #include "usbd_cdc_if.h"
 #include "bootloader.h"
+#include "stdio.h"
 
 #ifdef USE_USB_HS
   #define CDC_MAX_PACKET_SIZE USB_OTG_HS_MAX_PACKET_SIZE
@@ -83,6 +84,7 @@ USBD_CDC_LineCodingTypeDef linecoding = {
   0x00,   /* parity - none*/
   0x08    /* nb. of bits 8*/
 };
+extern USBD_CDC_LineCodingTypeDef linecoding;
 
 /* Private functions ---------------------------------------------------------*/
 
@@ -268,11 +270,11 @@ void CDC_init(void)
 {
   if (!CDC_initialized) {
     /* Init Device Library */
-    if (USBD_Init(&hUSBD_Device_CDC, &USBD_Desc, 0) == USBD_OK) {
+    if (USBD_Init(&hUSBD_Device_CDC, &USBD_Desc, 0) == USBD_OK) {               
       /* Add Supported Class */
-      if (USBD_RegisterClass(&hUSBD_Device_CDC, USBD_CDC_CLASS) == USBD_OK) {
+      if (USBD_RegisterClass(&hUSBD_Device_CDC, USBD_CDC_CLASS) == USBD_OK) {   
         /* Add CDC Interface Class */
-        if (USBD_CDC_RegisterInterface(&hUSBD_Device_CDC, &USBD_CDC_fops) == USBD_OK) {
+        if (USBD_CDC_RegisterInterface(&hUSBD_Device_CDC, &USBD_CDC_fops) == USBD_OK) {     
           /* Start Device Process */
           USBD_Start(&hUSBD_Device_CDC);
           CDC_initialized = true;

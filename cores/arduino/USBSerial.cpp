@@ -25,25 +25,39 @@
 #include "wiring.h"
 
 extern __IO  uint32_t lineState;
+extern USBD_CDC_LineCodingTypeDef linecoding;
 
 USBSerial SerialUSB;
 void serialEventUSB() __attribute__((weak));
 
 void USBSerial::begin(void)
 {
+  _DTR = true;
   CDC_init();
 }
 
 void USBSerial::begin(uint32_t /* baud_count */)
 {
   // uart config is ignored in USB-CDC
+  _DTR = true;
   begin();
 }
 
 void USBSerial::begin(uint32_t /* baud_count */, uint8_t /* config */)
 {
   // uart config is ignored in USB-CDC
+  _DTR = true;
   begin();
+}
+
+void USBSerial::beginWithoutDTR(uint32_t)
+{
+  _DTR = false;
+}
+
+void USBSerial::beginWithoutDTR(unsigned long,uint8_t)
+{
+  _DTR = false;
 }
 
 void USBSerial::end()
@@ -66,7 +80,7 @@ size_t USBSerial::write(uint8_t ch)
 size_t USBSerial::write(const uint8_t *buffer, size_t size)
 {
   size_t rest = size;
-  while (rest > 0 && CDC_connected()) {
+  while (rest > 0 && (CDC_connected()  || !_DTR)) {
     // Determine buffer size available for write
     auto portion = (size_t)CDC_TransmitQueue_WriteSize(&TransmitQueue);
     // Truncate it to content size (if rest is greater)
@@ -157,7 +171,7 @@ void USBSerial::flush(void)
 
 uint32_t USBSerial::baud()
 {
-  return 115200;
+  return linecoding.bitrate;
 }
 
 uint8_t USBSerial::stopbits()
@@ -167,12 +181,12 @@ uint8_t USBSerial::stopbits()
 
 uint8_t USBSerial::paritytype()
 {
-  return NO_PARITY;
+  return linecoding.paritytype;
 }
 
 uint8_t USBSerial::numbits()
 {
-  return 8;
+  return linecoding.datatype;
 }
 
 bool USBSerial::dtr(void)
@@ -188,6 +202,10 @@ bool USBSerial::rts(void)
 USBSerial::operator bool()
 {
   bool result = false;
+  if(!_DTR)
+  {
+    return true;
+  }
   if (lineState == 1) {
     result = true;
   }
