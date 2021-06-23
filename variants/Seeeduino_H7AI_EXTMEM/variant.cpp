@@ -40,15 +40,15 @@ const PinName digitalPin[] = {
   PF_14, // IIC4_SCL
   PF_15, // IIC4_SDA
 
-  PH_2,    // LCD_R0            29
+  PH_2,     // LCD_R0            29
   PH_3,     // LCD_R1
   PA_1,     // LCD_R2
   PA_15,    // LCD_R3
   PA_5,     // LCD_R4
   PH_11,    // LCD_R5
   PA_8,     // LCD_R6
-  PE_15, // LCD_R7
-  PB_1,  // LCD_G0
+  PE_15,    // LCD_R7
+  PB_1,     // LCD_G0
   PB_0,  // LCD_G1
   PH_13, // LCD_G2
   PE_11, // LCD_G3
@@ -155,7 +155,7 @@ WEAK void SystemClock_Config(void)
   RCC_OscInitStruct.PLL.PLLM = 2;
   RCC_OscInitStruct.PLL.PLLN = 44;
   RCC_OscInitStruct.PLL.PLLP = 1;
-  RCC_OscInitStruct.PLL.PLLQ = 2;
+  RCC_OscInitStruct.PLL.PLLQ = 10;
   RCC_OscInitStruct.PLL.PLLR = 2;
   RCC_OscInitStruct.PLL.PLLRGE = RCC_PLL1VCIRANGE_3;
   RCC_OscInitStruct.PLL.PLLVCOSEL = RCC_PLL1VCOWIDE;
