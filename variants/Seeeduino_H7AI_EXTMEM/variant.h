@@ -118,10 +118,9 @@ extern "C" {
 // Wifi
 #define WIFI_CHIP_EN            PC3   
 
-//USB
-// #define USBD_USE_CDC
-// #define USBCON
-// #define USE_USB_HS_IN_FS
+// LCD
+#define LCD_BACKGROUND_ENABLE   PF5
+#define LCD_RESET               PG5
 
 #define NUM_DIGITAL_PINS        89
 #define NUM_ANALOG_INPUTS       10
@@ -148,6 +147,7 @@ extern "C" {
 
 #define PIN_SERIAL9_TX           PD15
 #define PIN_SERIAL9_RX           PD14
+#define RTL8720D                 Serial9          //Redifine Serial9
 
 #define PIN_SERIAL1_TX           PB14
 #define PIN_SERIAL1_RX           PA10
