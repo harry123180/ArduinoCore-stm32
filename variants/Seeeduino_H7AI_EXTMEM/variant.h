@@ -13,107 +13,97 @@ extern "C" {
 
 #define PD14 3  // WIFI_DEBUG_TXD
 #define PD15 4  // WIFI_DEBUG_RXD
-#define PH2  5  // WIFI_CHIP_EN
+#define PC3  5  // WIFI_CHIP_EN
 
-#define PB15 6  // BLE_UART_TXD
+#define PA10 6  // BLE_UART_TXD
 #define PB14 7  // BLE_UART_RXD
 
-#define PF11 8  // WIFI_SPI1_MOSI 
-#define PF8  9  // WIFI_SPI1_MISO
-#define PF7  10 // WIFI_SPI1_CLK
-#define PG15 11 // WIFI_SPI1_CS
+#define PC1  8  // WIFI_SPI1_MOSI 
+#define PC2  9  // WIFI_SPI1_MISO
+#define PB13 10 // WIFI_SPI1_CLK
+#define PB12 11 // WIFI_SPI1_CS
 #define PF2  12 // WIFI_SYNC
 
-#define PE0 13 // DCMI_D2
+#define PE0  13 // DCMI_D2
 #define PH10 14 // DCMI_D1
-#define PE1 15 // DCMI_D3
+#define PE1  15 // DCMI_D3
 #define PA9  16 // DCMI_D0
 #define PE4  17 // DCMI_D4
 #define PA6  18 // DCMI_PCLK
 #define PD3  19 // DCMI_D5
 #define PE5  20 // DCMI_D6
-#define PD7  21 // DCMI_XCLK
+#define PA2  21 // DCMI_XCLK
 #define PE6  22 // DCMI_D7
 #define PA4  23 // DCMI_HSYNC
 #define PE7  24 // DCMI_PWDN
 #define PG9  25 // DCMI_VSYNC
 #define PH12 26 // DCMI_RST
-#define PF14 27 // IIC4_SCL
-#define PF15 28 // IIC4_SDA
 
-#define PH2  29 // LCD_R0
-#define PH3  30 // LCD_R1
-#define PA1  31 // LCD_R2
-#define PA15 32 // LCD_R3
-#define PA5  33 // LCD_R4
-#define PH11 34 // LCD_R5
-#define PA8  35 // LCD_R6
-#define PE15 36 // LCD_R7
-#define PB1  37 // LCD_G0
-#define PB0  38 // LCD_G1
-#define PH13 39 // LCD_G2
-#define PE11 40 // LCD_G3
-#define PB10 41 // LCD_G4
-#define PB11 42 // LCD_G5
-#define PC7  43 // LCD_G6
-#define PB15  44 // LCD_G7
-#define PG14 45 // LCD_B0
-#define PD0  46 // LCD_B1
-#define PD6  47 // LCD_B2
-#define PD10 48 // LCD_B3
-#define PE12 49 // LCD_B4
-#define PA3  50 // LCD_B5
-#define PB8  51 // LCD_B6
-#define PB9  52 // LCD_B7
-#define PG7  53 // LCD_CLK
-#define PC6  54 // LCD_HSYNC
-#define PA7  55 // LCD_VSYNC
-#define PC5  56 // LCD_DE
-#define PF5  57 // LCD_BL
-#define PG5  58 // LCD_RST
-#define PG2  59 // LCD_INT
-#define PB7  60 // LCD_IIC1_SDA
-#define PB6  61 // LCD_IIC1_SCL
+#define PH2  27 // LCD_R0
+#define PH3  28 // LCD_R1
+#define PA1  29 // LCD_R2
+#define PA15 30 // LCD_R3
+#define PA5  31 // LCD_R4
+#define PH11 32 // LCD_R5
+#define PA8  33 // LCD_R6
+#define PE15 34 // LCD_R7
+#define PB1  35 // LCD_G0
+#define PB0  36 // LCD_G1
+#define PH13 37 // LCD_G2
+#define PE11 38 // LCD_G3
+#define PB10 39 // LCD_G4
+#define PB11 40 // LCD_G5
+#define PC7  41 // LCD_G6
+#define PB15 42 // LCD_G7
+#define PG14 43 // LCD_B0
+#define PD0  44 // LCD_B1
+#define PD6  45 // LCD_B2
+#define PD10 46 // LCD_B3
+#define PE12 47 // LCD_B4
+#define PA3  48 // LCD_B5
+#define PB8  49 // LCD_B6
+#define PB9  50 // LCD_B7
+#define PG7  51 // LCD_CLK
+#define PC6  52 // LCD_HSYNC
+#define PA7  53 // LCD_VSYNC
+#define PC5  54 // LCD_DE
+#define PF5  55 // LCD_BL
+#define PG5  56 // LCD_RST
+#define PG2  57 // LCD_INT
 
-#define PD13 62 // SAI4_SCKA
-#define PD12 63 // SAI4_FSA
-#define PD11 64 // SAI4_SDA
-#define PE3  65 // SAI4_SDB
-#define PE0  66 // SAI4_MCLKA
-#define PE2  67 // SAI1_CK1
-#define PB2  68 // SAI1_D1
-#define PE1  69 // GPIO_Audio_INT
+#define PD13 58 // SAI4_SCKA
+#define PD12 59 // SAI4_FSA
+#define PD11 60 // SAI4_SDA
+#define PE3  61 // SAI4_SDB
+#define PE2  62 // SAI4_MCLKA
+#define PG4  63 // GPIO_Audio_INT
 
-#define PC10 70 // MMC1_D2
-#define PC11 71 // MMC1_D3
-#define PD2  72 // MMC1_CMD
-#define PC12 73 // MMC1_CLK
-#define PC8  74 // MMC1_D0
-#define PC9  75 // MMC1_D1
+#define PC10 64 // MMC1_D2
+#define PC11 65 // MMC1_D3
+#define PD2  66 // MMC1_CMD
+#define PC12 67 // MMC1_CLK
+#define PC8  68 // MMC1_D0
+#define PC9  69 // MMC1_D1
 
-#define PD8  76 //MCU_PD8_USART3_TX
-#define PD9  77 //MCU_PD9_USART3_RX
+#define PD8  70 // USART3_TX
+#define PD9  71 // USART3_RX
 
-#define PF14 78 //IIC4_SCL             
-#define PF15 79 //IIC4_SDA
+#define PB6  72 // IIC1_SCL
+#define PB7  73 // IIC1_SDA
+#define PF14 74 // IIC4_SCL             
+#define PF15 75 // IIC4_SDA
 
-#define PD14 80 //WIFI_UART9_RX
-#define PD15 81 //WIFI_UART9_TX
-#define PC3  82 //WIFI_CHIP_EN
+#define PA11 76  //USB1_DM                 
+#define PA12 77  //USB1_DP
 
-#define PA11 83  //USB1_DM                 
-#define PA12 84  //USB1_DP
+#define PA0  78  //software Serial tx
+#define PF3  79  //software Serial rx
 
-#define PA0  85  //software Serial tx
-#define PF3  86  //software Serial rx
 
-#define PA10 87  //WIFI_UART1_RX
-#define PB14 88  //WIFI_UART1_TX
-
-// On-board LED pin number
-#define LED_YELLOW              PF0  // LD2
-#define LED_BUILTIN             PF1
-#define LED_RED                 PC13  // LD1           
+// LED
+#define LED_YELLOW              PF0   
+#define LED_RED                 PC13            
+#define LED_BUILTIN             LED_YELLOW
 
 // Wifi
 #define WIFI_CHIP_EN            PC3   
@@ -122,23 +112,31 @@ extern "C" {
 #define LCD_BACKGROUND_ENABLE   PF5
 #define LCD_RESET               PG5
 
-#define NUM_DIGITAL_PINS        89
-#define NUM_ANALOG_INPUTS       10
-#define NUM_ANALOG_FIRST        78
-
-
-
+// DCMI
+#define DCMI_PIN_D0             PA9 
+#define DCMI_PIN_D1             PH10
+#define DCMI_PIN_D2             PE0
+#define DCMI_PIN_D3             PE1
+#define DCMI_PIN_D4             PE4
+#define DCMI_PIN_D5             PD3
+#define DCMI_PIN_D6             PE5
+#define DCMI_PIN_D7             PE6
+#define DCMI_PIN_PWDN           PE7
+#define DCMI_PIN_RESET          PH12
+#define DCMI_PIN_HSYNC          PA4
+#define DCMI_PIN_VSYNC          PG9
+#define DCMI_PIN_XCLK           PA2
+#define DCMI_PIN_PCLK           PA6
+#define DCMI_PIN_IIC4_SCL       PF14
+#define DCMI_PIN_IIC4_SDA       PF15
 
 // On-board user button
 #define USER_BTN                PF1
 
-// Timer Definitions
-// Use TIM6/TIM7 when possible as servo and tone don't need GPIO output pin
-#define TIMER_TONE              TIM6
-#define TIMER_SERVO             TIM7
-
 // UART Definitions
 #define SERIAL_UART_INSTANCE    3 //Connected to ST-Link
+#define HAVE_HWSERIAL9
+#define HAVE_HWSERIAL1
 
 //Serial pin used for console (ex: ST-Link)/
 //Required by Firmata
@@ -155,6 +153,16 @@ extern "C" {
 // I2C Definitions
 #define PIN_WIRE_SCL            PF14
 #define PIN_WIRE_SDA            PF15
+
+// Timer Definitions
+// Use TIM6/TIM7 when possible as servo and tone don't need GPIO output pin
+#define TIMER_TONE              TIM6
+#define TIMER_SERVO             TIM7
+
+#define NUM_DIGITAL_PINS        80
+#define NUM_ANALOG_INPUTS       10
+#define NUM_ANALOG_FIRST        78
+
 
 
 // HSE default value is 25MHz in HAL

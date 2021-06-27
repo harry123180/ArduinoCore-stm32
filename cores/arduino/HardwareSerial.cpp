@@ -26,9 +26,6 @@
 #include "Arduino.h"
 #include "HardwareSerial.h"
 
-#define HAVE_HWSERIAL9
-#define HAVE_HWSERIAL1
-
 #if defined(HAL_UART_MODULE_ENABLED) && !defined(HAL_UART_MODULE_ONLY)
 #if defined(HAVE_HWSERIAL1) || defined(HAVE_HWSERIAL2) || defined(HAVE_HWSERIAL3) ||\
   defined(HAVE_HWSERIAL4) || defined(HAVE_HWSERIAL5) || defined(HAVE_HWSERIAL6) ||\

@@ -12,16 +12,16 @@ const PinName digitalPin[] = {
 
   PD_14, // WIFI_DEBUG_TXD      3
   PD_15, // WIFI_DEBUG_RXD
-  PH_2,  // WIFI_CHIP_EN
+  PC_3,  // WIFI_CHIP_EN
 
-  PB_15,  // BLE_UART_TXD       6
+  PA_10,  // BLE_UART_TXD       6
   PB_14,  // BLE_UART_RXD
 
-  PF_11,  // WIFI_SPI1_MOSI     8
-  PF_8,   // WIFI_SPI1_MISO
-  PF_7,  // WIFI_SPI1_CLK
-  PG_15, // WIFI_SPI1_CS
-  PF_2,// WIFI_SYNC
+  PC_1,   // WIFI_SPI2_MOSI     8
+  PC_2,   // WIFI_SPI2_MISO
+  PB_13,  // WIFI_SPI2_CLK
+  PB_12,  // WIFI_SPI2_CS
+  PF_2,   // WIFI_SYNC
 
   PE_0,  // DCMI_D2             13
   PH_10, // DCMI_D1 
@@ -31,16 +31,14 @@ const PinName digitalPin[] = {
   PA_6,  // DCMI_PCLK
   PD_3,  // DCMI_D5
   PE_5,  // DCMI_D6
-  PD_7,  // DCMI_XCLK
+  PA_2,  // DCMI_XCLK
   PE_6,  // DCMI_D7
   PA_4,  // DCMI_HSYNC
   PE_7,  // DCMI_PWDN
   PG_9,  // DCMI_VSYNC 
   PH_12, // DCMI_RST
-  PF_14, // IIC4_SCL
-  PF_15, // IIC4_SDA
 
-  PH_2,     // LCD_R0            29
+  PH_2,     // LCD_R0            27
   PH_3,     // LCD_R1
   PA_1,     // LCD_R2
   PA_15,    // LCD_R3
@@ -55,7 +53,7 @@ const PinName digitalPin[] = {
   PB_10, // LCD_G4
   PB_11, // LCD_G5
   PC_7,  // LCD_G6
-  PB_15,  // LCD_G7
+  PB_15, // LCD_G7
   PG_14, // LCD_B0
   PD_0,  // LCD_B1
   PD_6,  // LCD_B2
@@ -71,43 +69,35 @@ const PinName digitalPin[] = {
   PF_5,  // LCD_BL
   PG_5,  // LCD_RST
   PG_2,  // LCD_INT
-  PB_7,  // LCD_IIC1_SDA
-  PB_6,  // LCD_IIC1_SCL
 
-  PD_13, // SAI4_SCKA           62
+
+  PD_13, // SAI4_SCKA           58
   PD_12, // SAI4_FSA
   PD_11, // SAI4_SDA
   PE_3,  // SAI4_SDB
-  PE_0,  // SAI4_MCLKA
-  PE_2,  // SAI1_CK1
-  PB_2,  // SAI1_D1
-  PE_1,  // GPIO_Audio_INT
+  PE_2,  // SAI4_MCLKA
+  PG_4,  // GPIO_Audio_INT
 
-  PC_10, // MMC1_D2             70
+  PC_10, // MMC1_D2             64
   PC_11, // MMC1_D3
   PD_2,  // MMC1_CMD
   PC_12, // MMC1_CLK
   PC_8,  // MMC1_D0
   PC_9,  // MMC1_D1
 
-  PD_8,  // MCU_PD8_USART3_TX   76
-  PD_9,  // MCU_PD9_USART3_RX
+  PD_8,  // USART3_TX           70
+  PD_9,  // USART3_RX
 
-  PF_14, //IIC4_SCL             78
-  PF_15, //IIC4_SDA
+  PB_6,  // IIC1_SCL            72
+  PB_7,  // IIC1_SDA
+  PF_14, // IIC4_SCL             
+  PF_15, // IIC4_SDA
 
-  PD_14, //WIFI_UART9_RX            80
-  PD_15, //WIFI_UART9_TX
-  PC_3,  //WIFI_CHIP_EN
-
-  PA_11,  //USB1_DM                 83
+  PA_11,  //USB1_DM             76
   PA_12,  //USB1_DP
 
-  PA_0,   //software Serial tx      85
+  PA_0,   //software Serial tx  78
   PF_3,   //software Serial rx
-
-  PA_10,  //WIFI_UART1_RX           87
-  PB_14,  //WIFI_UART1_TX
 };
 
 #ifdef __cplusplus
@@ -133,8 +123,8 @@ WEAK void SystemClock_Config(void)
 
   /** Supply configuration update enable
   */
-  HAL_PWREx_ConfigSupply(PWR_LDO_SUPPLY);
-  //HAL_PWREx_ConfigSupply(PWR_DIRECT_SMPS_SUPPLY);
+  //HAL_PWREx_ConfigSupply(PWR_LDO_SUPPLY);
+  HAL_PWREx_ConfigSupply(PWR_DIRECT_SMPS_SUPPLY);
   
   /** Configure the main internal regulator output voltage
   */
@@ -155,7 +145,7 @@ WEAK void SystemClock_Config(void)
   RCC_OscInitStruct.PLL.PLLM = 2;
   RCC_OscInitStruct.PLL.PLLN = 44;
   RCC_OscInitStruct.PLL.PLLP = 1;
-  RCC_OscInitStruct.PLL.PLLQ = 10;
+  RCC_OscInitStruct.PLL.PLLQ = 5;
   RCC_OscInitStruct.PLL.PLLR = 2;
   RCC_OscInitStruct.PLL.PLLRGE = RCC_PLL1VCIRANGE_3;
   RCC_OscInitStruct.PLL.PLLVCOSEL = RCC_PLL1VCOWIDE;
