@@ -1258,6 +1258,11 @@ timer_index_t get_timer_index(TIM_TypeDef *instance)
     index = TIMER22_INDEX;
   }
 #endif
+#if defined(TIM23_BASE)
+    if (instance == TIM23) {
+    index = TIMER23_INDEX;
+}
+#endif
   return index;
 }
 
@@ -1793,6 +1798,20 @@ extern "C" {
     }
   }
 #endif //TIM22_BASE
+
+#if defined(TIM23_BASE)
+  /**
+    * @brief  TIM23 IRQHandler
+    * @param  None
+    * @retval None
+    */
+  void TIM23_IRQHandler(void)
+  {
+    if (HardwareTimer_Handle[TIMER23_INDEX]) {
+      HAL_TIM_IRQHandler(&HardwareTimer_Handle[TIMER23_INDEX]->handle);
+    }
+  }
+#endif //TIM23_BASE
 }
 
 #endif // HAL_TIM_MODULE_ENABLED && !HAL_TIM_MODULE_ONLY

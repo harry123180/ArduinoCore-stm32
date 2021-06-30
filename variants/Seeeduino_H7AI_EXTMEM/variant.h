@@ -96,9 +96,27 @@ extern "C" {
 #define PA11 76  //USB1_DM                 
 #define PA12 77  //USB1_DP
 
-#define PA0  78  //software Serial tx
-#define PF3  79  //software Serial rx
+#define PE8  78  //PWM_D13
+#define PB3  79  //PWM_D12
+#define PE10 80  //PWM_D11
+#define PF3  81  //PWM_D10
+#define PA0  82  //PWM_D9
 
+#define PA1   83  //ADC_A0
+#define PF11  84  //ADC_A1
+#define PC4   85  //ADC_A2 
+#define PF12  86  //ADC_A3
+#define PC0   87  //ADC_A4
+#define PF13  88  //ADC_A5
+
+#define PG13  89  //SPI6_SCK
+#define PB5   90  //SPI6_MOSI
+#define PB4   91  //SPI6_MISO
+
+#define PD1   92  //FDCAN_UART4_TX
+#define PH14  93  //FDCAN_UART4_RX
+
+#define PA2   94  //DCMI_PWM
 
 // LED
 #define LED_YELLOW              PF0   
@@ -137,6 +155,7 @@ extern "C" {
 #define SERIAL_UART_INSTANCE    3 //Connected to ST-Link
 #define HAVE_HWSERIAL9
 #define HAVE_HWSERIAL1
+#define HAVE_HWSERIAL4
 
 //Serial pin used for console (ex: ST-Link)/
 //Required by Firmata
@@ -150,6 +169,9 @@ extern "C" {
 #define PIN_SERIAL1_TX           PB14
 #define PIN_SERIAL1_RX           PA10
 
+#define PIN_SERIAL4_TX           PD1
+#define PIN_SERIAL4_RX           PH14
+
 // I2C Definitions
 #define PIN_WIRE_SCL            PF14
 #define PIN_WIRE_SDA            PF15
@@ -159,9 +181,30 @@ extern "C" {
 #define TIMER_TONE              TIM6
 #define TIMER_SERVO             TIM7
 
-#define NUM_DIGITAL_PINS        80
-#define NUM_ANALOG_INPUTS       10
-#define NUM_ANALOG_FIRST        78
+//PWM
+#define PWM_D13                 PE8
+#define PWM_D12                 PB3
+#define PWM_D11                 PE10
+#define PWM_D10                 PF3
+#define PWM_D9                  PA0
+#define DCMI_PWM                PA2 
+
+//ADC
+#define ADC_A0                  PA1
+#define ADC_A1                  PF11
+#define ADC_A2                  PC4
+#define ADC_A3                  PF12
+#define ADC_A4                  PC0
+#define ADC_A5                  PF13
+
+//SPI
+#define PIN_SPI_SCK                PG13
+#define PIN_SPI_MOSI               PB5
+#define PIN_SPI_MISO               PB4
+
+#define NUM_DIGITAL_PINS        95
+#define NUM_ANALOG_INPUTS       20
+#define NUM_ANALOG_FIRST        86
 
 
 

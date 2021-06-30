@@ -232,6 +232,9 @@ typedef enum {
 #if defined(TIM22_BASE)
   TIMER22_INDEX,
 #endif
+#if defined(TIM23_BASE)
+  TIMER23_INDEX,
+#endif
   TIMER_NUM,
   UNKNOWN_TIMER = 0XFFFF
 } timer_index_t;

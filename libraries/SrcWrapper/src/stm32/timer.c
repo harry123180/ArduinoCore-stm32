@@ -235,6 +235,11 @@ void enableTimerClock(TIM_HandleTypeDef *htim)
     __HAL_RCC_TIM22_CLK_ENABLE();
   }
 #endif
+#if defined(TIM23_BASE)
+  if (htim->Instance == TIM23) {
+    __HAL_RCC_TIM23_CLK_ENABLE();
+  }
+#endif
 }
 
 /**
@@ -353,6 +358,11 @@ void disableTimerClock(TIM_HandleTypeDef *htim)
 #if defined(TIM22_BASE)
   if (htim->Instance == TIM22) {
     __HAL_RCC_TIM22_CLK_DISABLE();
+  }
+#endif
+#if defined(TIM23_BASE)
+  if (htim->Instance == TIM23) {
+    __HAL_RCC_TIM23_CLK_DISABLE();
   }
 #endif
 }
@@ -477,6 +487,11 @@ IRQn_Type getTimerUpIrq(TIM_TypeDef *tim)
 #if defined(TIM22_BASE)
       case (uint32_t)TIM22_BASE:
         IRQn = TIM22_IRQn;
+        break;
+#endif
+#if defined(TIM23_BASE)
+      case (uint32_t)TIM23_BASE:
+        IRQn = TIM23_IRQn;
         break;
 #endif
 
@@ -610,6 +625,11 @@ IRQn_Type getTimerCCIrq(TIM_TypeDef *tim)
         IRQn = TIM22_IRQn;
         break;
 #endif
+#if defined(TIM23_BASE)
+      case (uint32_t)TIM23_BASE:
+        IRQn = TIM23_IRQn;
+        break;
+#endif
         break;
       default:
         _Error_Handler("TIM: Unknown timer IRQn", (int)tim);
@@ -703,6 +723,9 @@ uint8_t getTimerClkSrc(TIM_TypeDef *tim)
 #endif
 #if defined(TIM22_BASE)
       case (uint32_t)TIM22:
+#endif
+#if defined(TIM23_BASE)
+      case (uint32_t)TIM23:
 #endif
         clkSrc = 2;
         break;

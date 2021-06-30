@@ -96,8 +96,27 @@ const PinName digitalPin[] = {
   PA_11,  //USB1_DM             76
   PA_12,  //USB1_DP
 
-  PA_0,   //software Serial tx  78
-  PF_3,   //software Serial rx
+  PE_8,   //PWM_D13             78
+  PB_3,   //PWM_D12
+  PE_10,  //PWM_D11
+  PF_3,   //PWM_D10
+  PA_0,   //PWM_D9
+
+  PA_1,   //ADC_A0              83
+  PF_11,  //ADC_A1
+  PC_4,   //ADC_A2
+  PF_12,  //ADC_A3
+  PC_0,   //ADC_A4
+  PF_13,  //ADC_A5
+
+  PG_13,  //SPI6_SCK            89
+  PB_5,   //SPI6_MOSI
+  PB_4,   //SPI6_MISO
+
+  PD_1,  //FDCAN_UART4_TX       92
+  PH_14, //FDCAN_UART4_RX
+
+  PA_2,  //DCMI_PWM             94
 };
 
 #ifdef __cplusplus
