@@ -118,6 +118,7 @@ extern "C" {
 
 #define PA2   94  //DCMI_PWM
 
+
 // LED
 #define LED_YELLOW              PF0   
 #define LED_RED                 PC13            
@@ -201,6 +202,14 @@ extern "C" {
 #define PIN_SPI_SCK                PG13
 #define PIN_SPI_MOSI               PB5
 #define PIN_SPI_MISO               PB4
+
+//SAI
+#define SAI4_SCKA                  PD13
+#define SAI4_FSA                   PD12
+#define SAI4_SDA                   PD11
+#define SAI4_SDB                   PE3
+#define SAI4_MCLKA                 PE2
+#define GPIO_Audio_INT             PG4
 
 #define NUM_DIGITAL_PINS        95
 #define NUM_ANALOG_INPUTS       20
