@@ -189,14 +189,19 @@ uint8_t USBSerial::numbits()
   return linecoding.datatype;
 }
 
+void USBSerial::dtr(bool enable)
+{
+  CDC_enableDTR(enable);
+}
+
 bool USBSerial::dtr(void)
 {
-  return false;
+  return dtrState;
 }
 
 bool USBSerial::rts(void)
 {
-  return false;
+  return rtsState;
 }
 
 USBSerial::operator bool()
@@ -210,7 +215,7 @@ USBSerial::operator bool()
     result = true;
   }
   delay(10);
-  return result;
+  return dtrState;
 }
 
 #endif // USBCON && USBD_USE_CDC

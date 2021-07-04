@@ -53,6 +53,8 @@ class USBSerial : public Stream {
     uint8_t stopbits();
     uint8_t paritytype();
     uint8_t numbits();
+
+    void dtr(bool enable);
     bool dtr();
     bool rts();
     enum {
