@@ -102,7 +102,7 @@ const PinName digitalPin[] = {
   PF_3,   //PWM_D10
   PA_0,   //PWM_D9
 
-  PA_1,   //ADC_A0              83
+  PA_1,  //ADC_A0              83
   PF_11,  //ADC_A1
   PC_4,   //ADC_A2
   PF_12,  //ADC_A3
@@ -116,11 +116,16 @@ const PinName digitalPin[] = {
   PD_1,  //FDCAN_UART4_TX       92
   PH_14, //FDCAN_UART4_RX
 
-  PA_2,  //DCMI_PWM             94
 };
 
 // Analog (Ax) pin number array
 const uint32_t analogInputPin[] = {
+  83,
+  84,
+  85,
+  86,
+  87,
+  88
 };
 
 #ifdef __cplusplus

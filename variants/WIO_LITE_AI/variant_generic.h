@@ -102,7 +102,7 @@ extern "C" {
 #define PF3  81  //PWM_D10
 #define PA0  82  //PWM_D9
 
-#define PA1   83  //ADC_A0
+#define PA1_C 83  //ADC_A0
 #define PF11  84  //ADC_A1
 #define PC4   85  //ADC_A2 
 #define PF12  86  //ADC_A3
@@ -116,7 +116,6 @@ extern "C" {
 #define PD1   92  //FDCAN_UART4_TX
 #define PH14  93  //FDCAN_UART4_RX
 
-#define PA2   94  //DCMI_PWM
 
 
 // LED
@@ -236,6 +235,7 @@ extern "C" {
 #define HAL_SD_MODULE_ENABLED
 #define HAL_SAI_MODULE_ENABLEDA
 #define HAL_MDMA_MODULE_ENABLED
+#define HAL_MMC_MODULE_ENABLED
 
 #ifdef __cplusplus
 } // extern "C"
