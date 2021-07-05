@@ -119,19 +119,19 @@ extern "C" {
 
 
 // LED
-#define LED_YELLOW              PF0   
-#define LED_RED                 PC13            
+#define LED_YELLOW              PF0
+#define LED_RED                 PC13
 #define LED_BUILTIN             LED_YELLOW
 
 // Wifi
-#define WIFI_CHIP_EN            PC3   
+#define WIFI_CHIP_EN            PC3
 
 // LCD
 #define LCD_BACKGROUND_ENABLE   PF5
 #define LCD_RESET               PG5
 
 // DCMI
-#define DCMI_PIN_D0             PA9 
+#define DCMI_PIN_D0             PA9
 #define DCMI_PIN_D1             PH10
 #define DCMI_PIN_D2             PE0
 #define DCMI_PIN_D3             PE1
@@ -187,7 +187,7 @@ extern "C" {
 #define PWM_D11                 PE10
 #define PWM_D10                 PF3
 #define PWM_D9                  PA0
-#define DCMI_PWM                PA2 
+#define DCMI_PWM                PA2
 
 //ADC
 #define ADC_A0                  PA1

@@ -25,9 +25,8 @@
 #include <stdint.h>
 #include <string.h>
 
-class cbuf
-{
-public:
+class cbuf {
+  public:
     cbuf(size_t size);
     ~cbuf();
 
@@ -40,39 +39,39 @@ public:
 
     inline bool empty() const
     {
-        return _begin == _end;
+      return _begin == _end;
     }
 
     inline bool full() const
     {
-        return wrap_if_bufend(_end + 1) == _begin;
+      return wrap_if_bufend(_end + 1) == _begin;
     }
 
     int peek();
     size_t peek(char *dst, size_t size);
 
     int read();
-    size_t read(char* dst, size_t size);
+    size_t read(char *dst, size_t size);
 
     size_t write(char c);
-    size_t write(const char* src, size_t size);
+    size_t write(const char *src, size_t size);
 
     void flush();
     size_t remove(size_t size);
 
     cbuf *next;
 
-private:
-    inline char* wrap_if_bufend(char* ptr) const
+  private:
+    inline char *wrap_if_bufend(char *ptr) const
     {
-        return (ptr == _bufend) ? _buf : ptr;
+      return (ptr == _bufend) ? _buf : ptr;
     }
 
     size_t _size;
-    char* _buf;
-    const char* _bufend;
-    char* _begin;
-    char* _end;
+    char *_buf;
+    const char *_bufend;
+    char *_begin;
+    char *_end;
 
 };
 

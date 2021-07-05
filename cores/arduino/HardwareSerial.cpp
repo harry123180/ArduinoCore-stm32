@@ -90,7 +90,7 @@
   #endif
 
   #if defined(HAVE_HWSERIAL9)
-    HardwareSerial Serial9(UART9); 
+    HardwareSerial Serial9(UART9);
     void serialEvent9() __attribute__((weak));
   #endif
 

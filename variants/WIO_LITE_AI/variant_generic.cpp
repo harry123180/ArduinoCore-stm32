@@ -24,7 +24,7 @@ const PinName digitalPin[] = {
   PF_2,   // WIFI_SYNC
 
   PE_0,  // DCMI_D2             13
-  PH_10, // DCMI_D1 
+  PH_10, // DCMI_D1
   PE_1,  // DCMI_D3
   PA_9,  // DCMI_D0
   PE_4,  // DCMI_D4
@@ -35,7 +35,7 @@ const PinName digitalPin[] = {
   PE_6,  // DCMI_D7
   PA_4,  // DCMI_HSYNC
   PE_7,  // DCMI_PWDN
-  PG_9,  // DCMI_VSYNC 
+  PG_9,  // DCMI_VSYNC
   PH_12, // DCMI_RST
 
   PH_2,     // LCD_R0            27
@@ -90,7 +90,7 @@ const PinName digitalPin[] = {
 
   PB_6,  // IIC1_SCL            72
   PB_7,  // IIC1_SDA
-  PF_14, // IIC4_SCL             
+  PF_14, // IIC4_SCL
   PF_15, // IIC4_SDA
 
   PA_11,  //USB1_DM             76
@@ -162,8 +162,7 @@ void MX_LTDC_Init(const uint32_t addr)
   hltdc.Init.Backcolor.Blue = 0;
   hltdc.Init.Backcolor.Green = 0;
   hltdc.Init.Backcolor.Red = 255;
-  if (HAL_LTDC_Init(&hltdc) != HAL_OK)
-  {
+  if (HAL_LTDC_Init(&hltdc) != HAL_OK) {
     Error_Handler();
   }
 
@@ -182,9 +181,8 @@ void MX_LTDC_Init(const uint32_t addr)
   pLayerCfg.Backcolor.Blue = 0;
   pLayerCfg.Backcolor.Green = 0;
   pLayerCfg.Backcolor.Red = 0;
-  if (HAL_LTDC_ConfigLayer(&hltdc, &pLayerCfg, 0) != HAL_OK)
-  {
-      Error_Handler();
+  if (HAL_LTDC_ConfigLayer(&hltdc, &pLayerCfg, 0) != HAL_OK) {
+    Error_Handler();
   }
   /* USER CODE BEGIN LTDC_Init 2 */
 
@@ -192,19 +190,18 @@ void MX_LTDC_Init(const uint32_t addr)
 
 }
 
-void HAL_LTDC_MspInit(LTDC_HandleTypeDef* ltdcHandle)
+void HAL_LTDC_MspInit(LTDC_HandleTypeDef *ltdcHandle)
 {
 
   GPIO_InitTypeDef GPIO_InitStruct = {0};
   RCC_PeriphCLKInitTypeDef PeriphClkInitStruct = {0};
-  
-  if(ltdcHandle->Instance==LTDC)
-  {
-  /* USER CODE BEGIN LTDC_MspInit 0 */
 
-  /* USER CODE END LTDC_MspInit 0 */
-  /** Initializes the peripherals clock
-  */
+  if (ltdcHandle->Instance == LTDC) {
+    /* USER CODE BEGIN LTDC_MspInit 0 */
+
+    /* USER CODE END LTDC_MspInit 0 */
+    /** Initializes the peripherals clock
+    */
     PeriphClkInitStruct.PeriphClockSelection = RCC_PERIPHCLK_LTDC;
     PeriphClkInitStruct.PLL3.PLL3M = 25;
     PeriphClkInitStruct.PLL3.PLL3N = 55;
@@ -214,8 +211,7 @@ void HAL_LTDC_MspInit(LTDC_HandleTypeDef* ltdcHandle)
     PeriphClkInitStruct.PLL3.PLL3RGE = RCC_PLL3VCIRANGE_0;
     PeriphClkInitStruct.PLL3.PLL3VCOSEL = RCC_PLL3VCOMEDIUM;
     PeriphClkInitStruct.PLL3.PLL3FRACN = 0;
-    if (HAL_RCCEx_PeriphCLKConfig(&PeriphClkInitStruct) != HAL_OK)
-    {
+    if (HAL_RCCEx_PeriphCLKConfig(&PeriphClkInitStruct) != HAL_OK) {
       Error_Handler();
     }
 
@@ -259,29 +255,29 @@ void HAL_LTDC_MspInit(LTDC_HandleTypeDef* ltdcHandle)
     PE11     ------> LTDC_G3
     PE15     ------> LTDC_R7
     */
-    GPIO_InitStruct.Pin = GPIO_PIN_8|GPIO_PIN_9|GPIO_PIN_1|GPIO_PIN_10
-                          |GPIO_PIN_0|GPIO_PIN_11|GPIO_PIN_15;
+    GPIO_InitStruct.Pin = GPIO_PIN_8 | GPIO_PIN_9 | GPIO_PIN_1 | GPIO_PIN_10
+                          | GPIO_PIN_0 | GPIO_PIN_11 | GPIO_PIN_15;
     GPIO_InitStruct.Mode = GPIO_MODE_AF_PP;
     GPIO_InitStruct.Pull = GPIO_NOPULL;
     GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
     GPIO_InitStruct.Alternate = GPIO_AF14_LTDC;
     HAL_GPIO_Init(GPIOB, &GPIO_InitStruct);
 
-    GPIO_InitStruct.Pin = GPIO_PIN_6|GPIO_PIN_0|GPIO_PIN_10;
+    GPIO_InitStruct.Pin = GPIO_PIN_6 | GPIO_PIN_0 | GPIO_PIN_10;
     GPIO_InitStruct.Mode = GPIO_MODE_AF_PP;
     GPIO_InitStruct.Pull = GPIO_NOPULL;
     GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
     GPIO_InitStruct.Alternate = GPIO_AF14_LTDC;
     HAL_GPIO_Init(GPIOD, &GPIO_InitStruct);
 
-    GPIO_InitStruct.Pin = GPIO_PIN_13|GPIO_PIN_11|GPIO_PIN_3|GPIO_PIN_2;
+    GPIO_InitStruct.Pin = GPIO_PIN_13 | GPIO_PIN_11 | GPIO_PIN_3 | GPIO_PIN_2;
     GPIO_InitStruct.Mode = GPIO_MODE_AF_PP;
     GPIO_InitStruct.Pull = GPIO_NOPULL;
     GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
     GPIO_InitStruct.Alternate = GPIO_AF14_LTDC;
     HAL_GPIO_Init(GPIOH, &GPIO_InitStruct);
 
-    GPIO_InitStruct.Pin = GPIO_PIN_14|GPIO_PIN_7;
+    GPIO_InitStruct.Pin = GPIO_PIN_14 | GPIO_PIN_7;
     GPIO_InitStruct.Mode = GPIO_MODE_AF_PP;
     GPIO_InitStruct.Pull = GPIO_NOPULL;
     GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
@@ -295,22 +291,22 @@ void HAL_LTDC_MspInit(LTDC_HandleTypeDef* ltdcHandle)
     GPIO_InitStruct.Alternate = GPIO_AF9_LTDC;
     HAL_GPIO_Init(GPIOA, &GPIO_InitStruct);
 
-    GPIO_InitStruct.Pin = GPIO_PIN_8|GPIO_PIN_7|GPIO_PIN_1|GPIO_PIN_5
-                          |GPIO_PIN_3;
+    GPIO_InitStruct.Pin = GPIO_PIN_8 | GPIO_PIN_7 | GPIO_PIN_1 | GPIO_PIN_5
+                          | GPIO_PIN_3;
     GPIO_InitStruct.Mode = GPIO_MODE_AF_PP;
     GPIO_InitStruct.Pull = GPIO_NOPULL;
     GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
     GPIO_InitStruct.Alternate = GPIO_AF14_LTDC;
     HAL_GPIO_Init(GPIOA, &GPIO_InitStruct);
 
-    GPIO_InitStruct.Pin = GPIO_PIN_6|GPIO_PIN_7|GPIO_PIN_5;
+    GPIO_InitStruct.Pin = GPIO_PIN_6 | GPIO_PIN_7 | GPIO_PIN_5;
     GPIO_InitStruct.Mode = GPIO_MODE_AF_PP;
     GPIO_InitStruct.Pull = GPIO_NOPULL;
     GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
     GPIO_InitStruct.Alternate = GPIO_AF14_LTDC;
     HAL_GPIO_Init(GPIOC, &GPIO_InitStruct);
 
-    GPIO_InitStruct.Pin = GPIO_PIN_12|GPIO_PIN_11|GPIO_PIN_15;
+    GPIO_InitStruct.Pin = GPIO_PIN_12 | GPIO_PIN_11 | GPIO_PIN_15;
     GPIO_InitStruct.Mode = GPIO_MODE_AF_PP;
     GPIO_InitStruct.Pull = GPIO_NOPULL;
     GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
@@ -320,20 +316,19 @@ void HAL_LTDC_MspInit(LTDC_HandleTypeDef* ltdcHandle)
     /* LTDC interrupt Init */
     HAL_NVIC_SetPriority(LTDC_IRQn, 0, 0);
     HAL_NVIC_EnableIRQ(LTDC_IRQn);
-  /* USER CODE BEGIN LTDC_MspInit 1 */
+    /* USER CODE BEGIN LTDC_MspInit 1 */
 
-  /* USER CODE END LTDC_MspInit 1 */
+    /* USER CODE END LTDC_MspInit 1 */
   }
 }
 
-void HAL_LTDC_MspDeInit(LTDC_HandleTypeDef* ltdcHandle)
+void HAL_LTDC_MspDeInit(LTDC_HandleTypeDef *ltdcHandle)
 {
 
-  if(ltdcHandle->Instance==LTDC)
-  {
-  /* USER CODE BEGIN LTDC_MspDeInit 0 */
+  if (ltdcHandle->Instance == LTDC) {
+    /* USER CODE BEGIN LTDC_MspDeInit 0 */
 
-  /* USER CODE END LTDC_MspDeInit 0 */
+    /* USER CODE END LTDC_MspDeInit 0 */
     /* Peripheral clock disable */
     __HAL_RCC_LTDC_CLK_DISABLE();
 
@@ -367,27 +362,27 @@ void HAL_LTDC_MspDeInit(LTDC_HandleTypeDef* ltdcHandle)
     PE11     ------> LTDC_G3
     PE15     ------> LTDC_R7
     */
-    HAL_GPIO_DeInit(GPIOB, GPIO_PIN_8|GPIO_PIN_9|GPIO_PIN_1|GPIO_PIN_10
-                          |GPIO_PIN_0|GPIO_PIN_11|GPIO_PIN_15);
+    HAL_GPIO_DeInit(GPIOB, GPIO_PIN_8 | GPIO_PIN_9 | GPIO_PIN_1 | GPIO_PIN_10
+                    | GPIO_PIN_0 | GPIO_PIN_11 | GPIO_PIN_15);
 
-    HAL_GPIO_DeInit(GPIOD, GPIO_PIN_6|GPIO_PIN_0|GPIO_PIN_10);
+    HAL_GPIO_DeInit(GPIOD, GPIO_PIN_6 | GPIO_PIN_0 | GPIO_PIN_10);
 
-    HAL_GPIO_DeInit(GPIOH, GPIO_PIN_13|GPIO_PIN_11|GPIO_PIN_3|GPIO_PIN_2);
+    HAL_GPIO_DeInit(GPIOH, GPIO_PIN_13 | GPIO_PIN_11 | GPIO_PIN_3 | GPIO_PIN_2);
 
-    HAL_GPIO_DeInit(GPIOG, GPIO_PIN_14|GPIO_PIN_7);
+    HAL_GPIO_DeInit(GPIOG, GPIO_PIN_14 | GPIO_PIN_7);
 
-    HAL_GPIO_DeInit(GPIOA, GPIO_PIN_15|GPIO_PIN_8|GPIO_PIN_7|GPIO_PIN_1
-                          |GPIO_PIN_5|GPIO_PIN_3);
+    HAL_GPIO_DeInit(GPIOA, GPIO_PIN_15 | GPIO_PIN_8 | GPIO_PIN_7 | GPIO_PIN_1
+                    | GPIO_PIN_5 | GPIO_PIN_3);
 
-    HAL_GPIO_DeInit(GPIOC, GPIO_PIN_6|GPIO_PIN_7|GPIO_PIN_5);
+    HAL_GPIO_DeInit(GPIOC, GPIO_PIN_6 | GPIO_PIN_7 | GPIO_PIN_5);
 
-    HAL_GPIO_DeInit(GPIOE, GPIO_PIN_12|GPIO_PIN_11|GPIO_PIN_15);
+    HAL_GPIO_DeInit(GPIOE, GPIO_PIN_12 | GPIO_PIN_11 | GPIO_PIN_15);
 
     /* LTDC interrupt Deinit */
     HAL_NVIC_DisableIRQ(LTDC_IRQn);
-  /* USER CODE BEGIN LTDC_MspDeInit 1 */
+    /* USER CODE BEGIN LTDC_MspDeInit 1 */
 
-  /* USER CODE END LTDC_MspDeInit 1 */
+    /* USER CODE END LTDC_MspDeInit 1 */
   }
 }
 

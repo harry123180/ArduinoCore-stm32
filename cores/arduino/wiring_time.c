@@ -47,7 +47,7 @@ void _real_delay(uint32_t ms)
 /*
  * override this delay() when run RTOS
  */
-void delay( unsigned long ms ) __attribute__ ((weak, alias("_real_delay")));
+void delay(unsigned long ms) __attribute__((weak, alias("_real_delay")));
 
 #ifdef __cplusplus
 }

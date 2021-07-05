@@ -23,26 +23,26 @@
 #include <stdint.h>
 
 #ifdef __cplusplus
-  template<class T, class L> 
-  auto min(const T& a, const L& b) -> decltype((b < a) ? b : a)
-  {
-    return (b < a) ? b : a;
-  }
+template<class T, class L>
+auto min(const T &a, const L &b) -> decltype((b < a) ? b : a)
+{
+  return (b < a) ? b : a;
+}
 
-  template<class T, class L> 
-  auto max(const T& a, const L& b) -> decltype((b < a) ? b : a)
-  {
-    return (a < b) ? b : a;
-  }
+template<class T, class L>
+auto max(const T &a, const L &b) -> decltype((b < a) ? b : a)
+{
+  return (a < b) ? b : a;
+}
 #else // C
-  #include <stdlib.h>
-  #ifndef min
-    #define min(a,b) ((a)<(b)?(a):(b))
-  #endif // min
+#include <stdlib.h>
+#ifndef min
+  #define min(a,b) ((a)<(b)?(a):(b))
+#endif // min
 
-  #ifndef max
-    #define max(a,b) ((a)>(b)?(a):(b))
-  #endif // max
+#ifndef max
+  #define max(a,b) ((a)>(b)?(a):(b))
+#endif // max
 
 #endif // __cplusplus
 

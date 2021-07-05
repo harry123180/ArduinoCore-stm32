@@ -23,9 +23,8 @@
 #define STREAMSTRING_H_
 
 
-class StreamString: public Stream, public String
-{
-public:
+class StreamString: public Stream, public String {
+  public:
     size_t write(const uint8_t *buffer, size_t size) override;
     size_t write(uint8_t data) override;
 

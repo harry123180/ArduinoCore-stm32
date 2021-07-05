@@ -55,7 +55,7 @@ void USBSerial::beginWithoutDTR(uint32_t)
   _DTR = false;
 }
 
-void USBSerial::beginWithoutDTR(unsigned long,uint8_t)
+void USBSerial::beginWithoutDTR(unsigned long, uint8_t)
 {
   _DTR = false;
 }
@@ -207,8 +207,7 @@ bool USBSerial::rts(void)
 USBSerial::operator bool()
 {
   bool result = false;
-  if(!_DTR)
-  {
+  if (!_DTR) {
     return true;
   }
   if (lineState == 1) {

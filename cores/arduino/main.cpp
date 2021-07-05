@@ -50,8 +50,7 @@ __attribute__((constructor(101))) void premain()
 void _real_body()
 {
   setup();
-  for (;;)
-  {
+  for (;;) {
 #if defined(CORE_CALLBACK)
     CoreCallback();
 #endif
