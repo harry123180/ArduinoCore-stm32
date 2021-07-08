@@ -63,7 +63,8 @@ Reset_Handler:
 
 /* Call the clock system intitialization function.*/
 #if !EXTERNAL_FLASH 
-  bl  SystemInit 
+  #error asd 
+  bl  SystemInit
 #endif
 
 /* Copy the data segment initializers from flash to SRAM */

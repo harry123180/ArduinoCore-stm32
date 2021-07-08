@@ -45,9 +45,9 @@ MEMORY
   RAM_D1    (xrw)    : ORIGIN = 0x24000000,   LENGTH = 320K
   RAM_D2    (xrw)    : ORIGIN = 0x30000000,   LENGTH = 32K
   RAM_D3    (xrw)    : ORIGIN = 0x38000000,   LENGTH = 16K
-  PSRAM     (xrw)    : ORIGIN = 0x900000000,  LENGTH = 6 * 1024K
+  PSRAM     (xrw)    : ORIGIN = 0x90000000,  LENGTH = 6*1024K
   FLASH    (rx)    : ORIGIN = 0x8000000,   LENGTH = 512K
-  EXT_FLASH    (rx)    : ORIGIN = 0x70000000,   LENGTH = 16 * 1024K
+  EXT_FLASH    (rx)    : ORIGIN = 0x70000000,   LENGTH = 16*1024K
 }
 
 
