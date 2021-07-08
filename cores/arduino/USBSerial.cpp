@@ -24,7 +24,8 @@
 #include "usbd_desc.h"
 #include "wiring.h"
 
-extern __IO  uint32_t lineState;
+extern __IO bool dtrState;
+extern __IO bool rtsState;
 extern USBD_CDC_LineCodingTypeDef linecoding;
 
 USBSerial SerialUSB;
@@ -206,14 +207,12 @@ bool USBSerial::rts(void)
 
 USBSerial::operator bool()
 {
-  bool result = false;
   if (!_DTR) {
     return true;
   }
-  if (lineState == 1) {
-    result = true;
-  }
+
   delay(10);
+  
   return dtrState;
 }
 
