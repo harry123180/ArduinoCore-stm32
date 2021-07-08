@@ -12,7 +12,7 @@ menu.upload_method=Upload method
 menu.memory_layout=Memory Layout
 
 ################################################################################
-WIO_LITE_AI.name=WIO_LITE_AI
+WIO_LITE_AI.name=Wio Lite AI
 
 WIO_LITE_AI.build.core=arduino
 WIO_LITE_AI.build.board=WIO_LITE_AI
