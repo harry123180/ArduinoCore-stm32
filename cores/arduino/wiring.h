@@ -26,6 +26,9 @@
 #include <string.h>
 #include <math.h>
 
+#define CORE_HAS_LIBB64
+
+#include "avr/pgmspace.h"
 #include "avr/dtostrf.h"
 #include "binary.h"
 #include "itoa.h"
