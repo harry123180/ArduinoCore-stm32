@@ -63,7 +63,6 @@ Reset_Handler:
 
 /* Call the clock system intitialization function.*/
 #if !EXTERNAL_FLASH 
-  #error asd 
   bl  SystemInit
 #endif
 
