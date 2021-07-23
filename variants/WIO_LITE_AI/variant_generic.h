@@ -236,6 +236,7 @@ extern "C" {
 #define HAL_SAI_MODULE_ENABLEDA
 #define HAL_MDMA_MODULE_ENABLED
 #define HAL_MMC_MODULE_ENABLED
+#define HAL_DCMI_MODULE_ENABLED
 
 #ifdef __cplusplus
 } // extern "C"

@@ -138,8 +138,6 @@ SECTIONS
     _sdata = .;        /* create a global symbol at data start */
     *(.data)           /* .data sections */
     *(.data*)          /* .data* sections */
-    *(.RamFunc)        /* .RamFunc sections */
-    *(.RamFunc*)       /* .RamFunc* sections */
 
     . = ALIGN(4);
     _edata = .;        /* define a global symbol at data end */
@@ -172,6 +170,38 @@ SECTIONS
     . = . + _Min_Stack_Size;
     . = ALIGN(8);
   } >PSRAM
+
+    /* PSRAM image start */
+	.ram_d1.text :
+	{
+		__psram_text_start__ = .;
+		*(.psram.text*)
+		__psram_text_end__ = .;
+	} > RAM_D1
+
+	.ram_d1.data : 
+	{
+		. = ALIGN (4);
+		*(.ramd1.data*)
+    *(.RamFunc)        /* .RamFunc sections */
+    *(.RamFunc*)       /* .RamFunc* sections */
+		. = ALIGN (4);
+		*(.psrramd1am.rodata*)
+	} > RAM_D1 AT > EXT_FLASH
+  
+	.ramd1.bss :
+	{
+		. = ALIGN (4);
+		__ramd1_bss_start__ = .;
+		*(.psrramd1am.bss*)
+		__ramd1_bss_end__ = .;
+	} > RAM_D1
+
+	.ramd1_heap.data : 
+	{
+		. = ALIGN (4);
+		*(.ramd1.heap*)
+	} > RAM_D1
 
   /* Remove information from the compiler libraries */
   /DISCARD/ :

@@ -175,6 +175,37 @@ SECTIONS
     . = ALIGN(8);
   } >RAM_D1
 
+  /* PSRAM image start */
+	.psram.text :
+	{
+		__psram_text_start__ = .;
+		*(.psram.text*)
+		__psram_text_end__ = .;
+	} > PSRAM
+
+	.psram.data : 
+	{
+		. = ALIGN (32);
+		*(.psram.data*)
+		. = ALIGN (32);
+		*(.psram.rodata*)
+	} > PSRAM AT > EXT_FLASH
+  
+	.psram.bss :
+	{
+		. = ALIGN (32);
+		__psram_bss_start__ = .;
+		*(.psram.bss*)
+		__psram_bss_end__ = .;
+	} > PSRAM
+
+	.psram_heap.data : 
+	{
+		. = ALIGN (32);
+		*(.psram.heap*)
+	} > PSRAM
+  
+
   /* Remove information from the compiler libraries */
   /DISCARD/ :
   {
@@ -185,3 +216,5 @@ SECTIONS
 
   .ARM.attributes 0 : { *(.ARM.attributes) }
 }
+
+
