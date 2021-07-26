@@ -25,6 +25,10 @@
 
 #include <inttypes.h>
 
+#define EXTMEM __attribute__((section(".externalram")))
+#define DTCMMEM __attribute__((section(".dtcmram")))
+#define ITCMMEM __attribute__((section(".itcmram")))
+
 #define PROGMEM
 #define PGM_P  const char *
 #define PSTR(str) (str)

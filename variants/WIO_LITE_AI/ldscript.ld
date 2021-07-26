@@ -50,19 +50,18 @@ MEMORY
   EXT_FLASH    (rx)    : ORIGIN = 0x70000000,   LENGTH = 16*1024K
 }
 
-
 /* Sections */
 SECTIONS
 {
-  /* The startup code into "FLASH" Rom type memory */
+  /* The startup code into "EXT_FLASH" Rom type memory */
   .isr_vector :
   {
     . = ALIGN(4);
     KEEP(*(.isr_vector)) /* Startup code */
     . = ALIGN(4);
-  } >FLASH
+  } >EXT_FLASH
 
-  /* The program code and other data into "FLASH" Rom type memory */
+  /* The program code and other data into "EXT_FLASH" Rom type memory */
   .text :
   {
     . = ALIGN(4);
@@ -77,22 +76,22 @@ SECTIONS
 
     . = ALIGN(4);
     _etext = .;        /* define a global symbols at end of code */
-  } >FLASH
+  } >EXT_FLASH
 
-  /* Constant data into "FLASH" Rom type memory */
+  /* Constant data into "EXT_FLASH" Rom type memory */
   .rodata :
   {
     . = ALIGN(4);
     *(.rodata)         /* .rodata sections (constants, strings, etc.) */
     *(.rodata*)        /* .rodata* sections (constants, strings, etc.) */
     . = ALIGN(4);
-  } >FLASH
+  } >EXT_FLASH
 
   .ARM.extab   : {
     . = ALIGN(4);
     *(.ARM.extab* .gnu.linkonce.armextab.*)
     . = ALIGN(4);
-  } >FLASH
+  } >EXT_FLASH
 
   .ARM : {
     . = ALIGN(4);
@@ -100,7 +99,7 @@ SECTIONS
     *(.ARM.exidx*)
     __exidx_end = .;
     . = ALIGN(4);
-  } >FLASH
+  } >EXT_FLASH
 
   .preinit_array     :
   {
@@ -109,7 +108,7 @@ SECTIONS
     KEEP (*(.preinit_array*))
     PROVIDE_HIDDEN (__preinit_array_end = .);
     . = ALIGN(4);
-  } >FLASH
+  } >EXT_FLASH
 
   .init_array :
   {
@@ -119,7 +118,7 @@ SECTIONS
     KEEP (*(.init_array*))
     PROVIDE_HIDDEN (__init_array_end = .);
     . = ALIGN(4);
-  } >FLASH
+  } >EXT_FLASH
 
   .fini_array :
   {
@@ -129,7 +128,7 @@ SECTIONS
     KEEP (*(.fini_array*))
     PROVIDE_HIDDEN (__fini_array_end = .);
     . = ALIGN(4);
-  } >FLASH
+  } >EXT_FLASH
 
   /* Used by the startup to initialize data */
   _sidata = LOADADDR(.data);
@@ -147,7 +146,7 @@ SECTIONS
     . = ALIGN(4);
     _edata = .;        /* define a global symbol at data end */
 
-  } >RAM_D1 AT> FLASH
+  } >RAM_D1 AT> EXT_FLASH
 
   /* Uninitialized data section into "RAM_D1" Ram type memory */
   . = ALIGN(4);
@@ -175,7 +174,30 @@ SECTIONS
     . = . + _Min_Stack_Size;
     . = ALIGN(8);
   } >RAM_D1
-  
+
+   .bss.extram (NOLOAD) : {
+		*(.externalram)
+		. = ALIGN(32);
+	} > PSRAM
+
+  .bss.dtcmram (NOLOAD) : {
+		*(.dtcmram)
+		. = ALIGN(4);
+	} > DTCMRAM
+
+  .bss.itcmram (NOLOAD) : {
+		*(.itcmram)
+		. = ALIGN(4);
+	} > ITCMRAM
+
+  _extram_start = ADDR(.bss.extram);
+	_extram_end = ADDR(.bss.extram) + SIZEOF(.bss.extram);
+
+  _dtcmram_start = ADDR(.bss.dtcmram);
+	_dtcmram_end = ADDR(.bss.dtcmram) + SIZEOF(.bss.dtcmram);
+
+  _itcmram_start = ADDR(.bss.itcmram);
+	_itcmram_end = ADDR(.bss.itcmram) + SIZEOF(.bss.itcmram);
 
   /* Remove information from the compiler libraries */
   /DISCARD/ :
@@ -187,3 +209,5 @@ SECTIONS
 
   .ARM.attributes 0 : { *(.ARM.attributes) }
 }
+
+

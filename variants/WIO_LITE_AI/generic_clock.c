@@ -11,7 +11,9 @@
  *******************************************************************************
  */
 #if defined(WIO_LITE_AI)
+
 #include "pins_arduino.h"
+
 /**
   * @brief  System Clock Configuration
   * @param  None
@@ -71,7 +73,6 @@ WEAK void SystemClock_Config(void)
   if (HAL_RCC_ClockConfig(&RCC_ClkInitStruct, FLASH_LATENCY_3) != HAL_OK) {
     Error_Handler();
   }
-
 
 }
 

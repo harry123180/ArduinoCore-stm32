@@ -61,11 +61,6 @@ defined in linker script */
 Reset_Handler:
   ldr   sp, =_estack      /* set stack pointer */
 
-/* Call the clock system intitialization function.*/
-#if !EXTERNAL_FLASH 
-  bl  SystemInit
-#endif
-
 /* Copy the data segment initializers from flash to SRAM */
   movs  r1, #0
   b  LoopCopyDataInit
