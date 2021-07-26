@@ -82,8 +82,7 @@ WEAK void SystemClock_Config(void)
   }
 
   sm_set_pool(&extmem_smalloc_pool, &_extram_end,
-			external_psram_size * 0x100000 -
-			((uint32_t)&_extram_end - (uint32_t)&_extram_start),
+			external_psram_size * 0x100000 - ((uint32_t)&_extram_end - (uint32_t)&_extram_start),
 			1, NULL);
 
 }

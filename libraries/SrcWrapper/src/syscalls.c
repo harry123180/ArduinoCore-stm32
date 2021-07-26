@@ -50,6 +50,16 @@ caddr_t _sbrk(int incr)
   return (caddr_t) prev_heap_end ;
 }
 
+
+__attribute__((weak))
+int _open(const char *name, int flags, int mode)
+{
+  (void*)(name);
+  (void*)(flags);
+  (void*)(mode);
+  return -1;   // does the stub-return need to be a specific value??
+}
+
 __attribute__((weak))
 int _close(UNUSED(int file))
 {
