@@ -52,6 +52,19 @@
   #include "WString.h"
 #endif // __cplusplus
 
+#ifdef __cplusplus
+extern "C"{
+#endif
+
+void *extmem_malloc(size_t size);
+void extmem_free(void *ptr);
+void *extmem_calloc(size_t nmemb, size_t size);
+void *extmem_realloc(void *ptr, size_t size);
+
+#ifdef __cplusplus
+} // extern "C"
+#endif
+
 
 #define clockCyclesPerMicrosecond() ( SystemCoreClock / 1000000L )
 #define clockCyclesToMicroseconds(a) ( ((a) * 1000L) / (SystemCoreClock / 1000L) )

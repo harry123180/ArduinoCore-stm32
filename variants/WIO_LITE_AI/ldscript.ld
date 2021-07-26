@@ -175,9 +175,9 @@ SECTIONS
     . = ALIGN(8);
   } >RAM_D1
 
-   .bss.extram (NOLOAD) : {
+  .bss.extram (NOLOAD) : {
 		*(.externalram)
-		. = ALIGN(32);
+		. = ALIGN(4);
 	} > PSRAM
 
   .bss.dtcmram (NOLOAD) : {

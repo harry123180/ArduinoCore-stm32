@@ -12,7 +12,14 @@
  */
 #if defined(WIO_LITE_AI)
 
+#include "avr/pgmspace.h"
+#include "smalloc.h"
 #include "pins_arduino.h"
+
+extern unsigned long _extram_start;
+extern unsigned long _extram_end;
+uint8_t external_psram_size = 8;
+struct smalloc_pool extmem_smalloc_pool;
 
 /**
   * @brief  System Clock Configuration
@@ -73,6 +80,11 @@ WEAK void SystemClock_Config(void)
   if (HAL_RCC_ClockConfig(&RCC_ClkInitStruct, FLASH_LATENCY_3) != HAL_OK) {
     Error_Handler();
   }
+
+  sm_set_pool(&extmem_smalloc_pool, &_extram_end,
+			external_psram_size * 0x100000 -
+			((uint32_t)&_extram_end - (uint32_t)&_extram_start),
+			1, NULL);
 
 }
 
