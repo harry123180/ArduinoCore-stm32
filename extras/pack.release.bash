@@ -26,7 +26,7 @@ THIS_SCRIPT_NAME=`basename $0`
 rm -f ArduinoCore-stm32-$VERSION.tar.bz2
 
 cd ..
-tar --transform "s|$FOLDERNAME|$FOLDERNAME-$VERSION|g"  --exclude=extras/** --exclude=.git* --exclude=.idea -cjf ArduinoCore-stm32-$VERSION.tar.bz2 $FOLDERNAME
+tar --transform "s|$FOLDERNAME|$FOLDERNAME-$VERSION|g"  --exclude=.git* --exclude=.idea -cjf ArduinoCore-stm32-$VERSION.tar.bz2 $FOLDERNAME
 cd -
 
 mv ../ArduinoCore-stm32-$VERSION.tar.bz2 .
