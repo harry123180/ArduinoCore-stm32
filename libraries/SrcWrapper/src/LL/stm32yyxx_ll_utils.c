@@ -30,7 +30,11 @@
   #include "stm32l5xx_ll_utils.c"
 #elif STM32MP1xx
   #include "stm32mp1xx_ll_utils.c"
+#elif STM32U5xx
+  #include "stm32u5xx_ll_utils.c"
 #elif STM32WBxx
   #include "stm32wbxx_ll_utils.c"
+#elif STM32WLxx
+  #include "stm32wlxx_ll_utils.c"
 #endif
 #pragma GCC diagnostic pop
