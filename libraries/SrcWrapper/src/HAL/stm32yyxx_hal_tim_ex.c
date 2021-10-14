@@ -30,7 +30,11 @@
   #include "stm32l5xx_hal_tim_ex.c"
 #elif STM32MP1xx
   #include "stm32mp1xx_hal_tim_ex.c"
+#elif STM32U5xx
+  #include "stm32u5xx_hal_tim_ex.c"
 #elif STM32WBxx
   #include "stm32wbxx_hal_tim_ex.c"
+#elif STM32WLxx
+  #include "stm32wlxx_hal_tim_ex.c"
 #endif
 #pragma GCC diagnostic pop
