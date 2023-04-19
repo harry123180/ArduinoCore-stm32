@@ -12,6 +12,12 @@
   *          Other functions (generic functions) are available in file
   *          "stm32g0xx_hal_adc.c".
   *
+  @verbatim
+  [..]
+  (@) Sections "ADC peripheral features" and "How to use this driver" are
+      available in file of generic functions "stm32g0xx_hal_adc.c".
+  [..]
+  @endverbatim
   ******************************************************************************
   * @attention
   *
@@ -24,12 +30,6 @@
   *                        opensource.org/licenses/BSD-3-Clause
   *
   ******************************************************************************
-  @verbatim
-  [..]
-  (@) Sections "ADC peripheral features" and "How to use this driver" are
-      available in file of generic functions "stm32g0xx_hal_adc.c".
-  [..]
-  @endverbatim
   */
 
 /* Includes ------------------------------------------------------------------*/
@@ -110,6 +110,7 @@ HAL_StatusTypeDef HAL_ADCEx_Calibration_Start(ADC_HandleTypeDef *hadc)
   /* Check the parameters */
   assert_param(IS_ADC_ALL_INSTANCE(hadc->Instance));
 
+  /* Process locked */
   __HAL_LOCK(hadc);
 
   /* Calibration prerequisite: ADC must be disabled. */
@@ -148,6 +149,7 @@ HAL_StatusTypeDef HAL_ADCEx_Calibration_Start(ADC_HandleTypeDef *hadc)
                           HAL_ADC_STATE_BUSY_INTERNAL,
                           HAL_ADC_STATE_ERROR_INTERNAL);
 
+        /* Process unlocked */
         __HAL_UNLOCK(hadc);
 
         return HAL_ERROR;
@@ -170,8 +172,10 @@ HAL_StatusTypeDef HAL_ADCEx_Calibration_Start(ADC_HandleTypeDef *hadc)
     /*       to state "HAL_ERROR" by function disabling the ADC.              */
   }
 
+  /* Process unlocked */
   __HAL_UNLOCK(hadc);
 
+  /* Return function status */
   return tmp_hal_status;
 }
 
@@ -205,6 +209,7 @@ HAL_StatusTypeDef HAL_ADCEx_Calibration_SetValue(ADC_HandleTypeDef *hadc, uint32
   assert_param(IS_ADC_ALL_INSTANCE(hadc->Instance));
   assert_param(IS_ADC_CALFACT(CalibrationFactor));
 
+  /* Process locked */
   __HAL_LOCK(hadc);
 
   /* Verification of hardware constraints before modifying the calibration    */
@@ -229,8 +234,10 @@ HAL_StatusTypeDef HAL_ADCEx_Calibration_SetValue(ADC_HandleTypeDef *hadc, uint32
     tmp_hal_status = HAL_ERROR;
   }
 
+  /* Process unlocked */
   __HAL_UNLOCK(hadc);
 
+  /* Return function status */
   return tmp_hal_status;
 }
 

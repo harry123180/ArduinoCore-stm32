@@ -64,25 +64,25 @@
       The compilation define  USE_HAL_SRAM_REGISTER_CALLBACKS when set to 1
       allows the user to configure dynamically the driver callbacks.
 
-      Use Functions HAL_SRAM_RegisterCallback() to register a user callback,
+      Use Functions @ref HAL_SRAM_RegisterCallback() to register a user callback,
       it allows to register following callbacks:
         (+) MspInitCallback    : SRAM MspInit.
         (+) MspDeInitCallback  : SRAM MspDeInit.
       This function takes as parameters the HAL peripheral handle, the Callback ID
       and a pointer to the user callback function.
 
-      Use function HAL_SRAM_UnRegisterCallback() to reset a callback to the default
+      Use function @ref HAL_SRAM_UnRegisterCallback() to reset a callback to the default
       weak (surcharged) function. It allows to reset following callbacks:
         (+) MspInitCallback    : SRAM MspInit.
         (+) MspDeInitCallback  : SRAM MspDeInit.
       This function) takes as parameters the HAL peripheral handle and the Callback ID.
 
-      By default, after the HAL_SRAM_Init and if the state is HAL_SRAM_STATE_RESET
+      By default, after the @ref HAL_SRAM_Init and if the state is HAL_SRAM_STATE_RESET
       all callbacks are reset to the corresponding legacy weak (surcharged) functions.
       Exception done for MspInit and MspDeInit callbacks that are respectively
-      reset to the legacy weak (surcharged) functions in the HAL_SRAM_Init
-      and  HAL_SRAM_DeInit only when these callbacks are null (not registered beforehand).
-      If not, MspInit or MspDeInit are not null, the HAL_SRAM_Init and HAL_SRAM_DeInit
+      reset to the legacy weak (surcharged) functions in the @ref HAL_SRAM_Init
+      and @ref  HAL_SRAM_DeInit only when these callbacks are null (not registered beforehand).
+      If not, MspInit or MspDeInit are not null, the @ref HAL_SRAM_Init and @ref HAL_SRAM_DeInit
       keep and use the user MspInit/MspDeInit callbacks (registered beforehand)
 
       Callbacks can be registered/unregistered in READY state only.
@@ -90,8 +90,8 @@
       in READY or RESET state, thus registered (user) MspInit/DeInit callbacks can be used
       during the Init/DeInit.
       In that case first register the MspInit/MspDeInit user callbacks
-      using HAL_SRAM_RegisterCallback before calling HAL_SRAM_DeInit
-      or HAL_SRAM_Init function.
+      using @ref HAL_SRAM_RegisterCallback before calling @ref HAL_SRAM_DeInit
+      or @ref HAL_SRAM_Init function.
 
       When The compilation define USE_HAL_SRAM_REGISTER_CALLBACKS is set to 0 or
       not defined, the callback registering feature is not available
@@ -115,7 +115,7 @@
 /* Includes ------------------------------------------------------------------*/
 #include "stm32f3xx_hal.h"
 
-#if defined(FMC_BANK1)
+#if defined FMC_BANK1
 
 /** @addtogroup STM32F3xx_HAL_Driver
   * @{
@@ -128,6 +128,9 @@
   * @{
   */
 
+/**
+  @cond 0
+  */
 /* Private typedef -----------------------------------------------------------*/
 /* Private define ------------------------------------------------------------*/
 /* Private macro -------------------------------------------------------------*/
@@ -136,6 +139,9 @@
 static void SRAM_DMACplt(DMA_HandleTypeDef *hdma);
 static void SRAM_DMACpltProt(DMA_HandleTypeDef *hdma);
 static void SRAM_DMAError(DMA_HandleTypeDef *hdma);
+/**
+  @endcond
+  */
 
 /* Exported functions --------------------------------------------------------*/
 
@@ -192,7 +198,7 @@ HAL_StatusTypeDef HAL_SRAM_Init(SRAM_HandleTypeDef *hsram, FMC_NORSRAM_TimingTyp
 #else
     /* Initialize the low level hardware (MSP) */
     HAL_SRAM_MspInit(hsram);
-#endif /* USE_HAL_SRAM_REGISTER_CALLBACKS */
+#endif
   }
 
   /* Initialize SRAM control Interface */
@@ -233,7 +239,7 @@ HAL_StatusTypeDef HAL_SRAM_DeInit(SRAM_HandleTypeDef *hsram)
 #else
   /* De-Initialize the low level hardware (MSP) */
   HAL_SRAM_MspDeInit(hsram);
-#endif /* USE_HAL_SRAM_REGISTER_CALLBACKS */
+#endif
 
   /* Configure the SRAM registers with their reset values */
   (void)FMC_NORSRAM_DeInit(hsram->Instance, hsram->Extended, hsram->Init.NSBank);
@@ -904,7 +910,7 @@ HAL_StatusTypeDef HAL_SRAM_RegisterDmaCallback(SRAM_HandleTypeDef *hsram, HAL_SR
   __HAL_UNLOCK(hsram);
   return status;
 }
-#endif /* USE_HAL_SRAM_REGISTER_CALLBACKS */
+#endif
 
 /**
   * @}
@@ -1032,6 +1038,9 @@ HAL_SRAM_StateTypeDef HAL_SRAM_GetState(SRAM_HandleTypeDef *hsram)
   */
 
 /**
+  @cond 0
+  */
+/**
   * @brief  DMA SRAM process complete callback.
   * @param  hdma : DMA handle
   * @retval None
@@ -1050,7 +1059,7 @@ static void SRAM_DMACplt(DMA_HandleTypeDef *hdma)
   hsram->DmaXferCpltCallback(hdma);
 #else
   HAL_SRAM_DMA_XferCpltCallback(hdma);
-#endif /* USE_HAL_SRAM_REGISTER_CALLBACKS */
+#endif
 }
 
 /**
@@ -1072,7 +1081,7 @@ static void SRAM_DMACpltProt(DMA_HandleTypeDef *hdma)
   hsram->DmaXferCpltCallback(hdma);
 #else
   HAL_SRAM_DMA_XferCpltCallback(hdma);
-#endif /* USE_HAL_SRAM_REGISTER_CALLBACKS */
+#endif
 }
 
 /**
@@ -1094,8 +1103,11 @@ static void SRAM_DMAError(DMA_HandleTypeDef *hdma)
   hsram->DmaXferErrorCallback(hdma);
 #else
   HAL_SRAM_DMA_XferErrorCallback(hdma);
-#endif /* USE_HAL_SRAM_REGISTER_CALLBACKS */
+#endif
 }
+/**
+  @endcond
+  */
 
 /**
   * @}

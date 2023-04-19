@@ -109,80 +109,80 @@ typedef struct
 #define EXTI_LINE_17                        (EXTI_CONFIG   | EXTI_REG1 | 0x11u)
 #else
 #define EXTI_LINE_17                        (EXTI_RESERVED | EXTI_REG1 | 0x11u)
-#endif /* COMP1 */
+#endif
 #if defined(COMP2)
 #define EXTI_LINE_18                        (EXTI_CONFIG   | EXTI_REG1 | 0x12u)
 #else
 #define EXTI_LINE_18                        (EXTI_RESERVED | EXTI_REG1 | 0x12u)
-#endif /* COMP2 */
+#endif
 #define EXTI_LINE_19                        (EXTI_DIRECT   | EXTI_REG1 | 0x13u)
 #if defined(COMP3)
 #define EXTI_LINE_20                        (EXTI_CONFIG   | EXTI_REG1 | 0x14u)
 #else
 #define EXTI_LINE_20                        (EXTI_RESERVED | EXTI_REG1 | 0x14u)
-#endif /* COMP3 */
+#endif
 #define EXTI_LINE_21                        (EXTI_DIRECT   | EXTI_REG1 | 0x15u)
 #if defined(RCC_CCIPR_I2C2SEL)
 #define EXTI_LINE_22                        (EXTI_DIRECT   | EXTI_REG1 | 0x16u)
 #else
 #define EXTI_LINE_22                        (EXTI_RESERVED | EXTI_REG1 | 0x16u)
-#endif /* RCC_CCIPR_I2C2SEL */
+#endif
 #define EXTI_LINE_23                        (EXTI_DIRECT   | EXTI_REG1 | 0x17u)
 #if defined(RCC_CCIPR_USART3SEL)
 #define EXTI_LINE_24                        (EXTI_DIRECT   | EXTI_REG1 | 0x18u)
 #else
 #define EXTI_LINE_24                        (EXTI_RESERVED | EXTI_REG1 | 0x18u)
-#endif /* RCC_CCIPR_USART3SEL */
+#endif
 #define EXTI_LINE_25                        (EXTI_DIRECT   | EXTI_REG1 | 0x19u)
 #if defined(RCC_CCIPR_USART2SEL)
 #define EXTI_LINE_26                        (EXTI_DIRECT   | EXTI_REG1 | 0x1Au)
 #else
 #define EXTI_LINE_26                        (EXTI_RESERVED | EXTI_REG1 | 0x1Au)
-#endif /* RCC_CCIPR_USART2SEL */
+#endif
 #if defined(CEC)
 #define EXTI_LINE_27                        (EXTI_DIRECT   | EXTI_REG1 | 0x1Bu)
 #else
 #define EXTI_LINE_27                        (EXTI_RESERVED | EXTI_REG1 | 0x1Bu)
-#endif /* CEC */
+#endif
 #if defined(LPUART1)
 #define EXTI_LINE_28                        (EXTI_DIRECT   | EXTI_REG1 | 0x1Cu)
 #else
 #define EXTI_LINE_28                        (EXTI_RESERVED | EXTI_REG1 | 0x1Cu)
-#endif /* LPUART1 */
+#endif
 #if defined(LPTIM1)
 #define EXTI_LINE_29                        (EXTI_DIRECT   | EXTI_REG1 | 0x1Du)
 #else
 #define EXTI_LINE_29                        (EXTI_RESERVED | EXTI_REG1 | 0x1Du)
-#endif /* LPTIM1 */
+#endif
 #if defined(LPTIM2)
 #define EXTI_LINE_30                        (EXTI_DIRECT   | EXTI_REG1 | 0x1Eu)
 #else
 #define EXTI_LINE_30                        (EXTI_RESERVED | EXTI_REG1 | 0x1Eu)
-#endif /* LPTIM2 */
+#endif
 #define EXTI_LINE_31                        (EXTI_DIRECT   | EXTI_REG1 | 0x1Fu)
 #if defined(UCPD1)
 #define EXTI_LINE_32                        (EXTI_DIRECT   | EXTI_REG2 | 0x00u)
 #else
 #define EXTI_LINE_32                        (EXTI_RESERVED | EXTI_REG2 | 0x00u)
-#endif /* UCPD1 */
+#endif
 #if defined(UCPD2)
 #define EXTI_LINE_33                        (EXTI_DIRECT   | EXTI_REG2 | 0x01u)
 #else
 #define EXTI_LINE_33                        (EXTI_RESERVED | EXTI_REG2 | 0x01u)
-#endif /* UCPD2 */
+#endif
 #if defined(STM32G0C1xx) || defined(STM32G0B1xx)
 #define EXTI_LINE_34                        (EXTI_CONFIG   | EXTI_REG2 | 0x02u)
 #else
 #define EXTI_LINE_34                        (EXTI_RESERVED | EXTI_REG2 | 0x02u)
-#endif /* STM32G0C1xx || STM32G0B1xx */
+#endif
 #if defined(LPUART2)
 #define EXTI_LINE_35                        (EXTI_DIRECT   | EXTI_REG2 | 0x03u)
 #else
 #define EXTI_LINE_35                        (EXTI_RESERVED | EXTI_REG2 | 0x03u)
-#endif /* LPUART2 */
+#endif
 #if defined(STM32G0C1xx) || defined(STM32G0B1xx) || defined(STM32G0B0xx)
 #define EXTI_LINE_36                        (EXTI_DIRECT | EXTI_REG2 | 0x04u)
-#endif /* STM32G0C1xx || STM32G0B1xx || STM32G0B0xx */
+#endif
 /**
   * @}
   */
@@ -218,7 +218,7 @@ typedef struct
 #define EXTI_GPIOD                          0x00000003u
 #if defined(GPIOE)
 #define EXTI_GPIOE                          0x00000004u
-#endif /* GPIOE */
+#endif
 #define EXTI_GPIOF                          0x00000005u
 /**
   * @}
@@ -285,7 +285,7 @@ typedef struct
 #define EXTI_LINE_NB                        32uL
 #else
 #define EXTI_LINE_NB                        32uL
-#endif /* STM32G0C1xx || STM32G0B1xx */
+#endif
 
 /**
   * @}
@@ -325,7 +325,7 @@ typedef struct
                                          ((__PORT__) == EXTI_GPIOC) || \
                                          ((__PORT__) == EXTI_GPIOD) || \
                                          ((__PORT__) == EXTI_GPIOF))
-#endif /* GPIOE */
+#endif
 
 #define IS_EXTI_GPIO_PIN(__PIN__)       ((__PIN__) < 16u)
 

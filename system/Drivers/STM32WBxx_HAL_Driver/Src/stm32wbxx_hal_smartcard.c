@@ -123,9 +123,9 @@
     and a pointer to the user callback function.
 
     [..]
-    Use function HAL_SMARTCARD_UnRegisterCallback() to reset a callback to the default
+    Use function @ref HAL_SMARTCARD_UnRegisterCallback() to reset a callback to the default
     weak (surcharged) function.
-    HAL_SMARTCARD_UnRegisterCallback() takes as parameters the HAL peripheral handle,
+    @ref HAL_SMARTCARD_UnRegisterCallback() takes as parameters the HAL peripheral handle,
     and the Callback ID.
     This function allows to reset following callbacks:
     (+) TxCpltCallback            : Tx Complete Callback.

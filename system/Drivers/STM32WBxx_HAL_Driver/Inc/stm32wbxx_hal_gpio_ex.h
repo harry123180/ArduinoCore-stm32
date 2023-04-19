@@ -6,11 +6,11 @@
   ******************************************************************************
   * @attention
   *
-  * <h2><center>&copy; Copyright (c) 2019 STMicroelectronics.
+  * <h2><center>&copy; Copyright (c) 2019 STMicroelectronics. 
   * All rights reserved.</center></h2>
   *
   * This software component is licensed by ST under BSD 3-Clause license,
-  * the "License"; You may not use this file except in compliance with the
+  * the "License"; You may not use this file except in compliance with the 
   * License. You may obtain a copy of the License at:
   *                        opensource.org/licenses/BSD-3-Clause
   *
@@ -22,7 +22,7 @@
 #define STM32WBxx_HAL_GPIO_EX_H
 
 #ifdef __cplusplus
-extern "C" {
+ extern "C" {
 #endif
 
 /* Includes ------------------------------------------------------------------*/
@@ -48,10 +48,10 @@ extern "C" {
   */
 
 
-/* The table below gives an overview of the different alternate functions per port.
- * For more details refer yourself to the product data sheet.
- *
- */
+ /* The table below gives an overview of the different alternate functions per port.
+  * For more details refer yourself to the product data sheet.
+  *
+  */
 
 #if defined (STM32WB55xx) || defined (STM32WB5Mxx)
 /**
@@ -74,7 +74,7 @@ extern "C" {
 #define GPIO_AF0_TRACECK       ((uint8_t)0x00)  /*!< TRACECK Alternate Function mapping             */
 #define GPIO_AF0_SYS           ((uint8_t)0x00)  /*!< System Function mapping                        */
 
-/**
+ /**
   * @brief   AF 1 selection
   */
 #define GPIO_AF1_TIM1           ((uint8_t)0x01)  /*!< TIM1 Alternate Function mapping           */
@@ -147,7 +147,7 @@ extern "C" {
 /**
   * @brief   AF 9 selection
   */
-#define GPIO_AF9_TSC           ((uint8_t)0x09)  /*!< TSC Alternate Function mapping      */
+ #define GPIO_AF9_TSC           ((uint8_t)0x09)  /*!< TSC Alternate Function mapping      */
 
 /**
   * @brief   AF 10 selection
@@ -161,20 +161,20 @@ extern "C" {
 #define GPIO_AF11_LCD           ((uint8_t)0x0b)  /*!< LCD Alternate Function mapping      */
 
 /**
-  * @brief   AF 12 selection
-  */
+ * @brief   AF 12 selection
+ */
 #define GPIO_AF12_COMP1         ((uint8_t)0x0c)  /*!< COMP1 Alternate Function mapping      */
 #define GPIO_AF12_COMP2         ((uint8_t)0x0c)  /*!< COMP2 Alternate Function mapping      */
 #define GPIO_AF12_TIM1          ((uint8_t)0x0c)  /*!< TIM1 Alternate Function mapping      */
 
 /**
-  * @brief   AF 13 selection
-  */
+ * @brief   AF 13 selection
+ */
 #define GPIO_AF13_SAI1          ((uint8_t)0x0d)  /*!< SAI1 Alternate Function mapping      */
 
 /**
-  * @brief   AF 14 selection
-  */
+ * @brief   AF 14 selection
+ */
 #define GPIO_AF14_TIM2          ((uint8_t)0x0e)  /*!< TIM2 Alternate Function mapping       */
 #define GPIO_AF14_TIM16         ((uint8_t)0x0e)  /*!< TIM16 Alternate Function mapping      */
 #define GPIO_AF14_TIM17         ((uint8_t)0x0e)  /*!< TIM17 Alternate Function mapping      */
@@ -182,8 +182,8 @@ extern "C" {
 
 
 /**
-  * @brief   AF 15 selection
-  */
+* @brief   AF 15 selection
+*/
 #define GPIO_AF15_EVENTOUT          ((uint8_t)0x0f)  /*!< EVENTOUT Alternate Function mapping      */
 
 #define IS_GPIO_AF(AF)              ((AF) <= (uint8_t)0x0f)
@@ -204,7 +204,7 @@ extern "C" {
 #define GPIO_AF0_JTD_TRACE     ((uint8_t)0x00)  /*!< JTDO-TRACESWO Alternate Function mapping       */
 #define GPIO_AF0_NJTRST        ((uint8_t)0x00)  /*!< NJTRST Alternate Function mapping              */
 
-/**
+ /**
   * @brief   AF 1 selection
   */
 #define GPIO_AF1_TIM1           ((uint8_t)0x01)  /*!< TIM1 Alternate Function mapping           */
@@ -271,25 +271,24 @@ extern "C" {
 #define GPIO_AF8_IR             ((uint8_t)0x08)  /*!< IR Alternate Function mapping          */
 
 /**
-  * @brief   AF 12 selection
-  */
+ * @brief   AF 12 selection
+ */
 #define GPIO_AF12_TIM1          ((uint8_t)0x0c)  /*!< TIM1 Alternate Function mapping      */
 
 /**
-  * @brief   AF 14 selection
-  */
+ * @brief   AF 14 selection
+ */
 #define GPIO_AF14_TIM2          ((uint8_t)0x0e)  /*!< TIM2 Alternate Function mapping       */
 #define GPIO_AF14_TIM16         ((uint8_t)0x0e)  /*!< TIM16 Alternate Function mapping      */
 #define GPIO_AF14_TIM17         ((uint8_t)0x0e)  /*!< TIM17 Alternate Function mapping      */
 #define GPIO_AF14_LPTIM2        ((uint8_t)0x0e)  /*!< LPTIM2 Alternate Function mapping     */
 
 /**
-  * @brief   AF 15 selection
-  */
+* @brief   AF 15 selection
+*/
 #define GPIO_AF15_EVENTOUT      ((uint8_t)0x0f)  /*!< EVENTOUT Alternate Function mapping      */
 
-#define IS_GPIO_AF(AF)          (((AF) <= (uint8_t)0x0F)\
-                                 && ((AF) != (uint8_t)0x09) && ((AF) != (uint8_t)0x0A) && ((AF) != (uint8_t)0x0B) && ((AF) != (uint8_t)0x0D))
+#define IS_GPIO_AF(AF)          (((AF) <= (uint8_t)0x0F) && ((AF) != (uint8_t)0x09) && ((AF) != (uint8_t)0x0A) && ((AF) != (uint8_t)0x0B) && ((AF) != (uint8_t)0x0D))
 
 #endif
 
@@ -395,8 +394,8 @@ extern "C" {
 #define GPIO_AF12_TIM1          ((uint8_t)0x0C)  /*!< TIM1 Alternate Function mapping       */
 
 /**
-  * @brief   AF 13 selection
-  */
+ * @brief   AF 13 selection
+ */
 #define GPIO_AF13_SAI1          ((uint8_t)0x0d)  /*!< SAI1 Alternate Function mapping      */
 
 /**
@@ -433,7 +432,7 @@ extern "C" {
 #define GPIO_AF0_TRACED2       ((uint8_t)0x00)  /*!< TRACED2 Alternate Function mapping             */
 #define GPIO_AF0_TRACED3       ((uint8_t)0x00)  /*!< TRACED3 Alternate Function mapping             */
 
-/**
+ /**
   * @brief   AF 1 selection
   */
 #define GPIO_AF1_TIM1           ((uint8_t)0x01)  /*!< TIM1 Alternate Function mapping       */
@@ -518,8 +517,7 @@ extern "C" {
   */
 #define GPIO_AF15_EVENTOUT      ((uint8_t)0x0F)  /*!< EVENTOUT Alternate Function mapping   */
 
-#define IS_GPIO_AF(AF)          (((AF) <= (uint8_t)0x0F)\
-                                 && ((AF) != (uint8_t)0x0A) && ((AF) != (uint8_t)0x0B) && ((AF) != (uint8_t)0x0D))
+#define IS_GPIO_AF(AF)          (((AF) <= (uint8_t)0x0F) && ((AF) != (uint8_t)0x0A) && ((AF) != (uint8_t)0x0B) && ((AF) != (uint8_t)0x0D))
 
 #endif
 
@@ -536,7 +534,7 @@ extern "C" {
 #define GPIO_AF0_JTD_TRACE     ((uint8_t)0x00)  /*!< JTDO-TRACESWO Alternate Function mapping       */
 #define GPIO_AF0_NJTRST        ((uint8_t)0x00)  /*!< NJTRST Alternate Function mapping              */
 
-/**
+ /**
   * @brief   AF 1 selection
   */
 #define GPIO_AF1_TIM1           ((uint8_t)0x01)  /*!< TIM1 Alternate Function mapping           */
@@ -605,24 +603,24 @@ extern "C" {
 /**
   * @brief   AF 9 selection
   */
-#define GPIO_AF9_TSC           ((uint8_t)0x09)  /*!< TSC Alternate Function mapping      */
+ #define GPIO_AF9_TSC           ((uint8_t)0x09)  /*!< TSC Alternate Function mapping      */
 
 /**
-  * @brief   AF 12 selection
-  */
+ * @brief   AF 12 selection
+ */
 #define GPIO_AF12_COMP1         ((uint8_t)0x0c)  /*!< COMP1 Alternate Function mapping      */
 #define GPIO_AF12_TIM1          ((uint8_t)0x0c)  /*!< TIM1 Alternate Function mapping      */
 
 /**
-  * @brief   AF 14 selection
-  */
+ * @brief   AF 14 selection
+ */
 #define GPIO_AF14_TIM2          ((uint8_t)0x0e)  /*!< TIM2 Alternate Function mapping       */
 #define GPIO_AF14_LPTIM2        ((uint8_t)0x0e)  /*!< LPTIM2 Alternate Function mapping     */
 
 
 /**
-  * @brief   AF 15 selection
-  */
+* @brief   AF 15 selection
+*/
 #define GPIO_AF15_EVENTOUT          ((uint8_t)0x0f)  /*!< EVENTOUT Alternate Function mapping      */
 
 #define IS_GPIO_AF(AF)              ((AF) <= (uint8_t)0x0f)
@@ -630,7 +628,7 @@ extern "C" {
 
 /**
   * @}
-  */
+  */ 
 
 /**
   * @}
@@ -642,7 +640,7 @@ extern "C" {
   */
 
 /** @defgroup GPIOEx_Get_Port_Index GPIOEx Get Port Index
-  * @{
+* @{
   */
 #if defined (STM32WB55xx) || defined (STM32WB5Mxx)
 #define GPIO_GET_INDEX(__GPIOx__)    (((__GPIOx__) == (GPIOA))? 0uL :\
@@ -656,7 +654,7 @@ extern "C" {
                                       ((__GPIOx__) == (GPIOC))? 2uL :\
                                       ((__GPIOx__) == (GPIOE))? 4uL : 7uL)
 #endif
-/**
+ /**
   * @}
   */
 
@@ -664,7 +662,7 @@ extern "C" {
   * @}
   */
 
-/* Exported functions --------------------------------------------------------*/
+/* Exported functions --------------------------------------------------------*/ 
 /**
   * @}
   */

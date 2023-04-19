@@ -1528,7 +1528,8 @@ uint32_t HAL_RCCEx_CRSWaitSynchronization(uint32_t Timeout)
       /* frequency error counter reached a zero value */
       __HAL_RCC_CRS_CLEAR_FLAG(RCC_CRS_FLAG_ESYNC);
     }
-  } while (RCC_CRS_NONE == crsstatus);
+  }
+  while (RCC_CRS_NONE == crsstatus);
 
   return crsstatus;
 }

@@ -65,7 +65,7 @@ typedef struct
 #if defined(STM32G081xx) || defined(STM32G071xx) || defined(STM32G0C1xx) || defined(STM32G0B1xx) || defined(STM32G0B0xx)
   uint32_t Line_32_63;          /*!< Specifies the EXTI lines to be enabled or disabled for Lines in range 32 to 63
                                      This parameter can be any combination of @ref EXTI_LL_EC_LINE */
-#endif /* STM32G081xx || STM32G071xx || STM32G0C1xx || STM32G0B1xx || STM32G0B0xx */
+#endif
   FunctionalState LineCommand;  /*!< Specifies the new state of the selected EXTI lines.
                                      This parameter can be set either to ENABLE or DISABLE */
 
@@ -107,68 +107,68 @@ typedef struct
 #define LL_EXTI_LINE_15                EXTI_IMR1_IM15          /*!< Extended line 15 */
 #if defined(EXTI_IMR1_IM16)
 #define LL_EXTI_LINE_16                EXTI_IMR1_IM16          /*!< Extended line 16 */
-#endif /* EXTI_IMR1_IM16 */
+#endif
 #if defined(EXTI_IMR1_IM17)
 #define LL_EXTI_LINE_17                EXTI_IMR1_IM17          /*!< Extended line 17 */
-#endif /* EXTI_IMR1_IM17 */
+#endif
 #if defined(EXTI_IMR1_IM18)
 #define LL_EXTI_LINE_18                EXTI_IMR1_IM18          /*!< Extended line 18 */
-#endif /* EXTI_IMR1_IM18 */
+#endif
 #define LL_EXTI_LINE_19                EXTI_IMR1_IM19          /*!< Extended line 19 */
 #if defined(EXTI_IMR1_IM20)
 #define LL_EXTI_LINE_20                EXTI_IMR1_IM20          /*!< Extended line 20 */
-#endif /* EXTI_IMR1_IM20 */
+#endif
 #if defined(EXTI_IMR1_IM21)
 #define LL_EXTI_LINE_21                EXTI_IMR1_IM21          /*!< Extended line 21 */
-#endif /* EXTI_IMR1_IM21 */
+#endif
 #if defined(EXTI_IMR1_IM22)
 #define LL_EXTI_LINE_22                EXTI_IMR1_IM22          /*!< Extended line 22 */
-#endif /* EXTI_IMR1_IM22 */
+#endif
 #define LL_EXTI_LINE_23                EXTI_IMR1_IM23          /*!< Extended line 23 */
 #if defined(EXTI_IMR1_IM24)
 #define LL_EXTI_LINE_24                EXTI_IMR1_IM24          /*!< Extended line 24 */
-#endif /* EXTI_IMR1_IM24 */
+#endif
 #if defined(EXTI_IMR1_IM25)
 #define LL_EXTI_LINE_25                EXTI_IMR1_IM25          /*!< Extended line 25 */
-#endif /* EXTI_IMR1_IM25 */
+#endif
 #if defined(EXTI_IMR1_IM26)
 #define LL_EXTI_LINE_26                EXTI_IMR1_IM26          /*!< Extended line 26 */
-#endif /* EXTI_IMR1_IM26 */
+#endif
 #if defined(EXTI_IMR1_IM27)
 #define LL_EXTI_LINE_27                EXTI_IMR1_IM27          /*!< Extended line 27 */
-#endif /* EXTI_IMR1_IM27 */
+#endif
 #if defined(EXTI_IMR1_IM28)
 #define LL_EXTI_LINE_28                EXTI_IMR1_IM28          /*!< Extended line 28 */
-#endif /* EXTI_IMR1_IM28 */
+#endif
 #if defined(EXTI_IMR1_IM29)
 #define LL_EXTI_LINE_29                EXTI_IMR1_IM29          /*!< Extended line 29 */
-#endif /* EXTI_IMR1_IM29 */
+#endif
 #if defined(EXTI_IMR1_IM30)
 #define LL_EXTI_LINE_30                EXTI_IMR1_IM30          /*!< Extended line 30 */
-#endif /* EXTI_IMR1_IM30 */
+#endif
 #if defined(EXTI_IMR1_IM31)
 #define LL_EXTI_LINE_31                EXTI_IMR1_IM31          /*!< Extended line 31 */
-#endif /* EXTI_IMR1_IM31 */
+#endif
 #define LL_EXTI_LINE_ALL_0_31          EXTI_IMR1_IM            /*!< All Extended line not reserved*/
 
 #if defined(EXTI_IMR2_IM32)
 #define LL_EXTI_LINE_32                EXTI_IMR2_IM32          /*!< Extended line 32 */
-#endif /* EXTI_IMR2_IM32 */
+#endif
 #if defined(EXTI_IMR2_IM33)
 #define LL_EXTI_LINE_33                EXTI_IMR2_IM33          /*!< Extended line 33 */
-#endif /* EXTI_IMR2_IM33 */
+#endif
 #if defined(EXTI_IMR2_IM34)
 #define LL_EXTI_LINE_34                EXTI_IMR2_IM34          /*!< Extended line 34 */
-#endif /* EXTI_IMR2_IM34 */
+#endif
 #if defined(EXTI_IMR2_IM35)
 #define LL_EXTI_LINE_35                EXTI_IMR2_IM35          /*!< Extended line 35 */
-#endif /* EXTI_IMR2_IM35 */
+#endif
 #if defined(EXTI_IMR2_IM36)
 #define LL_EXTI_LINE_36                EXTI_IMR2_IM36          /*!< Extended line 36 */
-#endif /* EXTI_IMR2_IM36 */
+#endif
 #if defined(EXTI_IMR2_IM32) || defined(EXTI_IMR2_IM33) || defined(EXTI_IMR2_IM34) || defined(EXTI_IMR2_IM35) || defined(EXTI_IMR2_IM36)
 #define LL_EXTI_LINE_ALL_32_63         EXTI_IMR2_IM            /*!< All Extended line not reserved*/
-#endif /* EXTI_IMR2_IM32 || EXTI_IMR2_IM33 || EXTI_IMR2_IM34 || EXTI_IMR2_IM35 || EXTI_IMR2_IM36 */
+#endif
 
 #define LL_EXTI_LINE_ALL               0xFFFFFFFFU             /*!< All Extended line */
 
@@ -358,7 +358,7 @@ __STATIC_INLINE void LL_EXTI_EnableIT_32_63(uint32_t ExtiLine)
 {
   SET_BIT(EXTI->IMR2, ExtiLine);
 }
-#endif /* STM32G081xx || STM32G071xx || STM32G0C1xx || STM32G0B1xx || STM32G0B0xx */
+#endif
 
 /**
   * @brief  Disable ExtiLine Interrupt request for Lines in range 0 to 31
@@ -426,7 +426,7 @@ __STATIC_INLINE void LL_EXTI_DisableIT_32_63(uint32_t ExtiLine)
 {
   CLEAR_BIT(EXTI->IMR2, ExtiLine);
 }
-#endif /* STM32G081xx || STM32G071xx || STM32G0C1xx || STM32G0B1xx || STM32G0B0xx */
+#endif
 
 /**
   * @brief  Indicate if ExtiLine Interrupt request is enabled for Lines in range 0 to 31
@@ -493,7 +493,7 @@ __STATIC_INLINE uint32_t LL_EXTI_IsEnabledIT_32_63(uint32_t ExtiLine)
 {
   return ((READ_BIT(EXTI->IMR2, ExtiLine) == (ExtiLine)) ? 1UL : 0UL);
 }
-#endif /* STM32G081xx || STM32G071xx || STM32G0C1xx || STM32G0B1xx || STM32G0B0xx */
+#endif
 
 /**
   * @}
@@ -564,7 +564,7 @@ __STATIC_INLINE void LL_EXTI_EnableEvent_32_63(uint32_t ExtiLine)
 {
   SET_BIT(EXTI->EMR2, ExtiLine);
 }
-#endif /* STM32G081xx || STM32G071xx || STM32G0C1xx || STM32G0B1xx || STM32G0B0xx */
+#endif
 /**
   * @brief  Disable ExtiLine Event request for Lines in range 0 to 31
   * @rmtoll EMR1         EMx           LL_EXTI_DisableEvent_0_31
@@ -686,7 +686,7 @@ __STATIC_INLINE uint32_t LL_EXTI_IsEnabledEvent_32_63(uint32_t ExtiLine)
 {
   return ((READ_BIT(EXTI->EMR2, ExtiLine) == (ExtiLine)) ? 1UL : 0UL);
 }
-#endif /* STM32G081xx || STM32G071xx || STM32G0C1xx || STM32G0B1xx || STM32G0B0xx */
+#endif
 
 /**
   * @}
@@ -756,7 +756,7 @@ __STATIC_INLINE void LL_EXTI_EnableRisingTrig_32_63(uint32_t ExtiLine)
   SET_BIT(EXTI->RTSR2, ExtiLine);
 
 }
-#endif /* STM32G0C1xx || STM32G0B1xx */
+#endif
 
 /**
   * @brief  Disable ExtiLine Rising Edge Trigger for Lines in range 0 to 31
@@ -819,7 +819,7 @@ __STATIC_INLINE void LL_EXTI_DisableRisingTrig_32_63(uint32_t ExtiLine)
   CLEAR_BIT(EXTI->RTSR2, ExtiLine);
 
 }
-#endif /* STM32G0C1xx || STM32G0B1xx */
+#endif
 
 /**
   * @brief  Check if rising edge trigger is enabled for Lines in range 0 to 31
@@ -865,7 +865,7 @@ __STATIC_INLINE uint32_t LL_EXTI_IsEnabledRisingTrig_32_63(uint32_t ExtiLine)
 {
   return ((READ_BIT(EXTI->RTSR2, ExtiLine) == (ExtiLine)) ? 1UL : 0UL);
 }
-#endif /* STM32G0C1xx || STM32G0B1xx */
+#endif
 
 /**
   * @}
@@ -934,7 +934,7 @@ __STATIC_INLINE void LL_EXTI_EnableFallingTrig_32_63(uint32_t ExtiLine)
 {
   SET_BIT(EXTI->FTSR2, ExtiLine);
 }
-#endif /* STM32G0C1xx || STM32G0B1xx */
+#endif
 
 /**
   * @brief  Disable ExtiLine Falling Edge Trigger for Lines in range 0 to 31
@@ -993,7 +993,7 @@ __STATIC_INLINE void LL_EXTI_DisableFallingTrig_32_63(uint32_t ExtiLine)
 {
   CLEAR_BIT(EXTI->FTSR2, ExtiLine);
 }
-#endif /* STM32G0C1xx || STM32G0B1xx */
+#endif
 
 /**
   * @brief  Check if falling edge trigger is enabled for Lines in range 0 to 31
@@ -1040,7 +1040,7 @@ __STATIC_INLINE uint32_t LL_EXTI_IsEnabledFallingTrig_32_63(uint32_t ExtiLine)
 {
   return ((READ_BIT(EXTI->FTSR2, ExtiLine) == (ExtiLine)) ? 1UL : 0UL);
 }
-#endif /* STM32G0C1xx || STM32G0B1xx */
+#endif
 /**
   * @}
   */
@@ -1104,7 +1104,7 @@ __STATIC_INLINE void LL_EXTI_GenerateSWI_32_63(uint32_t ExtiLine)
 {
   SET_BIT(EXTI->SWIER2, ExtiLine);
 }
-#endif /* STM32G0C1xx || STM32G0B1xx */
+#endif
 
 /**
   * @}
@@ -1163,7 +1163,7 @@ __STATIC_INLINE uint32_t LL_EXTI_IsActiveFallingFlag_32_63(uint32_t ExtiLine)
 {
   return ((READ_BIT(EXTI->FPR2, ExtiLine) == (ExtiLine)) ? 1UL : 0UL);
 }
-#endif /* STM32G0C1xx || STM32G0B1xx */
+#endif
 
 /**
   * @brief  Read ExtLine Combination Falling Flag for Lines in range 0 to 31
@@ -1214,7 +1214,7 @@ __STATIC_INLINE uint32_t LL_EXTI_ReadFallingFlag_32_63(uint32_t ExtiLine)
 {
   return (READ_BIT(EXTI->FPR2, ExtiLine));
 }
-#endif /* STM32G0C1xx || STM32G0B1xx */
+#endif
 
 /**
   * @brief  Clear ExtLine Falling Flags  for Lines in range 0 to 31
@@ -1265,7 +1265,7 @@ __STATIC_INLINE void LL_EXTI_ClearFallingFlag_32_63(uint32_t ExtiLine)
 {
   WRITE_REG(EXTI->FPR2, ExtiLine);
 }
-#endif /* STM32G0C1xx || STM32G0B1xx */
+#endif
 
 /**
   * @brief  Check if the ExtLine Rising Flag is set or not for Lines in range 0 to 31
@@ -1316,7 +1316,7 @@ __STATIC_INLINE uint32_t LL_EXTI_IsActiveRisingFlag_32_63(uint32_t ExtiLine)
 {
   return ((READ_BIT(EXTI->RPR2, ExtiLine) == (ExtiLine)) ? 1UL : 0UL);
 }
-#endif /* STM32G0C1xx || STM32G0B1xx */
+#endif
 
 /**
   * @brief  Read ExtLine Combination Rising Flag for Lines in range 0 to 31
@@ -1367,7 +1367,7 @@ __STATIC_INLINE uint32_t LL_EXTI_ReadRisingFlag_32_63(uint32_t ExtiLine)
 {
   return (READ_BIT(EXTI->RPR2, ExtiLine));
 }
-#endif /* STM32G0C1xx || STM32G0B1xx */
+#endif
 
 /**
   * @brief  Clear ExtLine Rising Flags  for Lines in range 0 to 31
@@ -1418,7 +1418,7 @@ __STATIC_INLINE void LL_EXTI_ClearRisingFlag_32_63(uint32_t ExtiLine)
 {
   WRITE_REG(EXTI->RPR2, ExtiLine);
 }
-#endif /* STM32G0C1xx || STM32G0B1xx */
+#endif
 
 /**
   * @}

@@ -7,7 +7,6 @@ menu.xusb=USB speed (if available)
 menu.virtio=Virtual serial support
 
 menu.opt=Optimize
-menu.dbg=Debug symbols
 menu.rtlib=C Runtime Library
 menu.upload_method=Upload method
 

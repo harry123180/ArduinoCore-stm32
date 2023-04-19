@@ -25,7 +25,7 @@
 #include "stm32_assert.h"
 #else
 #define assert_param(expr) ((void)0U)
-#endif /* USE_FULL_ASSERT */
+#endif
 
 /** @addtogroup STM32G0xx_LL_Driver
   * @{
@@ -89,7 +89,7 @@
                                             ((__VALUE__) == LL_GPIO_AF_5  )   ||\
                                             ((__VALUE__) == LL_GPIO_AF_6  )   ||\
                                             ((__VALUE__) == LL_GPIO_AF_7 ))
-#endif /* GPIOE */
+#endif
 /**
   * @}
   */

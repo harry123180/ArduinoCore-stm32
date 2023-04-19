@@ -157,21 +157,21 @@ typedef struct
   * @brief    Flags defines which can be used with LL_USART_WriteReg function
   * @{
   */
-#define LL_USART_ICR_PECF                       USART_ICR_PECF                /*!< Parity error clear flag */
-#define LL_USART_ICR_FECF                       USART_ICR_FECF                /*!< Framing error clear flag */
-#define LL_USART_ICR_NCF                        USART_ICR_NCF                 /*!< Noise error detected clear flag */
-#define LL_USART_ICR_ORECF                      USART_ICR_ORECF               /*!< Overrun error clear flag */
-#define LL_USART_ICR_IDLECF                     USART_ICR_IDLECF              /*!< Idle line detected clear flag */
-#define LL_USART_ICR_TCCF                       USART_ICR_TCCF                /*!< Transmission complete clear flag */
+#define LL_USART_ICR_PECF                       USART_ICR_PECF                /*!< Parity error flag */
+#define LL_USART_ICR_FECF                       USART_ICR_FECF                /*!< Framing error flag */
+#define LL_USART_ICR_NCF                        USART_ICR_NCF                 /*!< Noise error detected flag */
+#define LL_USART_ICR_ORECF                      USART_ICR_ORECF               /*!< Overrun error flag */
+#define LL_USART_ICR_IDLECF                     USART_ICR_IDLECF              /*!< Idle line detected flag */
+#define LL_USART_ICR_TCCF                       USART_ICR_TCCF                /*!< Transmission complete flag */
 #if defined(USART_TCBGT_SUPPORT)
-#define LL_USART_ICR_TCBGTCF                    USART_ICR_TCBGTCF             /*!< Transmission completed before guard time clear flag */
+#define LL_USART_ICR_TCBGTCF                    USART_ICR_TCBGTCF             /*!< Transmission completed before guard time flag */
 #endif /* USART_TCBGT_SUPPORT */
-#define LL_USART_ICR_LBDCF                      USART_ICR_LBDCF               /*!< LIN break detection clear flag */
-#define LL_USART_ICR_CTSCF                      USART_ICR_CTSCF               /*!< CTS clear flag */
-#define LL_USART_ICR_RTOCF                      USART_ICR_RTOCF               /*!< Receiver timeout clear flag */
-#define LL_USART_ICR_EOBCF                      USART_ICR_EOBCF               /*!< End of block clear flag */
-#define LL_USART_ICR_CMCF                       USART_ICR_CMCF                /*!< Character match clear flag */
-#define LL_USART_ICR_WUCF                       USART_ICR_WUCF                /*!< Wakeup from Stop mode clear flag */
+#define LL_USART_ICR_LBDCF                      USART_ICR_LBDCF               /*!< LIN break detection flag */
+#define LL_USART_ICR_CTSCF                      USART_ICR_CTSCF               /*!< CTS flag */
+#define LL_USART_ICR_RTOCF                      USART_ICR_RTOCF               /*!< Receiver timeout flag */
+#define LL_USART_ICR_EOBCF                      USART_ICR_EOBCF               /*!< End of block flag */
+#define LL_USART_ICR_CMCF                       USART_ICR_CMCF                /*!< Character match flag */
+#define LL_USART_ICR_WUCF                       USART_ICR_WUCF                /*!< Wakeup from Stop mode flag */
 /**
   * @}
   */
@@ -575,7 +575,7 @@ __STATIC_INLINE uint32_t LL_USART_IsEnabled(USART_TypeDef *USARTx)
   */
 __STATIC_INLINE void LL_USART_EnableInStopMode(USART_TypeDef *USARTx)
 {
-  ATOMIC_SET_BIT(USARTx->CR1, USART_CR1_UESM);
+  SET_BIT(USARTx->CR1, USART_CR1_UESM);
 }
 
 /**
@@ -589,7 +589,7 @@ __STATIC_INLINE void LL_USART_EnableInStopMode(USART_TypeDef *USARTx)
   */
 __STATIC_INLINE void LL_USART_DisableInStopMode(USART_TypeDef *USARTx)
 {
-  ATOMIC_CLEAR_BIT(USARTx->CR1, USART_CR1_UESM);
+  CLEAR_BIT(USARTx->CR1, USART_CR1_UESM);
 }
 
 /**
@@ -614,7 +614,7 @@ __STATIC_INLINE uint32_t LL_USART_IsEnabledInStopMode(USART_TypeDef *USARTx)
   */
 __STATIC_INLINE void LL_USART_EnableClockInStopMode(USART_TypeDef *USARTx)
 {
-  ATOMIC_SET_BIT(USARTx->CR3, USART_CR3_UCESM);
+  SET_BIT(USARTx->CR3, USART_CR3_UCESM);
 }
 
 /**
@@ -626,7 +626,7 @@ __STATIC_INLINE void LL_USART_EnableClockInStopMode(USART_TypeDef *USARTx)
   */
 __STATIC_INLINE void LL_USART_DisableClockInStopMode(USART_TypeDef *USARTx)
 {
-  ATOMIC_CLEAR_BIT(USARTx->CR3, USART_CR3_UCESM);
+  CLEAR_BIT(USARTx->CR3, USART_CR3_UCESM);
 }
 
 /**
@@ -648,7 +648,7 @@ __STATIC_INLINE uint32_t LL_USART_IsClockEnabledInStopMode(USART_TypeDef *USARTx
   */
 __STATIC_INLINE void LL_USART_EnableDirectionRx(USART_TypeDef *USARTx)
 {
-  ATOMIC_SET_BIT(USARTx->CR1, USART_CR1_RE);
+  SET_BIT(USARTx->CR1, USART_CR1_RE);
 }
 
 /**
@@ -659,7 +659,7 @@ __STATIC_INLINE void LL_USART_EnableDirectionRx(USART_TypeDef *USARTx)
   */
 __STATIC_INLINE void LL_USART_DisableDirectionRx(USART_TypeDef *USARTx)
 {
-  ATOMIC_CLEAR_BIT(USARTx->CR1, USART_CR1_RE);
+  CLEAR_BIT(USARTx->CR1, USART_CR1_RE);
 }
 
 /**
@@ -670,7 +670,7 @@ __STATIC_INLINE void LL_USART_DisableDirectionRx(USART_TypeDef *USARTx)
   */
 __STATIC_INLINE void LL_USART_EnableDirectionTx(USART_TypeDef *USARTx)
 {
-  ATOMIC_SET_BIT(USARTx->CR1, USART_CR1_TE);
+  SET_BIT(USARTx->CR1, USART_CR1_TE);
 }
 
 /**
@@ -681,7 +681,7 @@ __STATIC_INLINE void LL_USART_EnableDirectionTx(USART_TypeDef *USARTx)
   */
 __STATIC_INLINE void LL_USART_DisableDirectionTx(USART_TypeDef *USARTx)
 {
-  ATOMIC_CLEAR_BIT(USARTx->CR1, USART_CR1_TE);
+  CLEAR_BIT(USARTx->CR1, USART_CR1_TE);
 }
 
 /**
@@ -699,7 +699,7 @@ __STATIC_INLINE void LL_USART_DisableDirectionTx(USART_TypeDef *USARTx)
   */
 __STATIC_INLINE void LL_USART_SetTransferDirection(USART_TypeDef *USARTx, uint32_t TransferDirection)
 {
-  ATOMIC_MODIFY_REG(USARTx->CR1, USART_CR1_RE | USART_CR1_TE, TransferDirection);
+  MODIFY_REG(USARTx->CR1, USART_CR1_RE | USART_CR1_TE, TransferDirection);
 }
 
 /**
@@ -818,7 +818,7 @@ __STATIC_INLINE uint32_t LL_USART_GetDataWidth(USART_TypeDef *USARTx)
   */
 __STATIC_INLINE void LL_USART_EnableMuteMode(USART_TypeDef *USARTx)
 {
-  ATOMIC_SET_BIT(USARTx->CR1, USART_CR1_MME);
+  SET_BIT(USARTx->CR1, USART_CR1_MME);
 }
 
 /**
@@ -829,7 +829,7 @@ __STATIC_INLINE void LL_USART_EnableMuteMode(USART_TypeDef *USARTx)
   */
 __STATIC_INLINE void LL_USART_DisableMuteMode(USART_TypeDef *USARTx)
 {
-  ATOMIC_CLEAR_BIT(USARTx->CR1, USART_CR1_MME);
+  CLEAR_BIT(USARTx->CR1, USART_CR1_MME);
 }
 
 /**
@@ -2984,7 +2984,7 @@ __STATIC_INLINE void LL_USART_ClearFlag_WKUP(USART_TypeDef *USARTx)
   */
 __STATIC_INLINE void LL_USART_EnableIT_IDLE(USART_TypeDef *USARTx)
 {
-  ATOMIC_SET_BIT(USARTx->CR1, USART_CR1_IDLEIE);
+  SET_BIT(USARTx->CR1, USART_CR1_IDLEIE);
 }
 
 /**
@@ -2995,7 +2995,7 @@ __STATIC_INLINE void LL_USART_EnableIT_IDLE(USART_TypeDef *USARTx)
   */
 __STATIC_INLINE void LL_USART_EnableIT_RXNE(USART_TypeDef *USARTx)
 {
-  ATOMIC_SET_BIT(USARTx->CR1, USART_CR1_RXNEIE);
+  SET_BIT(USARTx->CR1, USART_CR1_RXNEIE);
 }
 
 /**
@@ -3006,7 +3006,7 @@ __STATIC_INLINE void LL_USART_EnableIT_RXNE(USART_TypeDef *USARTx)
   */
 __STATIC_INLINE void LL_USART_EnableIT_TC(USART_TypeDef *USARTx)
 {
-  ATOMIC_SET_BIT(USARTx->CR1, USART_CR1_TCIE);
+  SET_BIT(USARTx->CR1, USART_CR1_TCIE);
 }
 
 /**
@@ -3017,7 +3017,7 @@ __STATIC_INLINE void LL_USART_EnableIT_TC(USART_TypeDef *USARTx)
   */
 __STATIC_INLINE void LL_USART_EnableIT_TXE(USART_TypeDef *USARTx)
 {
-  ATOMIC_SET_BIT(USARTx->CR1, USART_CR1_TXEIE);
+  SET_BIT(USARTx->CR1, USART_CR1_TXEIE);
 }
 
 /**
@@ -3028,7 +3028,7 @@ __STATIC_INLINE void LL_USART_EnableIT_TXE(USART_TypeDef *USARTx)
   */
 __STATIC_INLINE void LL_USART_EnableIT_PE(USART_TypeDef *USARTx)
 {
-  ATOMIC_SET_BIT(USARTx->CR1, USART_CR1_PEIE);
+  SET_BIT(USARTx->CR1, USART_CR1_PEIE);
 }
 
 /**
@@ -3039,7 +3039,7 @@ __STATIC_INLINE void LL_USART_EnableIT_PE(USART_TypeDef *USARTx)
   */
 __STATIC_INLINE void LL_USART_EnableIT_CM(USART_TypeDef *USARTx)
 {
-  ATOMIC_SET_BIT(USARTx->CR1, USART_CR1_CMIE);
+  SET_BIT(USARTx->CR1, USART_CR1_CMIE);
 }
 
 /**
@@ -3050,7 +3050,7 @@ __STATIC_INLINE void LL_USART_EnableIT_CM(USART_TypeDef *USARTx)
   */
 __STATIC_INLINE void LL_USART_EnableIT_RTO(USART_TypeDef *USARTx)
 {
-  ATOMIC_SET_BIT(USARTx->CR1, USART_CR1_RTOIE);
+  SET_BIT(USARTx->CR1, USART_CR1_RTOIE);
 }
 
 /**
@@ -3063,7 +3063,7 @@ __STATIC_INLINE void LL_USART_EnableIT_RTO(USART_TypeDef *USARTx)
   */
 __STATIC_INLINE void LL_USART_EnableIT_EOB(USART_TypeDef *USARTx)
 {
-  ATOMIC_SET_BIT(USARTx->CR1, USART_CR1_EOBIE);
+  SET_BIT(USARTx->CR1, USART_CR1_EOBIE);
 }
 
 /**
@@ -3091,7 +3091,7 @@ __STATIC_INLINE void LL_USART_EnableIT_LBD(USART_TypeDef *USARTx)
   */
 __STATIC_INLINE void LL_USART_EnableIT_ERROR(USART_TypeDef *USARTx)
 {
-  ATOMIC_SET_BIT(USARTx->CR3, USART_CR3_EIE);
+  SET_BIT(USARTx->CR3, USART_CR3_EIE);
 }
 
 /**
@@ -3104,7 +3104,7 @@ __STATIC_INLINE void LL_USART_EnableIT_ERROR(USART_TypeDef *USARTx)
   */
 __STATIC_INLINE void LL_USART_EnableIT_CTS(USART_TypeDef *USARTx)
 {
-  ATOMIC_SET_BIT(USARTx->CR3, USART_CR3_CTSIE);
+  SET_BIT(USARTx->CR3, USART_CR3_CTSIE);
 }
 
 /**
@@ -3117,7 +3117,7 @@ __STATIC_INLINE void LL_USART_EnableIT_CTS(USART_TypeDef *USARTx)
   */
 __STATIC_INLINE void LL_USART_EnableIT_WKUP(USART_TypeDef *USARTx)
 {
-  ATOMIC_SET_BIT(USARTx->CR3, USART_CR3_WUFIE);
+  SET_BIT(USARTx->CR3, USART_CR3_WUFIE);
 }
 
 #if defined(USART_TCBGT_SUPPORT)
@@ -3132,7 +3132,7 @@ __STATIC_INLINE void LL_USART_EnableIT_WKUP(USART_TypeDef *USARTx)
   */
 __STATIC_INLINE void LL_USART_EnableIT_TCBGT(USART_TypeDef *USARTx)
 {
-  ATOMIC_SET_BIT(USARTx->CR3, USART_CR3_TCBGTIE);
+  SET_BIT(USARTx->CR3, USART_CR3_TCBGTIE);
 }
 #endif /* USART_TCBGT_SUPPORT */
 
@@ -3144,7 +3144,7 @@ __STATIC_INLINE void LL_USART_EnableIT_TCBGT(USART_TypeDef *USARTx)
   */
 __STATIC_INLINE void LL_USART_DisableIT_IDLE(USART_TypeDef *USARTx)
 {
-  ATOMIC_CLEAR_BIT(USARTx->CR1, USART_CR1_IDLEIE);
+  CLEAR_BIT(USARTx->CR1, USART_CR1_IDLEIE);
 }
 
 /**
@@ -3155,7 +3155,7 @@ __STATIC_INLINE void LL_USART_DisableIT_IDLE(USART_TypeDef *USARTx)
   */
 __STATIC_INLINE void LL_USART_DisableIT_RXNE(USART_TypeDef *USARTx)
 {
-  ATOMIC_CLEAR_BIT(USARTx->CR1, USART_CR1_RXNEIE);
+  CLEAR_BIT(USARTx->CR1, USART_CR1_RXNEIE);
 }
 
 /**
@@ -3166,7 +3166,7 @@ __STATIC_INLINE void LL_USART_DisableIT_RXNE(USART_TypeDef *USARTx)
   */
 __STATIC_INLINE void LL_USART_DisableIT_TC(USART_TypeDef *USARTx)
 {
-  ATOMIC_CLEAR_BIT(USARTx->CR1, USART_CR1_TCIE);
+  CLEAR_BIT(USARTx->CR1, USART_CR1_TCIE);
 }
 
 /**
@@ -3177,7 +3177,7 @@ __STATIC_INLINE void LL_USART_DisableIT_TC(USART_TypeDef *USARTx)
   */
 __STATIC_INLINE void LL_USART_DisableIT_TXE(USART_TypeDef *USARTx)
 {
-  ATOMIC_CLEAR_BIT(USARTx->CR1, USART_CR1_TXEIE);
+  CLEAR_BIT(USARTx->CR1, USART_CR1_TXEIE);
 }
 
 /**
@@ -3188,7 +3188,7 @@ __STATIC_INLINE void LL_USART_DisableIT_TXE(USART_TypeDef *USARTx)
   */
 __STATIC_INLINE void LL_USART_DisableIT_PE(USART_TypeDef *USARTx)
 {
-  ATOMIC_CLEAR_BIT(USARTx->CR1, USART_CR1_PEIE);
+  CLEAR_BIT(USARTx->CR1, USART_CR1_PEIE);
 }
 
 /**
@@ -3199,7 +3199,7 @@ __STATIC_INLINE void LL_USART_DisableIT_PE(USART_TypeDef *USARTx)
   */
 __STATIC_INLINE void LL_USART_DisableIT_CM(USART_TypeDef *USARTx)
 {
-  ATOMIC_CLEAR_BIT(USARTx->CR1, USART_CR1_CMIE);
+  CLEAR_BIT(USARTx->CR1, USART_CR1_CMIE);
 }
 
 /**
@@ -3210,7 +3210,7 @@ __STATIC_INLINE void LL_USART_DisableIT_CM(USART_TypeDef *USARTx)
   */
 __STATIC_INLINE void LL_USART_DisableIT_RTO(USART_TypeDef *USARTx)
 {
-  ATOMIC_CLEAR_BIT(USARTx->CR1, USART_CR1_RTOIE);
+  CLEAR_BIT(USARTx->CR1, USART_CR1_RTOIE);
 }
 
 /**
@@ -3223,7 +3223,7 @@ __STATIC_INLINE void LL_USART_DisableIT_RTO(USART_TypeDef *USARTx)
   */
 __STATIC_INLINE void LL_USART_DisableIT_EOB(USART_TypeDef *USARTx)
 {
-  ATOMIC_CLEAR_BIT(USARTx->CR1, USART_CR1_EOBIE);
+  CLEAR_BIT(USARTx->CR1, USART_CR1_EOBIE);
 }
 
 /**
@@ -3251,7 +3251,7 @@ __STATIC_INLINE void LL_USART_DisableIT_LBD(USART_TypeDef *USARTx)
   */
 __STATIC_INLINE void LL_USART_DisableIT_ERROR(USART_TypeDef *USARTx)
 {
-  ATOMIC_CLEAR_BIT(USARTx->CR3, USART_CR3_EIE);
+  CLEAR_BIT(USARTx->CR3, USART_CR3_EIE);
 }
 
 /**
@@ -3264,7 +3264,7 @@ __STATIC_INLINE void LL_USART_DisableIT_ERROR(USART_TypeDef *USARTx)
   */
 __STATIC_INLINE void LL_USART_DisableIT_CTS(USART_TypeDef *USARTx)
 {
-  ATOMIC_CLEAR_BIT(USARTx->CR3, USART_CR3_CTSIE);
+  CLEAR_BIT(USARTx->CR3, USART_CR3_CTSIE);
 }
 
 /**
@@ -3277,7 +3277,7 @@ __STATIC_INLINE void LL_USART_DisableIT_CTS(USART_TypeDef *USARTx)
   */
 __STATIC_INLINE void LL_USART_DisableIT_WKUP(USART_TypeDef *USARTx)
 {
-  ATOMIC_CLEAR_BIT(USARTx->CR3, USART_CR3_WUFIE);
+  CLEAR_BIT(USARTx->CR3, USART_CR3_WUFIE);
 }
 
 #if defined(USART_TCBGT_SUPPORT)
@@ -3292,7 +3292,7 @@ __STATIC_INLINE void LL_USART_DisableIT_WKUP(USART_TypeDef *USARTx)
   */
 __STATIC_INLINE void LL_USART_DisableIT_TCBGT(USART_TypeDef *USARTx)
 {
-  ATOMIC_CLEAR_BIT(USARTx->CR3, USART_CR3_TCBGTIE);
+  CLEAR_BIT(USARTx->CR3, USART_CR3_TCBGTIE);
 }
 #endif /* USART_TCBGT_SUPPORT */
 
@@ -3468,7 +3468,7 @@ __STATIC_INLINE uint32_t LL_USART_IsEnabledIT_TCBGT(USART_TypeDef *USARTx)
   */
 __STATIC_INLINE void LL_USART_EnableDMAReq_RX(USART_TypeDef *USARTx)
 {
-  ATOMIC_SET_BIT(USARTx->CR3, USART_CR3_DMAR);
+  SET_BIT(USARTx->CR3, USART_CR3_DMAR);
 }
 
 /**
@@ -3479,7 +3479,7 @@ __STATIC_INLINE void LL_USART_EnableDMAReq_RX(USART_TypeDef *USARTx)
   */
 __STATIC_INLINE void LL_USART_DisableDMAReq_RX(USART_TypeDef *USARTx)
 {
-  ATOMIC_CLEAR_BIT(USARTx->CR3, USART_CR3_DMAR);
+  CLEAR_BIT(USARTx->CR3, USART_CR3_DMAR);
 }
 
 /**
@@ -3501,7 +3501,7 @@ __STATIC_INLINE uint32_t LL_USART_IsEnabledDMAReq_RX(USART_TypeDef *USARTx)
   */
 __STATIC_INLINE void LL_USART_EnableDMAReq_TX(USART_TypeDef *USARTx)
 {
-  ATOMIC_SET_BIT(USARTx->CR3, USART_CR3_DMAT);
+  SET_BIT(USARTx->CR3, USART_CR3_DMAT);
 }
 
 /**
@@ -3512,7 +3512,7 @@ __STATIC_INLINE void LL_USART_EnableDMAReq_TX(USART_TypeDef *USARTx)
   */
 __STATIC_INLINE void LL_USART_DisableDMAReq_TX(USART_TypeDef *USARTx)
 {
-  ATOMIC_CLEAR_BIT(USARTx->CR3, USART_CR3_DMAT);
+  CLEAR_BIT(USARTx->CR3, USART_CR3_DMAT);
 }
 
 /**
