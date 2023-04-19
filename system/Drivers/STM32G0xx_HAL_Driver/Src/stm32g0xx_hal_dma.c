@@ -26,6 +26,7 @@
        Prior to HAL_DMA_Init the peripheral clock shall be enabled for both DMA & DMAMUX
        thanks to:
       (##) DMA1 or DMA2: __HAL_RCC_DMA1_CLK_ENABLE() or  __HAL_RCC_DMA2_CLK_ENABLE();
+      (##) DMAMUX1:      __HAL_RCC_DMAMUX1_CLK_ENABLE();
 
    (#) Use HAL_DMA_GetState() function to return the DMA state and HAL_DMA_GetError() in case of error
        detection.
@@ -184,7 +185,7 @@ HAL_StatusTypeDef HAL_DMA_Init(DMA_HandleTypeDef *hdma)
   }
 #else
   hdma->ChannelIndex = (((uint32_t)hdma->Instance - (uint32_t)DMA1_Channel1) / ((uint32_t)DMA1_Channel2 - (uint32_t)DMA1_Channel1)) << 2U;
-#endif /* DMA2 */
+#endif
 
   /* Change DMA peripheral state */
   hdma->State = HAL_DMA_STATE_BUSY;
@@ -285,7 +286,7 @@ HAL_StatusTypeDef HAL_DMA_DeInit(DMA_HandleTypeDef *hdma)
   }
 #else
   hdma->ChannelIndex = (((uint32_t)hdma->Instance - (uint32_t)DMA1_Channel1) / ((uint32_t)DMA1_Channel2 - (uint32_t)DMA1_Channel1)) << 2U;
-#endif /* DMA2 */
+#endif
 
   /* Reset DMA Channel control register */
   hdma->Instance->CCR = 0U;
@@ -295,7 +296,7 @@ HAL_StatusTypeDef HAL_DMA_DeInit(DMA_HandleTypeDef *hdma)
   hdma->DmaBaseAddress->IFCR = (DMA_ISR_GIF1 << (hdma->ChannelIndex & 0x1CU));
 #else
   __HAL_DMA_CLEAR_FLAG(hdma, (DMA_FLAG_GI1 << (hdma->ChannelIndex & 0x1CU)));
-#endif /* DMA2 */
+#endif
 
   /* Initialize parameters for DMAMUX channel :
      DMAmuxChannel, DMAmuxChannelStatus and DMAmuxChannelStatusMask */
@@ -536,7 +537,7 @@ HAL_StatusTypeDef HAL_DMA_Abort(DMA_HandleTypeDef *hdma)
     hdma->DmaBaseAddress->IFCR = (DMA_ISR_GIF1 << (hdma->ChannelIndex & 0x1CU));
 #else
     __HAL_DMA_CLEAR_FLAG(hdma, ((DMA_FLAG_GI1) << (hdma->ChannelIndex  & 0x1CU)));
-#endif /* DMA2 */
+#endif
 
     /* Clear the DMAMUX synchro overrun flag */
     hdma->DMAmuxChannelStatus->CFR = hdma->DMAmuxChannelStatusMask;
@@ -594,7 +595,7 @@ HAL_StatusTypeDef HAL_DMA_Abort_IT(DMA_HandleTypeDef *hdma)
     hdma->DmaBaseAddress->IFCR = (DMA_ISR_GIF1 << (hdma->ChannelIndex & 0x1CU));
 #else
     __HAL_DMA_CLEAR_FLAG(hdma, ((DMA_FLAG_GI1) << (hdma->ChannelIndex & 0x1CU)));
-#endif /* DMA2 */
+#endif
 
     /* Clear the DMAMUX synchro overrun flag */
     hdma->DMAmuxChannelStatus->CFR = hdma->DMAmuxChannelStatusMask;
@@ -709,7 +710,7 @@ HAL_StatusTypeDef HAL_DMA_PollForTransfer(DMA_HandleTypeDef *hdma, HAL_DMA_Level
 
       return HAL_ERROR;
     }
-#endif /* DMA2 */
+#endif
     /* Check for the Timeout */
     if (Timeout != HAL_MAX_DELAY)
     {
@@ -763,7 +764,7 @@ HAL_StatusTypeDef HAL_DMA_PollForTransfer(DMA_HandleTypeDef *hdma, HAL_DMA_Level
     hdma->DmaBaseAddress->IFCR = (DMA_FLAG_TC1 << (hdma->ChannelIndex & 0x1CU));
 #else
     __HAL_DMA_CLEAR_FLAG(hdma, (DMA_FLAG_TC1 << (hdma->ChannelIndex & 0x1CU)));
-#endif /* DMA2 */
+#endif
 
     /* Process unlocked */
     __HAL_UNLOCK(hdma);
@@ -779,7 +780,7 @@ HAL_StatusTypeDef HAL_DMA_PollForTransfer(DMA_HandleTypeDef *hdma, HAL_DMA_Level
     hdma->DmaBaseAddress->IFCR = (DMA_FLAG_HT1 << (hdma->ChannelIndex & 0x1CU));
 #else
     __HAL_DMA_CLEAR_FLAG(hdma, (DMA_FLAG_HT1 << (hdma->ChannelIndex & 0x1CU)));
-#endif /* DMA2 */
+#endif
   }
 
   return HAL_OK;
@@ -797,7 +798,7 @@ void HAL_DMA_IRQHandler(DMA_HandleTypeDef *hdma)
   uint32_t flag_it = hdma->DmaBaseAddress->ISR;
 #else
   uint32_t flag_it = DMA1->ISR;
-#endif /* DMA2 */
+#endif
   uint32_t source_it = hdma->Instance->CCR;
 
   /* Half Transfer Complete Interrupt management ******************************/
@@ -814,7 +815,7 @@ void HAL_DMA_IRQHandler(DMA_HandleTypeDef *hdma)
       hdma->DmaBaseAddress->IFCR = DMA_ISR_HTIF1 << (hdma->ChannelIndex & 0x1CU);
 #else
       __HAL_DMA_CLEAR_FLAG(hdma, (DMA_FLAG_HT1 << (hdma->ChannelIndex & 0x1CU)));
-#endif /* DMA2 */
+#endif
 
       /* DMA peripheral state is not updated in Half Transfer */
       /* but in Transfer Complete case */
@@ -863,7 +864,7 @@ void HAL_DMA_IRQHandler(DMA_HandleTypeDef *hdma)
     hdma->DmaBaseAddress->IFCR = (DMA_ISR_GIF1 << (hdma->ChannelIndex & 0x1CU));
 #else
     __HAL_DMA_CLEAR_FLAG(hdma, (DMA_FLAG_GI1 << (hdma->ChannelIndex & 0x1CU)));
-#endif /* DMA2 */
+#endif
 
     /* Update error code */
     hdma->ErrorCode = HAL_DMA_ERROR_TE;
@@ -1081,7 +1082,7 @@ static void DMA_SetConfig(DMA_HandleTypeDef *hdma, uint32_t SrcAddress, uint32_t
   hdma->DmaBaseAddress->IFCR = (DMA_ISR_GIF1 << (hdma->ChannelIndex & 0x1CU));
 #else
   __HAL_DMA_CLEAR_FLAG(hdma, (DMA_FLAG_GI1 << (hdma->ChannelIndex & 0x1CU)));
-#endif /* DMA2 */
+#endif
 
   /* Configure DMA Channel data length */
   hdma->Instance->CNDTR = DataLength;
@@ -1142,7 +1143,7 @@ static void DMA_CalcDMAMUXChannelBaseAndMask(DMA_HandleTypeDef *hdma)
 
   /* Prepare channel_number used for DMAmuxChannelStatusMask computation */
   channel_number = (((uint32_t)hdma->Instance & 0xFFU) - 8U) / 20U;
-#endif /* DMA2 */
+#endif
 
   /* Initialize the field DMAmuxChannelStatus to DMAMUX1_ChannelStatus base */
   hdma->DMAmuxChannelStatus = DMAMUX1_ChannelStatus;

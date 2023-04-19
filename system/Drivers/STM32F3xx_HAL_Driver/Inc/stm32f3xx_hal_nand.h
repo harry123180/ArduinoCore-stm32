@@ -134,7 +134,7 @@ typedef struct
   void (* MspInitCallback)(struct __NAND_HandleTypeDef *hnand);               /*!< NAND Msp Init callback              */
   void (* MspDeInitCallback)(struct __NAND_HandleTypeDef *hnand);             /*!< NAND Msp DeInit callback            */
   void (* ItCallback)(struct __NAND_HandleTypeDef *hnand);                    /*!< NAND IT callback                    */
-#endif /* USE_HAL_NAND_REGISTER_CALLBACKS */
+#endif
 } NAND_HandleTypeDef;
 
 #if (USE_HAL_NAND_REGISTER_CALLBACKS == 1)
@@ -152,7 +152,7 @@ typedef enum
   * @brief  HAL NAND Callback pointer definition
   */
 typedef void (*pNAND_CallbackTypeDef)(NAND_HandleTypeDef *hnand);
-#endif /* USE_HAL_NAND_REGISTER_CALLBACKS */
+#endif
 
 /**
   * @}
@@ -176,7 +176,7 @@ typedef void (*pNAND_CallbackTypeDef)(NAND_HandleTypeDef *hnand);
                                                              } while(0)
 #else
 #define __HAL_NAND_RESET_HANDLE_STATE(__HANDLE__) ((__HANDLE__)->State = HAL_NAND_STATE_RESET)
-#endif /* USE_HAL_NAND_REGISTER_CALLBACKS */
+#endif
 
 /**
   * @}
@@ -243,7 +243,7 @@ uint32_t           HAL_NAND_Address_Inc(NAND_HandleTypeDef *hnand, NAND_AddressT
 HAL_StatusTypeDef  HAL_NAND_RegisterCallback(NAND_HandleTypeDef *hnand, HAL_NAND_CallbackIDTypeDef CallbackId,
                                              pNAND_CallbackTypeDef pCallback);
 HAL_StatusTypeDef  HAL_NAND_UnRegisterCallback(NAND_HandleTypeDef *hnand, HAL_NAND_CallbackIDTypeDef CallbackId);
-#endif /* USE_HAL_NAND_REGISTER_CALLBACKS */
+#endif
 
 /**
   * @}
@@ -326,10 +326,7 @@ uint32_t              HAL_NAND_Read_Status(NAND_HandleTypeDef *hnand);
   * @retval NAND Raw address value
   */
 #define ARRAY_ADDRESS(__ADDRESS__ , __HANDLE__) ((__ADDRESS__)->Page + \
-                                                 (((__ADDRESS__)->Block + \
-                                                   (((__ADDRESS__)->Plane) * \
-                                                    ((__HANDLE__)->Config.PlaneSize))) * \
-                                                  ((__HANDLE__)->Config.BlockSize)))
+                                                 (((__ADDRESS__)->Block + (((__ADDRESS__)->Plane) * ((__HANDLE__)->Config.PlaneSize)))* ((__HANDLE__)->Config.BlockSize)))
 
 /**
   * @brief  NAND memory Column address computation.

@@ -133,19 +133,15 @@ HAL_StatusTypeDef HAL_ADCEx_Calibration_Start(ADC_HandleTypeDef* hadc)
     {
       if((HAL_GetTick() - tickstart) > ADC_CALIBRATION_TIMEOUT)
       {
-        /* New check to avoid false timeout detection in case of preemption */
-        if(HAL_IS_BIT_SET(hadc->Instance->CR, ADC_CR_ADCAL))
-        {
-          /* Update ADC state machine to error */
-          ADC_STATE_CLR_SET(hadc->State,
-                            HAL_ADC_STATE_BUSY_INTERNAL,
-                            HAL_ADC_STATE_ERROR_INTERNAL);
-
-          /* Process unlocked */
-          __HAL_UNLOCK(hadc);
-
-          return HAL_ERROR;
-        }
+        /* Update ADC state machine to error */
+        ADC_STATE_CLR_SET(hadc->State,
+                          HAL_ADC_STATE_BUSY_INTERNAL,
+                          HAL_ADC_STATE_ERROR_INTERNAL);
+        
+        /* Process unlocked */
+        __HAL_UNLOCK(hadc);
+        
+        return HAL_ERROR;
       }
     }
     

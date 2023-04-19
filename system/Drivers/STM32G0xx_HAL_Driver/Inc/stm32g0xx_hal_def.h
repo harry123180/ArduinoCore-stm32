@@ -110,10 +110,10 @@ typedef enum
 #if defined (__ARMCC_VERSION) && (__ARMCC_VERSION >= 6010050)
   #ifndef __weak
     #define __weak  __attribute__((weak))
-  #endif /* __weak */
+  #endif
   #ifndef __packed
     #define __packed  __attribute__((packed))
-  #endif /* __packed */
+  #endif
 #elif  defined ( __GNUC__ ) && !defined (__CC_ARM) /* GNU Compiler */
 #ifndef __weak
 #define __weak   __attribute__((weak))
@@ -129,10 +129,10 @@ typedef enum
 #if defined (__ARMCC_VERSION) && (__ARMCC_VERSION >= 6010050) /* ARM Compiler V6 */
   #ifndef __ALIGN_BEGIN
     #define __ALIGN_BEGIN
-  #endif /* __ALIGN_BEGIN */
+  #endif
   #ifndef __ALIGN_END
     #define __ALIGN_END      __attribute__ ((aligned (4)))
-  #endif /* __ALIGN_END */
+  #endif
 #elif defined   (__GNUC__) && !defined (__CC_ARM)  /* GNU Compiler */
 #ifndef __ALIGN_END
 #define __ALIGN_END    __attribute__ ((aligned (4U)))
@@ -185,7 +185,7 @@ typedef enum
 */
 #define __RAM_FUNC __attribute__((section(".RamFunc")))
 
-#endif /* __CC_ARM || __ARMCC_VERSION */
+#endif
 
 /**
   * @brief  __NOINLINE definition
@@ -202,7 +202,7 @@ typedef enum
 */
 #define __NOINLINE _Pragma("optimize = no_inline")
 
-#endif /* __CC_ARM || __ARMCC_VERSION */
+#endif
 
 
 #ifdef __cplusplus

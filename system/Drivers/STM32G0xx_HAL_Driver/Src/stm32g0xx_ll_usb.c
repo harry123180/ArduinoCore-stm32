@@ -26,7 +26,7 @@
   ******************************************************************************
   * @attention
   *
-  * <h2><center>&copy; Copyright (c) 2018 STMicroelectronics.
+  * <h2><center>&copy; Copyright (c) 2020 STMicroelectronics.
   * All rights reserved.</center></h2>
   *
   * This software component is licensed by ST under BSD 3-Clause license,
@@ -489,73 +489,22 @@ HAL_StatusTypeDef USB_EPStartXfer(USB_DRD_TypeDef *USBx, USB_DRD_EPTypeDef *ep)
       /* manage isochronous double buffer IN mode */
       else
       {
-        /* enable double buffer */
-        PCD_SET_EP_DBUF(USBx, ep->num);
-
-        /* each Time to write in PMA xfer_len_db will */
-        ep->xfer_len_db -= len;
-
-        /* Fill the data buffer */
+        /* Write the data to the USB endpoint */
         if ((PCD_GET_ENDPOINT(USBx, ep->num) & USB_EP_DTOG_TX) != 0U)
         {
           /* Set the Double buffer counter for pmabuffer1 */
           PCD_SET_EP_DBUF1_CNT(USBx, ep->num, ep->is_in, len);
           pmabuffer = ep->pmaaddr1;
-
-          /* Write the user buffer to USB PMA */
-          USB_WritePMA(USBx, ep->xfer_buff, pmabuffer, (uint16_t)len);
-          ep->xfer_buff += len;
-
-          if (ep->xfer_len_db > ep->maxpacket)
-          {
-            ep->xfer_len_db -= len;
-          }
-          else
-          {
-            len = ep->xfer_len_db;
-            ep->xfer_len_db = 0U;
-          }
-
-          if (len > 0U)
-          {
-            /* Set the Double buffer counter for pmabuffer0 */
-            PCD_SET_EP_DBUF0_CNT(USBx, ep->num, ep->is_in, len);
-            pmabuffer = ep->pmaaddr0;
-
-            /* Write the user buffer to USB PMA */
-            USB_WritePMA(USBx, ep->xfer_buff, pmabuffer, (uint16_t)len);
-          }
         }
         else
         {
           /* Set the Double buffer counter for pmabuffer0 */
           PCD_SET_EP_DBUF0_CNT(USBx, ep->num, ep->is_in, len);
           pmabuffer = ep->pmaaddr0;
-
-          /* Write the user buffer to USB PMA */
-          USB_WritePMA(USBx, ep->xfer_buff, pmabuffer, (uint16_t)len);
-          ep->xfer_buff += len;
-
-          if (ep->xfer_len_db > ep->maxpacket)
-          {
-            ep->xfer_len_db -= len;
-          }
-          else
-          {
-            len = ep->xfer_len_db;
-            ep->xfer_len_db = 0U;
-          }
-
-          if (len > 0U)
-          {
-            /* Set the Double buffer counter for pmabuffer1 */
-            PCD_SET_EP_DBUF1_CNT(USBx, ep->num, ep->is_in, len);
-            pmabuffer = ep->pmaaddr1;
-
-            /* Write the user buffer to USB PMA */
-            USB_WritePMA(USBx, ep->xfer_buff, pmabuffer, (uint16_t)len);
-          }
         }
+
+        USB_WritePMA(USBx, ep->xfer_buff, pmabuffer, (uint16_t)len);
+        PCD_FreeUserBuffer(USBx, ep->num, ep->is_in);
       }
     }
 
@@ -681,7 +630,7 @@ HAL_StatusTypeDef USB_EPClearStall(USB_DRD_TypeDef *USBx, USB_DRD_EPTypeDef *ep)
 
   return HAL_OK;
 }
-#endif /* HAL_PCD_MODULE_ENABLED */
+#endif
 
 /**
   * @brief  USB_StopDevice Stop the usb device mode
@@ -825,6 +774,7 @@ void USB_WritePMA(USB_DRD_TypeDef *USBx, uint8_t *pbUsrBuf, uint16_t wPMABufAddr
   /* When Number of data is not word aligned, write the remaining Byte */
   if (remaining_bytes != 0U)
   {
+    count = 0U;
     tmp = 0U;
 
     do
@@ -881,13 +831,14 @@ void USB_ReadPMA(USB_DRD_TypeDef *USBx, uint8_t *pbUsrBuf, uint16_t wPMABufAddr,
   /*When Number of data is not word aligned, read the remaining byte*/
   if (remaining_bytes != 0U)
   {
+    count = 0U;
     tmp = *(__IO uint32_t *)pdwVal;
     do
     {
       *(uint8_t *)pBuf = (uint8_t)(tmp >> (8U * (uint8_t)(count)));
       count++;
       pBuf++;
-      remaining_bytes--;
+      remaining_bytes-- ;
     } while (remaining_bytes != 0U);
   }
 }
@@ -908,9 +859,10 @@ void USB_ReadPMA(USB_DRD_TypeDef *USBx, uint8_t *pbUsrBuf, uint16_t wPMABufAddr,
 HAL_StatusTypeDef USB_HostInit(USB_DRD_TypeDef *USBx, USB_DRD_CfgTypeDef cfg)
 {
   UNUSED(cfg);
-
   /* Clear All Pending Interrupt */
   USBx->ISTR = 0U;
+
+  HAL_Delay(200);
 
   /* Disable all interrupts */
   USBx->CNTR &= ~(USB_CNTR_CTRM | USB_CNTR_PMAOVRM | USB_CNTR_ERRM |
@@ -920,7 +872,7 @@ HAL_StatusTypeDef USB_HostInit(USB_DRD_TypeDef *USBx, USB_DRD_CfgTypeDef cfg)
   /* Clear All Pending Interrupt */
   USBx->ISTR = 0U;
 
-  /* Enable Global interrupt */
+  /*Enable Global interrupt */
   USBx->CNTR |= (USB_CNTR_CTRM | USB_CNTR_PMAOVRM | USB_CNTR_ERRM |
                  USB_CNTR_WKUPM | USB_CNTR_SUSPM | USB_CNTR_DCON |
                  USB_CNTR_SOFM | USB_CNTR_ESOFM | USB_CNTR_L1REQM);
@@ -956,8 +908,8 @@ HAL_StatusTypeDef USB_ResetPort(USB_DRD_TypeDef *USBx)
   * @param  USBx Selected device
   * @retval speed Host speed
   *          This parameter can be one of these values
-  *            @arg USB_DRD_SPEED_FS Full speed mode
-  *            @arg USB_DRD_SPEED_LS Low speed mode
+  *            @arg USB_DRD_SPEED_FULL Full speed mode
+  *            @arg USB_DRD_SPEED_LOW Low speed mode
   */
 uint32_t USB_GetHostSpeed(USB_DRD_TypeDef *USBx)
 {
@@ -1037,7 +989,6 @@ HAL_StatusTypeDef USB_HC_Init(USB_DRD_TypeDef *USBx, uint8_t phy_ch_num,
 {
   HAL_StatusTypeDef ret = HAL_OK;
   uint32_t wChRegVal;
-  uint32_t HostCoreSpeed;
 
   wChRegVal = USB_DRD_GET_CHEP(USBx, phy_ch_num) & USB_CH_T_MASK;
 
@@ -1069,11 +1020,8 @@ HAL_StatusTypeDef USB_HC_Init(USB_DRD_TypeDef *USBx, uint8_t phy_ch_num,
   wChRegVal |= (((uint32_t)dev_address << USB_CHEP_DEVADDR_Pos) |
                 ((uint32_t)epnum & 0x0FU));
 
-   /* Get Host core Speed */
-   HostCoreSpeed = USB_GetHostSpeed(USBx);
-
   /* Set the device speed in case using HUB FS with device LS */
-  if ((speed == USB_DRD_SPEED_LS) && (HostCoreSpeed == USB_DRD_SPEED_FS))
+  if (speed == USB_DRD_SPEED_LSFS)
   {
     wChRegVal |= USB_CHEP_LSEP;
   }
@@ -1081,7 +1029,7 @@ HAL_StatusTypeDef USB_HC_Init(USB_DRD_TypeDef *USBx, uint8_t phy_ch_num,
   /* Set the dev_address & ep type */
   USB_DRD_SET_CHEP(USBx, phy_ch_num, (wChRegVal | USB_CH_VTRX | USB_CH_VTTX));
 
-  /* Set the Rx Count */
+  /*Set the Rx Count */
   USB_DRD_SET_CHEP_RX_CNT(USBx, phy_ch_num, mps);
 
   return ret;
@@ -1297,6 +1245,7 @@ static HAL_StatusTypeDef USB_HC_BULK_DB_StartXfer(USB_DRD_TypeDef *USBx,
     /* Multi packet transfer */
     if (hc->xfer_len_db > hc->max_packet)
     {
+      *len = hc->max_packet;
       hc->xfer_len_db -= *len;
     }
     else
